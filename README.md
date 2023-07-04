@@ -128,7 +128,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 ### Localmente
 
 - Clonar repositório git
-- Acessar o diretório **_fiap-tech-chalenge/eletro-tech_**
+- Acessar o diretório `fiap-tech-chalenge/eletro-tech`
 - Construir o projeto:
 
 ```
@@ -155,11 +155,12 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 > Para fazer as requisições HTTP pode ser utilizado:
 
 1. [CURL](https://curl.se/docs/manual.html)
-2. [Swagger](http://localhost:8080/api/swagger-ui/index.html)
-3. [Postman](https://www.postman.com/)
 
-- [Collections](doc/postman-collections/Fase%201%20-%20API%20Eletro%20Tech.postman_collection.json)
-- [Environment](doc/postman-collections/APi%20Eletro%20Tech%20-%20Dev.postman_environment.json)
+2. [Swagger](http://localhost:8080/api/swagger-ui/index.html)
+
+3. [Postman](https://www.postman.com/)
+   1. [Collections](doc/postman-collections/Fase%201%20-%20API%20Eletro%20Tech.postman_collection.json)
+   2. [Environment](doc/postman-collections/APi%20Eletro%20Tech%20-%20Dev.postman_environment.json)
 
 #### API
 
