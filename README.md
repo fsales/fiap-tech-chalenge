@@ -19,13 +19,16 @@
     - [🏬 Instituição](#-instituição)
     - [🧑🏻‍🎓Curso](#curso)
     - [Aluno](#aluno)
+  - [Ferramentas](#ferramentas)
   - [Tecnologias](#tecnologias)
   - [Pré-requisitos](#pré-requisitos)
   - [Como Executar](#como-executar)
     - [Localmente](#localmente)
   - [:hammer: Funcionalidades do projeto](#hammer-funcionalidades-do-projeto)
-  - [Endpoints](#endpoints)
-    - [API](#api)
+    - [Endpoints](#endpoints)
+      - [API](#api)
+    - [Base de dados](#base-de-dados)
+  - [Desafio encontrado durante o desenvolvimento](#desafio-encontrado-durante-o-desenvolvimento)
   - [Referência](#referência)
 
 ## 🛠️ Linguagem e ferramentas
@@ -53,6 +56,13 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
 
 [![Linkedin Badge](https://img.shields.io/badge/-Fábio%20Sales-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fabio-oliveira-sales/)](https://www.linkedin.com/in/fabio-oliveira-sales/)
 [![Gmail Badge](https://img.shields.io/badge/-fabio.oliveira.sales@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:fabio.oliveira.sales@gmail.com)](mailto:fabio.oliveira.sales@gmail.com)
+
+## Ferramentas
+
+- [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/)
+- [Postman](https://www.postman.com/)
+- [Chrome](https://www.google.pt/intl/pt-PT/chrome/?brand=FKPE&gclid=EAIaIQobChMI8cT_xsr1_wIVA2GRCh0hxwthEAAYASAAEgK0h_D_BwE&gclsrc=aw.ds)
+- [Git](https://git-scm.com/)
 
 ## Tecnologias
 
@@ -136,9 +146,11 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 
 ## :hammer: Funcionalidades do projeto
 
-- [`API de gestão de pessoas`](https://github.com/fsales/fiap-tech-chalenge/issues/5): A API de gestão de pessoas tem como objetivo permitir o cadastro e gerenciamento de informações sobre as pessoas relacionadas aos usuários cadastrados em nosso sistema.
+- `API de gestão de pessoas`: A API de gestão de pessoas tem como objetivo permitir o cadastro e gerenciamento de informações sobre as pessoas relacionadas aos usuários cadastrados em nosso sistema.
+- `API de Cadastro de Endereços`: tem como objetivo permitir o gerenciamento de informações sobre os endereços cadastrados em nosso sistema.
+- `API de Gestão de Eletrodomésticos`: tem como objetivo permitir o cadastro e gerenciamento de informações sobre os aparelhos eletrônicos dos usuários cadastrados em nosso sistema.
 
-## Endpoints
+### Endpoints
 
 > Para fazer as requisições HTTP pode ser utilizado:
 
@@ -149,11 +161,24 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 - [Collections](doc/postman-collections/Fase%201%20-%20API%20Eletro%20Tech.postman_collection.json)
 - [Environment](doc/postman-collections/APi%20Eletro%20Tech%20-%20Dev.postman_environment.json)
 
-### API
+#### API
 
 - [Gestão de pessoas](doc/api-gestao-pessoas.md)
 - [Cadastro de Endereços](/doc/api-cadastro-enderecos.md)
 - [Gestão de eletrodomésticos](/doc/api-gestao-eletrodomestico.md)
+
+### Base de dados
+
+A base de dados e versionada utilizando a biblioteca Flyway.
+
+- [scripts](/eletro-tech/src/main/resources/db/migration/)
+
+## Desafio encontrado durante o desenvolvimento
+
+> Durante o desenvolvimento do projeto da primeira fase, não foi encontrado muita dificuldade com o Framework Spring Boot. Por esse motivo foi foi adicionado os itens abaixo:
+>
+> - Documentação da API utilizando o SpringDoc.
+> - Persistência dos dados utilizando o Spring Data e H2.
 
 ## Referência
 

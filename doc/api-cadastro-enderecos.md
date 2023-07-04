@@ -1,6 +1,6 @@
 # API de Cadastro de Endereços
 
-A API de gestão de endereços tem como objetivo permitir o gerenciamento de informações sobre os endereços cadastrados em nosso sistema
+A API de gestão de endereços tem como objetivo permitir o gerenciamento de informações sobre os endereços cadastrados em nosso sistema.
 
 - [API de Cadastro de Endereços](#api-de-cadastro-de-endereços)
   - [Criar Endereço](#criar-endereço)
