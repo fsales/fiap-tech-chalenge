@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "ace28de9-f363-4645-a2ea-5a2d09a78238",
+		"name": "Fase 1 - API Eletro Tech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2550833"
+	},
+	"item": [
+		{
+			"name": "API de gestão de pessoas",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Marcos\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"50297831054\",\r\n    \"siglaSexo\": \"M\",\r\n    \"siglaParentesco\": \"F\",\r\n    \"dependentes\": [\r\n        {\r\n            \"nome\": \"Anderson\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"84483706004\",\r\n            \"dataNascimento\": \"22/06/1965\",\r\n            \"siglaSexo\": \"M\",\r\n            \"siglaParentesco\": \"P\"\r\n        },\r\n                {\r\n            \"nome\": \"Ana\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"08062364003\",\r\n            \"dataNascimento\": \"01/01/1965\",\r\n            \"siglaSexo\": \"F\",\r\n            \"siglaParentesco\": \"M\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalhar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoas/259fe2cf-bbd7-410a-9648-485ace1937de",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoas",
+								"259fe2cf-bbd7-410a-9648-485ace1937de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoas/f6c323ed-968f-43fc-aa3a-b25a764b4d5d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoas",
+								"f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoas"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Andre",
+									"disabled": true
+								},
+								{
+									"key": "sobrenome",
+									"value": "Andrade",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0e60007a-7fb3-4e47-8edb-1a06c3cc29ae\" ,\r\n    \"nome\": \"José\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"50297831054\",\r\n    \"siglaSexo\": \"M\",\r\n    \"siglaParentesco\": \"P\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Dependentes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"3e498a3e-7568-4d21-a6b9-00bfd95f537d\",\r\n    \"nome\": \"José\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"50297831054\",\r\n    \"siglaSexo\": \"M\",\r\n    \"parentesco\": \"FILHO\",\r\n    \"dependentes\": [\r\n        {\r\n            \"id\": \"1dcd0a51-984b-49a0-8d29-332c5a428d32\",\r\n            \"nome\": \"Anderson Torres\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"84483706004\",\r\n            \"dataNascimento\": \"22/06/1965\",\r\n            \"siglaSexo\": \"M\",\r\n            \"parentesco\": \"PAI\"\r\n        },\r\n        {\r\n            \"id\": \"01a56b89-4fb6-4997-9ad7-767b74349541\",\r\n            \"nome\": \"Ana Silva\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"08062364003\",\r\n            \"dataNascimento\": \"01/01/1965\",\r\n            \"siglaSexo\": \"F\",\r\n            \"parentesco\": \"MAE\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API de Cadastro de Endereços",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rua\": \"Nova Conquista\",\r\n  \"complemento\": \"Bloco 5\",\r\n  \"numero\": 104,\r\n  \"bairro\": \"Conquista\",\r\n  \"cidade\": \"Salvador\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/enderecos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":\"be828749-7a3c-41a1-b7e7-ba7daa4e0da0\",\r\n  \"rua\": \"Nova Conquista II\",\r\n  \"complemento\": \"Bloco 15\",\r\n  \"numero\": 10,\r\n  \"bairro\": \"Nova Morada\",\r\n  \"cidade\": \"Correntina\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/enderecos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rua\": \"Nova Conquista\",\r\n  \"complemento\": \"Bloco 5\",\r\n  \"numero\": 104,\r\n  \"bairro\": \"Conquista\",\r\n  \"cidade\": \"Salvador\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/enderecos/5aca6578-f7c8-4ccd-a090-3166e8a2aa71",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enderecos",
+								"5aca6578-f7c8-4ccd-a090-3166e8a2aa71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rua\": \"Nova Conquista\",\r\n  \"complemento\": \"Bloco 5\",\r\n  \"numero\": 104,\r\n  \"bairro\": \"Conquista\",\r\n  \"cidade\": \"Salvador\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/enderecos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/enderecos/eac7da76-7895-4814-b692-dea30397efc8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enderecos",
+								"eac7da76-7895-4814-b692-dea30397efc8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API de gestão de eletrodomésticos",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Microondas\",\r\n  \"modelo\": \"MRAS2\",\r\n  \"potencia\": 700,\r\n  \"fabricante\": \"Electrolux\",\r\n  \"voltagem\": 220,\r\n  \"tempoUsoDiario\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eletrodomesticos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eletrodomesticos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/eletrodomesticos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eletrodomesticos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/eletrodomesticos/6c0dae8f-1f32-4d65-a318-3613d4977cff",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eletrodomesticos",
+								"6c0dae8f-1f32-4d65-a318-3613d4977cff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/eletrodomesticos/26748deb-63e7-4c27-8974-6065386e531b",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eletrodomesticos",
+								"26748deb-63e7-4c27-8974-6065386e531b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6c0dae8f-1f32-4d65-a318-3613d4977cff\",\r\n    \"nome\": \"Microondas Grande\",\r\n    \"modelo\": \"MRAS22\",\r\n    \"potencia\": 1700,\r\n    \"fabricante\": \"Electrolux2\",\r\n    \"voltagem\": 110,\r\n    \"tempoUsoDiario\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/eletrodomesticos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"eletrodomesticos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

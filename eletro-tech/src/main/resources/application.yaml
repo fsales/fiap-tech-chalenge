@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: @project.name@
+    description: @project.version@
+    version: @project.description@
+  mvc:
+    servlet:
+      path: /api
+
+  profiles:
+    active: test
+
+  jpa:
+    show-sql: false
+    open-in-view: true
+
+application:
+  api-pessoa:
+    swagger:
+      name: API de gestão de pessoas
+      description: Tem como objetivo permitir o cadastro e gerenciamento de informações sobre as pessoas relacionadas aos usuários cadastrados em nosso sistema.
+
+
