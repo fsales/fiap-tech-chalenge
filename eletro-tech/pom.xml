@@ -10,7 +10,7 @@
     </parent>
     <groupId>br.com.fsales</groupId>
     <artifactId>eletro-tech</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>eletro-tech</name>
     <description>Tech Challenge para avaliação da Fase I da Pós Graduação em Arquitetura e Desenvolvimento Java.
     </description>
