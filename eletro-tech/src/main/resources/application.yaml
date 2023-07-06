@@ -14,6 +14,11 @@ spring:
     show-sql: false
     open-in-view: true
 
+
+server:
+  error:
+    include-stacktrace: never # desabilitar stacktrace no json que e retornado em caso de erro
+
 application:
   api-pessoa:
     swagger:
