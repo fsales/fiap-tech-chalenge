@@ -1,14 +1,14 @@
 spring:
   application:
     name: @project.name@
-    description: @project.version@
-    version: @project.description@
+    description: @project.description@
+    version: @project.version@
   mvc:
     servlet:
       path: /api
 
   profiles:
-    active: test
+    active: ${ACTIVE_PROFILE:dev}
 
   jpa:
     show-sql: false
@@ -20,6 +20,8 @@ server:
     include-stacktrace: never # desabilitar stacktrace no json que e retornado em caso de erro
 
 application:
+  title: ${spring.application.name}
+  version: ${spring.application.version}
   api-pessoa:
     swagger:
       name: API de gestão de pessoas

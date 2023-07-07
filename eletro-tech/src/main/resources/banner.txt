@@ -1,0 +1,23 @@
+
+EEEEEEEEEEEEEEEEEEEEEElllllll                              tttt                                                       tttt                                                 hhhhhhh
+E::::::::::::::::::::El:::::l                           ttt:::t                                                    ttt:::t                                                 h:::::h             
+E::::::::::::::::::::El:::::l                           t:::::t                                                    t:::::t                                                 h:::::h             
+EE::::::EEEEEEEEE::::El:::::l                           t:::::t                                                    t:::::t                                                 h:::::h             
+  E:::::E       EEEEEE l::::l     eeeeeeeeeeee    ttttttt:::::ttttttt   rrrrr   rrrrrrrrr      ooooooooooo   ttttttt:::::ttttttt        eeeeeeeeeeee        cccccccccccccccch::::h hhhhh       
+  E:::::E              l::::l   ee::::::::::::ee  t:::::::::::::::::t   r::::rrr:::::::::r   oo:::::::::::oo t:::::::::::::::::t      ee::::::::::::ee    cc:::::::::::::::ch::::hh:::::hhh    
+  E::::::EEEEEEEEEE    l::::l  e::::::eeeee:::::eet:::::::::::::::::t   r:::::::::::::::::r o:::::::::::::::ot:::::::::::::::::t     e::::::eeeee:::::ee c:::::::::::::::::ch::::::::::::::hh  
+  E:::::::::::::::E    l::::l e::::::e     e:::::etttttt:::::::tttttt   rr::::::rrrrr::::::ro:::::ooooo:::::otttttt:::::::tttttt    e::::::e     e:::::ec:::::::cccccc:::::ch:::::::hhh::::::h 
+  E:::::::::::::::E    l::::l e:::::::eeeee::::::e      t:::::t          r:::::r     r:::::ro::::o     o::::o      t:::::t          e:::::::eeeee::::::ec::::::c     ccccccch::::::h   h::::::h
+  E::::::EEEEEEEEEE    l::::l e:::::::::::::::::e       t:::::t          r:::::r     rrrrrrro::::o     o::::o      t:::::t          e:::::::::::::::::e c:::::c             h:::::h     h:::::h
+  E:::::E              l::::l e::::::eeeeeeeeeee        t:::::t          r:::::r            o::::o     o::::o      t:::::t          e::::::eeeeeeeeeee  c:::::c             h:::::h     h:::::h
+  E:::::E       EEEEEE l::::l e:::::::e                 t:::::t    ttttttr:::::r            o::::o     o::::o      t:::::t    tttttte:::::::e           c::::::c     ccccccch:::::h     h:::::h
+EE::::::EEEEEEEE:::::El::::::le::::::::e                t::::::tttt:::::tr:::::r            o:::::ooooo:::::o      t::::::tttt:::::te::::::::e          c:::::::cccccc:::::ch:::::h     h:::::h
+E::::::::::::::::::::El::::::l e::::::::eeeeeeee        tt::::::::::::::tr:::::r            o:::::::::::::::o      tt::::::::::::::t e::::::::eeeeeeee   c:::::::::::::::::ch:::::h     h:::::h
+E::::::::::::::::::::El::::::l  ee:::::::::::::e          tt:::::::::::ttr:::::r             oo:::::::::::oo         tt:::::::::::tt  ee:::::::::::::e    cc:::::::::::::::ch:::::h     h:::::h
+EEEEEEEEEEEEEEEEEEEEEEllllllll    eeeeeeeeeeeeee            ttttttttttt  rrrrrrr               ooooooooooo             ttttttttttt      eeeeeeeeeeeeee      cccccccccccccccchhhhhhh     hhhhhhh
+                                                                                                                                                                                               
+
+${application.title} (v${application.version})
+Spring Boot ${spring-boot.formatted-version}
+
+
