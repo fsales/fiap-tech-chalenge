@@ -8,21 +8,34 @@ spring:
       path: /api
 
   profiles:
-    active: test
+    active: ${ELETRO_TECH_PROFILE_ENVIRONMENT:dev}
 
   jpa:
     show-sql: false
     open-in-view: true
 
+  jackson:
+    date-format: dd/MM/yyyy HH:mm:ss
+
+logging:
+  pattern:
+    console: "%d{ABSOLUTE_MICROS} [%-5level] [%t] %c{1} - %msg%n"
 
 server:
   error:
     include-stacktrace: never # desabilitar stacktrace no json que e retornado em caso de erro
+  port: 8080
 
 application:
+  title: '@project.name@'
+  version: '@project.version@'
   api-pessoa:
     swagger:
       name: API de gestão de pessoas
       description: Tem como objetivo permitir o cadastro e gerenciamento de informações sobre as pessoas relacionadas aos usuários cadastrados em nosso sistema.
+
+  client:
+    viacep:
+      host: https://viacep.com.br/ws
 
 

@@ -1,9 +1,10 @@
 package br.com.fsales.eletrotech.infrastructure.handler.exception;
 
 
+import br.com.fsales.eletrotech.infrastructure.exception.EletroTechNegocioException;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
-import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.ValidationErrorResponse;
-import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.Violation;
+import br.com.fsales.eletrotech.infrastructure.exception.dto.ValidationErrorResponse;
+import br.com.fsales.eletrotech.infrastructure.exception.dto.Violation;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -191,6 +192,20 @@ public class EletroTechControlerExceptionHandler extends ResponseEntityException
                                 )
                                 .build()
                 );
+
+        return error;
+    }
+
+    @ExceptionHandler(EletroTechNegocioException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    ValidationErrorResponse eletroTechNegocioException(
+            EletroTechNegocioException eletroTechNegocioException
+    ) {
+        ValidationErrorResponse error = new ValidationErrorResponse();
+        error.violation(
+                eletroTechNegocioException.list()
+        );
 
         return error;
     }

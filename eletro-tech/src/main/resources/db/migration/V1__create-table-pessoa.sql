@@ -1,18 +1,19 @@
-create table pessoa
+CREATE TABLE PESSOA
 (
-    id              uuid         not null,
-    data_nascimento date,
-    created         timestamp(6) with time zone,
-    updated         timestamp(6) with time zone,
-    id_parent       uuid,
-    cpf             varchar(255),
-    nome            varchar(255),
-    parentesco      varchar(255) not null,
-    sexo            varchar(1) not null,
-    sobrenome       varchar(255),
-    primary key (id)
+    ID              UUID         NOT NULL,
+    ID_PARENT       UUID,
+    NOME            VARCHAR(100) NOT NULL,
+    SOBRENOME       VARCHAR(100) NOT NULL,
+    CPF             VARCHAR(11)  NOT NULL,
+    DATA_NASCIMENTO DATE         NOT NULL,
+    SEXO            VARCHAR(1)   NOT NULL,
+    PARENTESCO      VARCHAR(1),
+    CREATED         TIMESTAMP(6) WITH TIME ZONE,
+    UPDATED         TIMESTAMP(6) WITH TIME ZONE
 );
 
+ALTER TABLE PESSOA
+    ADD CONSTRAINT PK_PESSOA PRIMARY KEY (ID);
 
-alter table if exists pessoa
-    add constraint FK_PARENT_PESSOA foreign key (id_parent) references pessoa
+ALTER TABLE IF EXISTS PESSOA
+    ADD CONSTRAINT FK_PARENT_PESSOA FOREIGN KEY (ID_PARENT) REFERENCES PESSOA;

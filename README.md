@@ -11,7 +11,7 @@
 
 # :bookmark_tabs: Tech Chalenge
 
-> Tech Challenge para avaliação da Fase I da Pós Graduação em Arquitetura e Desenvolvimento Java.
+> Tech Challenge para avaliação da Fase II da Pós Graduação em Arquitetura e Desenvolvimento Java.
 
 - [:bookmark\_tabs: Tech Chalenge](#bookmark_tabs-tech-chalenge)
   - [🛠️ Linguagem e ferramentas](#️-linguagem-e-ferramentas)
@@ -21,6 +21,7 @@
     - [Aluno](#aluno)
   - [Ferramentas](#ferramentas)
   - [Tecnologias](#tecnologias)
+  - [Integração com Serviços](#integração-com-serviços)
   - [Pré-requisitos](#pré-requisitos)
   - [Como Executar](#como-executar)
     - [Localmente](#localmente)
@@ -28,6 +29,7 @@
     - [Endpoints](#endpoints)
       - [API](#api)
     - [Base de dados](#base-de-dados)
+    - [Docker](#docker)
   - [Desafio encontrado durante o desenvolvimento](#desafio-encontrado-durante-o-desenvolvimento)
   - [Referência](#referência)
 
@@ -74,10 +76,11 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
 </details>
 
 <details>
-  <summary>H2DataBase</summary>
+  <summary>Postgres</summary>
 
-  > [H2](https://www.h2database.com/html/main.html)
- é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor[^2].
+  > [Postgres](https://www.postgresql.org)
+  O PostgreSQL é um sistema de gerenciamento de bancos de dados objeto-relacional de uso geral, um dos mais avançado sistema de banco de dados de código aberto.
+
 </details>
 
 <details>
@@ -118,6 +121,19 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
   > O [Lombok](https://projectlombok.org/) é um framework para Java que permite escrever código eliminando a verbosidade, o que permite ganhar tempo de desenvolvimento para o que realmente é importante. Seu uso permite gerar em tempo de compilação os métodos getters e setters, métodos construtores, padrão builder e muito mais[^8].
 </details>
 
+<details>
+  <summary>Spring Cloud OpenFeign</summary>
+
+> O [Spring Cloud OpenFeign](https://spring.io/projects/spring-cloud-openfeign) é uma biblioteca que facilita a criação
+> de clientes HTTP sem escreve muito código fonte. Um cliente HTTP e usado para comunicação com outros microsserviços
+> quando trabalhamos com API de terceiros ou integrando com sistemas internos.
+</details>
+
+## Integração com Serviços
+
+- ViaCEP
+  > O [ViaCEP](https://viacep.com.br/) é um serviço para consulta gratuita de código postais de endereçamento do Brasil.
+
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -141,8 +157,9 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 java -jar eletro-tech/target/eletro-tech-0.0.1-SNAPSHOT.jar
 ```
 
-A API poderá ser acessada em [localhost:8080/api](http://localhost:8080/api).
-O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](http://localhost:8080/api/swagger-ui/index.html)
+A API poderá ser acessada em [127.0.0.1:8080/api](http://127.0.0.1:8080/api).
+O Swagger poderá ser visualizado
+em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-ui/index.html)
 
 ## :hammer: Funcionalidades do projeto
 
@@ -156,7 +173,7 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 
 1. [CURL](https://curl.se/docs/manual.html)
 
-2. [Swagger](http://localhost:8080/api/swagger-ui/index.html)
+2. [Swagger](http://127.0.0.1:8080/api/swagger-ui/index.html)
 
 3. [Postman](https://www.postman.com/)
    1. [Collections](doc/postman-collections/Fase%201%20-%20API%20Eletro%20Tech.postman_collection.json)
@@ -170,9 +187,25 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 
 ### Base de dados
 
-A base de dados e versionada utilizando a biblioteca Flyway.
+![mer](/doc/eletro-tech-entidade.png)
+
+> A base de dados e versionada utilizando a biblioteca Flyway.
 
 - [scripts](/eletro-tech/src/main/resources/db/migration/)
+- O script de migração `V6__popular-tabelas-com-dados-de-test.sql` e utilizado para popular o banco com alguns dados de
+  teste.
+
+- O Postgres está configurado para ser executado como banco padrão ou quando for habilitado o profile de `dev`, para não ter a necessidade de fazer a instalação será disponibilizado o [docker-compose](#docker) com as configurações básicas.
+  - Dados de configuração do banco:
+    - url: jdbc:postgresql://localhost:5432/eletro-tech
+    - Usuário: postgres
+    - Senha: postgres
+
+### Docker
+
+> docker-compose com as configurações básicas do Postgres.
+
+- [docker-compose](/docker/docker-compose.yaml)
 
 ## Desafio encontrado durante o desenvolvimento
 
@@ -184,8 +217,6 @@ A base de dados e versionada utilizando a biblioteca Flyway.
 ## Referência
 
 [^1]: [FlyWay](<https://www.linkedin.com/pulse/porqu%C3%AA-e-como-usar-flyway-com-spring-mateus-cunha/?originalSubdomain=pt>).
-
-[^2]: [H2](<https://camilacgs17.medium.com/como-configurar-e-utilizar-o-h2-no-springboot-e36c3cd378c8#:~:text=H2%20%C3%A9%20um%20sistema%20de,como%20Eclipse%20Public%20License%20original%20.>)
 
 [^3]: [Java 17](<https://www.java.com/pt-BR/download/help/whatis_java.html#:~:text=Java%20%C3%A9%20uma%20linguagem%20de,servi%C3%A7os%20e%20aplicativos%20s%C3%A3o%20desenvolvidos>).
 

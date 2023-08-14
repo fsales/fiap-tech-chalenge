@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.fsales</groupId>
     <artifactId>eletro-tech</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>eletro-tech</name>
     <description>Tech Challenge para avaliação da Fase I da Pós Graduação em Arquitetura e Desenvolvimento Java.
     </description>
@@ -24,7 +24,23 @@
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <org.projectlombok.version>1.18.26</org.projectlombok.version>
+        <spring-cloud.version>2022.0.4</spring-cloud.version>
+
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
     <dependencies>
 
         <!-- spring -->
@@ -61,6 +77,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- spring cloud -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+
         <!-- outras -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -69,8 +92,8 @@
             <version>${org.projectlombok.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 

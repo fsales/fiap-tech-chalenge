@@ -1,13 +1,16 @@
-create table endereco
+CREATE TABLE ENDERECO
 (
-    id              uuid         not null,
-    created         timestamp(6) with time zone,
-    updated         timestamp(6) with time zone,
-    rua             varchar(255)  not null,
-    complemento     varchar(255),
-    numero          integer  not null,
-    bairro          varchar(255) not null,
-    cidade          varchar(255) not null,
-    estado          varchar(2)  not null,
-    primary key (id)
+    ID          UUID         NOT NULL,
+    RUA         VARCHAR(100) NOT NULL,
+    COMPLEMENTO VARCHAR(100),
+    NUMERO      INTEGER      NOT NULL,
+    BAIRRO      VARCHAR(100) NOT NULL,
+    CIDADE      VARCHAR(100) NOT NULL,
+    ESTADO      VARCHAR(2)   NOT NULL,
+    CREATED     TIMESTAMP(6) WITH TIME ZONE,
+    UPDATED     TIMESTAMP(6) WITH TIME ZONE
 );
+
+ALTER TABLE ENDERECO
+    ADD CONSTRAINT PK_ENDERECO PRIMARY KEY (ID);
+

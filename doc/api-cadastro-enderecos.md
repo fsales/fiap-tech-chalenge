@@ -2,6 +2,11 @@
 
 A API de gestão de endereços tem como objetivo permitir o gerenciamento de informações sobre os endereços cadastrados em nosso sistema.
 
+> Ao realizar o cadastro ou atualização a API de endereço irá verificar se o CEP e válido junto a API
+> do [ViaCEP](https://viacep.com.br/).
+> Campos utilizado na validação:
+> CEP, Cidade e Estado.
+
 - [API de Cadastro de Endereços](#api-de-cadastro-de-endereços)
   - [Criar Endereço](#criar-endereço)
     - [\[POST\] /api/enderecos](#post-apienderecos)
@@ -21,23 +26,26 @@ A API de gestão de endereços tem como objetivo permitir o gerenciamento de inf
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/cadastrar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/cadastrar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'POST' \
-  'http://localhost:8080/api/enderecos' \
+  'http://127.0.0.1:8080/api/enderecos' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "rua": "Nova Conquista",
-  "complemento": "Bloco 5",
-  "numero": 104,
-  "bairro": "Conquista",
-  "cidade": "Salvador",
-  "siglaEstado": "BA"
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 1024,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "siglaEstado": "SP"
 }'
 ```
 
@@ -46,14 +54,19 @@ curl -X 'POST' \
 
 ```json
 {
-  "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista",
-  "complemento": "Bloco 5",
-  "numero": 104,
-  "bairro": "Conquista",
-  "cidade": "Salvador",
-  "nomeEstado": "Bahia",
-  "siglaEstado": "BA"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 1024,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "siglaEstado": "SP",
+  "nomeEstado": "São Paulo",
+  "created": "2023-09-05T00:01:33.516778400Z",
+  "updated": "2023-09-05T00:01:33.516778400Z"
 }
 ```
 
@@ -66,24 +79,27 @@ curl -X 'POST' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/atualizar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/atualizar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'PUT' \
-  'http://localhost:8080/api/enderecos' \
+  'http://127.0.0.1:8080/api/enderecos' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "id":"bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista II",
-  "complemento": "Bloco 15",
-  "numero": 10,
-  "bairro": "Nova Morada",
-  "cidade": "Correntina",
-  "siglaEstado": "BA"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "91040000",
+  "rua": "Rua Domingos Rubbo",
+  "complemento": "BL 16",
+  "numero": 35,
+  "bairro": "Cristo Redentor",
+  "cidade": "Porto Alegre",
+  "siglaEstado": "RS"
 }'
 ```
 
@@ -92,14 +108,19 @@ curl -X 'PUT' \
 
 ```json
 {
-  "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista II",
-  "complemento": "Bloco 15",
-  "numero": 10,
-  "bairro": "Nova Morada",
-  "cidade": "Correntina",
-  "siglaEstado": "BA",
-  "nomeEstado": "Bahia"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "91040000",
+  "rua": "Rua Domingos Rubbo",
+  "complemento": "BL 16",
+  "numero": 35,
+  "bairro": "Cristo Redentor",
+  "cidade": "Porto Alegre",
+  "siglaEstado": "RS",
+  "nomeEstado": "Rio Grande do Sul",
+  "created": "2023-09-05T00:01:33.516778Z",
+  "updated": "2023-09-05T00:01:33.516778Z"
 }
 ```
 
@@ -112,14 +133,14 @@ curl -X 'PUT' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/listar
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/listar
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/enderecos?page=0&size=20' \
+  'http://127.0.0.1:8080/api/enderecos?idPessoa=608f3f7d-67da-4ea6-ba56-55d9a3721dd2&rua=Pra%C3%A7a%20da%20S%C3%A9&bairro=S%C3%A9&cidade=S%C3%A3o%20Paulo&siglaEstado=SP&page=0&size=20' \
   -H 'accept: application/json'
  ```
 
@@ -130,38 +151,46 @@ curl -X 'GET' \
   {
   "content": [
     {
-      "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-      "rua": "Nova Conquista II",
-      "complemento": "Bloco 15",
-      "numero": 10,
-      "bairro": "Nova Morada",
-      "cidade": "Correntina",
-      "siglaEstado": "BA",
-      "nomeEstado": "Bahia"
+      "id": "d86a5f0d-3145-496c-bc9c-1eff2ad89fca",
+      "nomeEndereco": "Casa da família",
+      "cep": "01001000",
+      "rua": "Praça da Sé",
+      "complemento": "lado ímpar",
+      "numero": 1024,
+      "bairro": "Sé",
+      "cidade": "São Paulo",
+      "nomeEstado": "São Paulo",
+      "siglaEstado": "SP",
+      "pessoa": {
+        "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+        "nome": "Maria",
+        "sobrenome": "Silva de Castro",
+        "parent": {
+          "idPessoa": "fed3f974-3b1e-449d-bcd6-3a8450b09fb9",
+          "nome": "Luiz",
+          "sobrenome": "Silva de Castro"
+        },
+        "parentesco": "F",
+        "tipoPessoa": "Dependente"
+      },
+      "created": "2023-09-04T22:41:08.932746Z",
+      "updated": "2023-09-04T22:41:08.932746Z"
     }
   ],
   "pageable": {
-    "sort": {
-      "empty": false,
-      "sorted": true,
-      "unsorted": false
-    },
+    "sort": [],
     "offset": 0,
     "pageNumber": 0,
     "pageSize": 20,
-    "unpaged": false,
-    "paged": true
+    "paged": true,
+    "unpaged": false
   },
-  "last": true,
-  "totalElements": 1,
   "totalPages": 1,
+  "totalElements": 1,
+  "last": true,
   "size": 20,
   "number": 0,
-  "sort": {
-    "empty": false,
-    "sorted": true,
-    "unsorted": false
-  },
+  "sort": [],
   "numberOfElements": 1,
   "first": true,
   "empty": false
@@ -177,14 +206,14 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/detalhar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/detalhar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/enderecos/bed06b7c-9767-4418-8096-6942dfa2646a' \
+  'http://127.0.0.1:8080/api/enderecos/2cf2e158-6c1f-4168-a405-f5337828914b/pessoa/608f3f7d-67da-4ea6-ba56-55d9a3721dd2' \
   -H 'accept: application/json'
  ```
 
@@ -193,14 +222,19 @@ curl -X 'GET' \
 
   ```json
 {
-  "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista II",
-  "complemento": "Bloco 15",
-  "numero": 10,
-  "bairro": "Nova Morada",
-  "cidade": "Correntina",
-  "siglaEstado": "BA",
-  "nomeEstado": "Bahia"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "91040000",
+  "rua": "Rua Domingos Rubbo",
+  "complemento": "BL 16",
+  "numero": 35,
+  "bairro": "Cristo Redentor",
+  "cidade": "Porto Alegre",
+  "siglaEstado": "RS",
+  "nomeEstado": "Rio Grande do Sul",
+  "created": "2023-09-05T00:01:33.516778Z",
+  "updated": "2023-09-05T00:02:16.401542Z"
 }
   ```
 
@@ -213,13 +247,13 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/delete_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/delete_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'DELETE' \
-  'http://localhost:8080/api/enderecos/bed06b7c-9767-4418-8096-6942dfa2646a' \
+  'http://127.0.0.1:8080/api/enderecos/2cf2e158-6c1f-4168-a405-f5337828914b/pessoa/608f3f7d-67da-4ea6-ba56-55d9a3721dd2' \
   -H 'accept: */*'
 ```
