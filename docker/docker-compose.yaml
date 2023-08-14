@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  db-postgres:
+    container_name: postgres
+    restart: always
+    user: postgres
+    build:
+      context: .
+      dockerfile: ./imagem_base/Dockerfile.db-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - /opt/postgres/pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports: 
+      - 5432:5432
+    deploy:
+      resources:
+        limits:
+            cpus: '0.75'
+            memory: 512M
+        reservations:
+            cpus: '0.50'
+            memory: 128M
+    networks: 
+      - eletro-tech-rede
+
+  adminer:
+    image: adminer
+    restart: always
+    environment:
+      - ADMINER_DEFAULT_SERVER=db-postgres
+    ports:
+      - 8080:8080
+    networks: 
+      - eletro-tech-rede
+
+networks: 
+    eletro-tech-rede:
+        driver: bridge
