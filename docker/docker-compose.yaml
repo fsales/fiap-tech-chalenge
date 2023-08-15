@@ -9,10 +9,11 @@ services:
       context: .
       dockerfile: ./imagem_base/Dockerfile.db-postgres
     environment:
+      - POSTGRES_DB=zeus
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    volumes:
-      - /opt/postgres/pgdata:/var/lib/postgresql/data
+    #volumes:
+    #  - /home/fosales/.docker/postgres/pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s

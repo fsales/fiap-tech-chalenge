@@ -1,0 +1,29 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zeus
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  h2:
+    console:
+      enabled: false
+
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+
+logging:
+  level:
+    br:
+      com:
+        fsales: debug

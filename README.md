@@ -11,7 +11,7 @@
 
 # :bookmark_tabs: Tech Chalenge
 
-> Tech Challenge para avaliação da Fase I da Pós Graduação em Arquitetura e Desenvolvimento Java.
+> Tech Challenge para avaliação da Fase II da Pós Graduação em Arquitetura e Desenvolvimento Java.
 
 - [:bookmark\_tabs: Tech Chalenge](#bookmark_tabs-tech-chalenge)
   - [🛠️ Linguagem e ferramentas](#️-linguagem-e-ferramentas)
