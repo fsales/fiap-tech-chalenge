@@ -1,0 +1,26 @@
+@startuml
+
+entity "Endereco" as endereco {
+    *id : number <PK>
+    --
+}
+entity "Eletrodomestico" as eletro {
+     *id : number <PK>
+     --
+     * idPessoa: number <FK>
+     * idEndereco: number <FK>
+}
+
+entity "Pessoa" as pessoa {
+     * id : number <PK>
+     --
+     * idDependentes: number <FK>
+}
+
+
+pessoa ||--o| pessoa
+endereco }|..|| pessoa
+eletro }|..|| pessoa
+endereco |o--|| eletro
+
+@enduml
