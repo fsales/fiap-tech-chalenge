@@ -28,6 +28,7 @@
     - [Endpoints](#endpoints)
       - [API](#api)
     - [Base de dados](#base-de-dados)
+    - [Docker](#docker)
   - [Desafio encontrado durante o desenvolvimento](#desafio-encontrado-durante-o-desenvolvimento)
   - [Referência](#referência)
 
@@ -78,6 +79,14 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
 
   > [H2](https://www.h2database.com/html/main.html)
  é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor[^2].
+</details>
+
+<details>
+  <summary>Postgres</summary>
+
+  > [Postgres](https://www.postgresql.org)
+  O PostgreSQL é um sistema de gerenciamento de bancos de dados objeto-relacional de uso geral, um dos mais avançado sistema de banco de dados de código aberto.
+
 </details>
 
 <details>
@@ -170,9 +179,22 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 
 ### Base de dados
 
-A base de dados e versionada utilizando a biblioteca Flyway.
+![mer](/doc/eletro-tech-entidade.png)
+
+> A base de dados e versionada utilizando a biblioteca Flyway.
 
 - [scripts](/eletro-tech/src/main/resources/db/migration/)
+
+> A API está configurada para utilizar os banco de dados Postgres e H2.
+
+- O H2 será utilizado quando for habilitado o profile de `test` não sendo necessário realizar nenhuma instalação.
+- O Postgres está configurado para ser executado como banco padrão ou quando for habilitado o profile de `dev`, para não ter a necessidade de fazer a instalação será disponibilizado o [docker-compose](#docker) com as configurações básicas.
+
+### Docker
+
+> docker-compose com as configurações básicas do Postgres.
+
+- [docker-compose](/docker/docker-compose.yaml)
 
 ## Desafio encontrado durante o desenvolvimento
 
