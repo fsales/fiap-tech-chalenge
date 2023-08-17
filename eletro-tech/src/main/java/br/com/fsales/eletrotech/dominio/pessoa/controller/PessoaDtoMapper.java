@@ -18,7 +18,7 @@ public final class PessoaDtoMapper {
         // parent
         PessoaResponse parent = null;
         if (pessoa.getParent() != null)
-            parent = fromPessoaToPessoaResponse(pessoa);
+            parent = fromPessoaToPessoaResponse(pessoa.getParent());
 
         // dependentes
         var dependentes = new ArrayList<PessoaResponse>();

@@ -21,6 +21,5 @@ entity "Pessoa" as pessoa {
 pessoa ||--o| pessoa
 endereco }|..|| pessoa
 eletro }|..|| pessoa
-endereco |o--|| eletro
 
 @enduml

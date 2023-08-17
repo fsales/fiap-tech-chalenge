@@ -18,7 +18,7 @@ spring:
 server:
   error:
     include-stacktrace: never # desabilitar stacktrace no json que e retornado em caso de erro
-  port: 80
+  port: 8080
 
 application:
   api-pessoa:

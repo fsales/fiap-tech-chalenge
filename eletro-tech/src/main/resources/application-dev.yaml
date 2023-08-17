@@ -4,7 +4,7 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/zeus
+    url: jdbc:postgresql://localhost:5432/eletro-tech
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

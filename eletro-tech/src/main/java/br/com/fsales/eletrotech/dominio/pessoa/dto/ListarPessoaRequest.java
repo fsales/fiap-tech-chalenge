@@ -12,6 +12,9 @@ public record ListarPessoaRequest(
         @Schema(name = "sobrenome",
                 example = "Andrade"
         )
-        String sobrenome
+        String sobrenome,
+        String siglaParentesco,
+        String siglaSexo,
+        String cpf
 ) implements Serializable {
 }

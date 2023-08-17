@@ -62,6 +62,7 @@ public final class Pessoa extends BaseEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
             name = "id_parent",
+            referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "FK_PARENT_PESSOA")
     )
     private Pessoa parent;
