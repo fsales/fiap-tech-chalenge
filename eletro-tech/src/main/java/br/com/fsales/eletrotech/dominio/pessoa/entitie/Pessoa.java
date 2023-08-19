@@ -1,5 +1,6 @@
 package br.com.fsales.eletrotech.dominio.pessoa.entitie;
 
+import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
@@ -69,6 +70,12 @@ public final class Pessoa extends BaseEntity {
 
     @OneToMany(mappedBy = "parent")
     private List<Pessoa> dependentes = new ArrayList<>();
+
+
+    @OneToMany(
+            mappedBy = "pessoa"
+    )
+    private List<Endereco> enderecos = List.of();
 
     @Override
     public UUID getId() {
@@ -159,4 +166,7 @@ public final class Pessoa extends BaseEntity {
     }
 
 
+    public List<Endereco> enderecos() {
+        return enderecos;
+    }
 }

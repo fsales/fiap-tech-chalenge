@@ -1,11 +1,9 @@
 package br.com.fsales.eletrotech.dominio.endereco.entitie;
 
 import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
+import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -35,6 +33,8 @@ public class Endereco extends BaseEntity {
     @UuidGenerator
     private UUID id;
 
+    private String cep;
+
     private String rua;
 
     private String complemento;
@@ -47,6 +47,14 @@ public class Endereco extends BaseEntity {
 
     private EstadoEnum estado;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "id_pessoa",
+            referencedColumnName = "id",
+            columnDefinition = "FK_ENDERECO_PESSOA"
+    )
+    private Pessoa pessoa;
+
     @Override
     public UUID getId() {
         return id;
@@ -54,6 +62,15 @@ public class Endereco extends BaseEntity {
 
     public Endereco setId(UUID id) {
         this.id = id;
+        return this;
+    }
+
+    public String cep() {
+        return cep;
+    }
+
+    public Endereco setCep(String cep) {
+        this.cep = cep;
         return this;
     }
 
@@ -109,5 +126,14 @@ public class Endereco extends BaseEntity {
     public Endereco setEstado(EstadoEnum estado) {
         this.estado = estado;
         return this;
+    }
+
+    public Endereco setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
+    public Pessoa pessoa() {
+        return pessoa;
     }
 }
