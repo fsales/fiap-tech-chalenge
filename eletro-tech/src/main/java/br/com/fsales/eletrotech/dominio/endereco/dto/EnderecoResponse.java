@@ -17,10 +17,28 @@ public record EnderecoResponse(
         )
         UUID id,
 
-        @Schema(name = "84f24cf4-6076-4324-8ddb-29be0656c206",
-                example = "71200020"
+        @Schema(name = "id identificador da pessoa",
+                example = "84f24cf4-6076-4324-8ddb-29be0656c206"
         )
         UUID idPessoa,
+
+        @Schema(name = "nome da pessoa",
+                example = "Marcos"
+        )
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        String nome,
+
+        @Schema(name = "sobreNome da pessoa",
+                example = "Andrade"
+        )
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        String sobreNome,
+
+        @Schema(name = "nome do responsável pelos grupo familiar",
+                example = "José"
+        )
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        String nomeTitular,
 
         @Schema(name = "cep",
                 example = "71200020"
@@ -64,6 +82,27 @@ public record EnderecoResponse(
         @JsonInclude(JsonInclude.Include.NON_NULL)
         Instant updated
 ) {
+
+    public EnderecoResponse(UUID id, UUID idPessoa, String nome, String sobreNome, String nomeTitular, String cep, String rua, String complemento, Integer numero, String bairro, String cidade, EstadoEnum estadoEnum, Instant created, Instant updated) {
+        this.id = id;
+        this.idPessoa = idPessoa;
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.nomeTitular = nomeTitular;
+        this.cep = cep;
+        this.rua = rua;
+        this.complemento = complemento;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estadoEnum = estadoEnum;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    public EnderecoResponse(UUID id, UUID idPessoa, String cep, String rua, String complemento, Integer numero, String bairro, String cidade, EstadoEnum estadoEnum, Instant created, Instant updated) {
+        this(id, idPessoa, null, null, null, cep, rua, complemento, numero, bairro, cidade, estadoEnum, created, updated);
+    }
 
     @JsonProperty
     @Schema(name = "nomeEstado",

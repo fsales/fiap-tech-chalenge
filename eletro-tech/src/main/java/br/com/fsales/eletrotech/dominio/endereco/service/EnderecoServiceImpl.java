@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoReque
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
@@ -22,7 +23,7 @@ import java.util.UUID;
 
 public class EnderecoServiceImpl implements EnderecoService {
 
-    private final IEnderecoRepository IEnderecoRepository;
+    private final IEnderecoRepository enderecoRepository;
 
     private final EnderecoCustomerMapper enderecoMapper;
 
@@ -32,11 +33,12 @@ public class EnderecoServiceImpl implements EnderecoService {
      * @return
      */
     @Override
-    public Page<Endereco> consultaPaginada(
+    public Page<EnderecoProjection> consultaPaginada(
             final ListarEnderecoRequest request,
             final Pageable pageable
     ) {
-        return IEnderecoRepository.findAll(pageable);
+
+        return enderecoRepository.consultarEnderecoPaginado(pageable);
     }
 
     /**
@@ -55,7 +57,7 @@ public class EnderecoServiceImpl implements EnderecoService {
                 enderecoRequest
         );
 
-        return IEnderecoRepository.save(
+        return enderecoRepository.save(
                 estado
         );
     }
@@ -67,7 +69,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Override
     public Endereco detalhar(final UUID id) {
 
-        return IEnderecoRepository.findById(id)
+        return enderecoRepository.findById(id)
                 .orElseThrow(
                         () -> new NotFoundException("Endere\u00E7o n\u00E3o encontrado.")
                 );
@@ -79,7 +81,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Override
     @Transactional
     public void excluir(UUID id) {
-        IEnderecoRepository
+        enderecoRepository
                 .deleteById(id);
     }
 
@@ -91,7 +93,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Transactional
     public Endereco atualizar(DadosAtualizarEnderecoRequest enderecoRequest) {
 
-        var enderecoExistente = IEnderecoRepository.getReferenceById(enderecoRequest.id());
+        var enderecoExistente = enderecoRepository.getReferenceById(enderecoRequest.id());
 
 
         enderecoMapper.update(enderecoRequest, enderecoExistente);

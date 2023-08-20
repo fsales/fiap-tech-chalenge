@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoReque
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,7 +17,7 @@ public interface EnderecoService {
      * @param pageable
      * @return
      */
-    Page<Endereco> consultaPaginada(
+    Page<EnderecoProjection> consultaPaginada(
             final ListarEnderecoRequest request,
             final Pageable pageable
     );

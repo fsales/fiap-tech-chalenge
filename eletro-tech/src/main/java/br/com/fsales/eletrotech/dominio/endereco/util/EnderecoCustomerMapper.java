@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoReque
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoResponse;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,6 +22,9 @@ public interface EnderecoCustomerMapper {
      */
 
     EnderecoResponse enderecoToEnderecoResponse(Endereco endereco);
+
+    @Mapping(target = "estadoEnum", expression = "java(br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum.getEnum(endereco.getSiglaEstado()))")
+    EnderecoResponse enderecoProjectionToEnderecoResponse(EnderecoProjection endereco);
 
     /**
      * @param enderecoRequest

@@ -92,7 +92,7 @@ public class EnderecoController {
         );
 
         return ResponseEntity.ok(
-                enderecoPage.map(EnderecoDtoMapper::fromEnderecoToResponse)
+                enderecoPage.map(enderecoProjection -> enderecoMapper.enderecoProjectionToEnderecoResponse(enderecoProjection))
         );
     }
 
