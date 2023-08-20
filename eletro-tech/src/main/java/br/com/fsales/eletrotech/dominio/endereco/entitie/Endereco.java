@@ -133,7 +133,9 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public Pessoa pessoa() {
+    public Pessoa getPessoa() {
         return pessoa;
     }
+
+
 }

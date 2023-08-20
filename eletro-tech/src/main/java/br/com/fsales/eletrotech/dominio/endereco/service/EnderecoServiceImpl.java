@@ -2,9 +2,9 @@ package br.com.fsales.eletrotech.dominio.endereco.service;
 
 import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
+import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
-import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
-import br.com.fsales.eletrotech.dominio.endereco.repository.EnderecoRepository;
+import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -22,19 +22,21 @@ import java.util.UUID;
 
 public class EnderecoServiceImpl implements EnderecoService {
 
-    private final EnderecoRepository enderecoRepository;
+    private final IEnderecoRepository IEnderecoRepository;
 
     private final EnderecoCustomerMapper enderecoMapper;
 
     /**
+     * @param request
      * @param pageable
      * @return
      */
     @Override
     public Page<Endereco> consultaPaginada(
+            final ListarEnderecoRequest request,
             final Pageable pageable
     ) {
-        return enderecoRepository.findAll(pageable);
+        return IEnderecoRepository.findAll(pageable);
     }
 
     /**
@@ -53,11 +55,7 @@ public class EnderecoServiceImpl implements EnderecoService {
                 enderecoRequest
         );
 
-        estado.setEstado(
-                EstadoEnum.getEnum(enderecoRequest.siglaEstado())
-        );
-
-        return enderecoRepository.save(
+        return IEnderecoRepository.save(
                 estado
         );
     }
@@ -69,7 +67,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Override
     public Endereco detalhar(final UUID id) {
 
-        return enderecoRepository.findById(id)
+        return IEnderecoRepository.findById(id)
                 .orElseThrow(
                         () -> new NotFoundException("Endere\u00E7o n\u00E3o encontrado.")
                 );
@@ -81,7 +79,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Override
     @Transactional
     public void excluir(UUID id) {
-        enderecoRepository
+        IEnderecoRepository
                 .deleteById(id);
     }
 
@@ -93,7 +91,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Transactional
     public Endereco atualizar(DadosAtualizarEnderecoRequest enderecoRequest) {
 
-        var enderecoExistente = enderecoRepository.getReferenceById(enderecoRequest.id());
+        var enderecoExistente = IEnderecoRepository.getReferenceById(enderecoRequest.id());
 
 
         enderecoMapper.update(enderecoRequest, enderecoExistente);

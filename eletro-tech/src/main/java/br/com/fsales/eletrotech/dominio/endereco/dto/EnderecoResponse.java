@@ -16,6 +16,17 @@ public record EnderecoResponse(
                 example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
         )
         UUID id,
+
+        @Schema(name = "84f24cf4-6076-4324-8ddb-29be0656c206",
+                example = "71200020"
+        )
+        UUID idPessoa,
+
+        @Schema(name = "cep",
+                example = "71200020"
+        )
+        String cep,
+
         @Schema(name = "rua",
                 example = "Rua quatro"
         )

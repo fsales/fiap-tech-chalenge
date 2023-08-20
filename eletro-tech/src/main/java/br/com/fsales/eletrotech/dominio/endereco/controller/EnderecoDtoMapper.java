@@ -21,6 +21,8 @@ public final class EnderecoDtoMapper {
 
         return new EnderecoResponse(
                 endereco.getId(),
+                endereco.getPessoa().getId(),
+                endereco.cep(),
                 endereco.getRua(),
                 endereco.getComplemento(),
                 endereco.getNumero(),

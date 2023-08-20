@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.controller.openapi.Swagger;
 import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoResponse;
+import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.service.EnderecoService;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
 import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.Violation;
@@ -46,6 +47,7 @@ public class EnderecoController {
     private final EnderecoCustomerMapper enderecoMapper;
 
     /**
+     * @param request
      * @param pageable
      * @return
      */
@@ -80,10 +82,14 @@ public class EnderecoController {
     @PageableAsQueryParam
     @GetMapping
     public ResponseEntity<Page<EnderecoResponse>> listar(
+            ListarEnderecoRequest request,
             @Parameter(hidden = true) @PageableDefault(page = 0, size = 10, sort = {"estado", "cidade"}) Pageable pageable
     ) {
 
-        var enderecoPage = enderecoService.consultaPaginada(pageable);
+        var enderecoPage = enderecoService.consultaPaginada(
+                request,
+                pageable
+        );
 
         return ResponseEntity.ok(
                 enderecoPage.map(EnderecoDtoMapper::fromEnderecoToResponse)
