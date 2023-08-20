@@ -1,5 +1,6 @@
 package br.com.fsales.eletrotech.dominio.endereco.repository;
 
+import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import org.springframework.data.domain.Page;
@@ -36,9 +37,20 @@ public interface IEnderecoRepository extends JpaRepository<Endereco, UUID> {
                     	p.id = e.id_pessoa
                     left join pessoa parent on
                     	parent.id = p.id_parent
+                    	
+                    where upper(trim(e.bairro))    like  CONCAT('%',upper(trim(:#{#filtro.bairro})),'%')
+                    and   e.id_pessoa              = :#{#filtro.idPessoa}
+                    and   upper(trim(e.cidade))    like  CONCAT('%',upper(trim(:#{#filtro.cidade})),'%')
+                    and   upper(trim(e.rua))       like  CONCAT('%',upper(trim(:#{#filtro.rua})),'%')
+                    and   upper(trim(e.estado))    = upper(trim(:#{#filtro.siglaEstado}))
+                                        
+                    	
                     order by parent.nome, p.nome
                     """,
             nativeQuery = true
     )
-    Page<EnderecoProjection> consultarEnderecoPaginado(Pageable pageable);
+    Page<EnderecoProjection> consultarEnderecoPaginado(
+            ListarEnderecoRequest filtro,
+            Pageable pageable
+    );
 }

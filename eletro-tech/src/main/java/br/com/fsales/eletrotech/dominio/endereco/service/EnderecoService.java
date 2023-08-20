@@ -13,12 +13,12 @@ import java.util.UUID;
 public interface EnderecoService {
 
     /**
-     * @param request
+     * @param filtro
      * @param pageable
      * @return
      */
     Page<EnderecoProjection> consultaPaginada(
-            final ListarEnderecoRequest request,
+            final ListarEnderecoRequest filtro,
             final Pageable pageable
     );
 

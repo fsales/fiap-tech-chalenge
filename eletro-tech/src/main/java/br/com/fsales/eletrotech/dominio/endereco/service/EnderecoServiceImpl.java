@@ -28,17 +28,20 @@ public class EnderecoServiceImpl implements EnderecoService {
     private final EnderecoCustomerMapper enderecoMapper;
 
     /**
-     * @param request
+     * @param filtro
      * @param pageable
      * @return
      */
     @Override
     public Page<EnderecoProjection> consultaPaginada(
-            final ListarEnderecoRequest request,
+            final ListarEnderecoRequest filtro,
             final Pageable pageable
     ) {
 
-        return enderecoRepository.consultarEnderecoPaginado(pageable);
+        return enderecoRepository.consultarEnderecoPaginado(
+                filtro,
+                pageable
+        );
     }
 
     /**
