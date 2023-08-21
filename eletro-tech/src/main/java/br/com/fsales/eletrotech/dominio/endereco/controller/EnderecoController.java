@@ -83,7 +83,7 @@ public class EnderecoController {
     @GetMapping
     public ResponseEntity<Page<EnderecoResponse>> listar(
             ListarEnderecoRequest request,
-            @Parameter(hidden = true) @PageableDefault(page = 0, size = 10, sort = {"estado", "cidade"}) Pageable pageable
+            @Parameter(hidden = true) @PageableDefault(page = 0, size = 10) Pageable pageable
     ) {
 
         var enderecoPage = enderecoService.consultaPaginada(

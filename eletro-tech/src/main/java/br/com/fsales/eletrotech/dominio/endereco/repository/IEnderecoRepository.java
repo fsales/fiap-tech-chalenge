@@ -42,6 +42,8 @@ public interface IEnderecoRepository extends JpaRepository<Endereco, UUID> {
                     and   (cast(:#{#filtro?.cidade} as varchar) is null or  upper(trim(e.cidade)) like  CONCAT('%',upper(trim(:#{#filtro?.cidade})),'%'))
                     and   (cast(:#{#filtro?.rua} as varchar) is null or upper(trim(e.rua)) like  CONCAT('%',upper(trim(:#{#filtro?.rua})),'%'))
                     and   (cast(:#{#filtro?.siglaEstado} as varchar) is null or upper(trim(e.estado))    = upper(trim(:#{#filtro?.siglaEstado})) )
+                                        
+                    order by parent.nome, p.nome, e.estado, e.cidade
                     """,
             nativeQuery = true
     )
