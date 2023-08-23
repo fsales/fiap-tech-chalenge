@@ -17,29 +17,29 @@ public record EnderecoResponse(
         )
         UUID id,
 
-        @Schema(name = "id identificador da pessoa",
+        @Schema(name = "idPessoa",
                 example = "84f24cf4-6076-4324-8ddb-29be0656c206"
         )
         UUID idPessoa,
 
-        @Schema(name = "nome da pessoa",
+        @Schema(name = "nome",
                 example = "Marcos"
         )
         @JsonInclude(JsonInclude.Include.NON_NULL)
         String nome,
 
-        @Schema(name = "sobrenome da pessoa",
+        @Schema(name = "sobrenome",
                 example = "Andrade"
         )
         @JsonInclude(JsonInclude.Include.NON_NULL)
         String sobrenome,
 
-        @Schema(name = "id do responsável pelos grupo familiar",
-                example = "Andrade"
+        @Schema(name = "idTitular",
+                example = "84f24cf4-6076-4324-8ddb-29be0656c206"
         )
         @JsonInclude(JsonInclude.Include.NON_NULL)
         UUID idTitular,
-        @Schema(name = "nome do responsável pelos grupo familiar",
+        @Schema(name = "nomeTitular",
                 example = "José"
         )
         @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -1,5 +1,6 @@
 package br.com.fsales.eletrotech.dominio.pessoa.controller;
 
+import br.com.fsales.eletrotech.dominio.pessoa.dto.EnderecoResponse;
 import br.com.fsales.eletrotech.dominio.pessoa.dto.PessoaResponse;
 import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 
@@ -11,6 +12,10 @@ public final class PessoaDtoMapper {
     private PessoaDtoMapper() {
     }
 
+    /**
+     * @param pessoa
+     * @return
+     */
     public static PessoaResponse fromPessoaToResponse(
             Pessoa pessoa
     ) {
@@ -37,7 +42,7 @@ public final class PessoaDtoMapper {
 
         if (pessoa == null) return null;
 
-        return new PessoaResponse(
+        var pessoaResponse = new PessoaResponse(
                 pessoa.getId(),
                 pessoa.getNome(),
                 pessoa.getSobrenome(),
@@ -48,14 +53,37 @@ public final class PessoaDtoMapper {
                 pessoa.getCreated(),
                 pessoa.getUpdated()
         );
+
+        adicinarEnderecoResponse(pessoa, pessoaResponse);
+
+        return pessoaResponse;
     }
 
+    private static void adicinarEnderecoResponse(Pessoa pessoa, PessoaResponse pessoaResponse) {
+        var enderecos = pessoa.enderecos();
+        if (enderecos != null && !enderecos.isEmpty())
+            pessoaResponse
+                    .enderecos()
+                    .addAll(
+                            EnderecoResponse
+                                    .toEnderecoResponse(
+                                            enderecos
+                                    )
+                    );
+    }
+
+    /**
+     * @param pessoa
+     * @param parent
+     * @param dependentes
+     * @return
+     */
     private static PessoaResponse fromPessoaToPessoaResponse(
             Pessoa pessoa,
             PessoaResponse parent,
             Collection<PessoaResponse> dependentes
     ) {
-        return new PessoaResponse(
+        var pessoaRequest = new PessoaResponse(
                 pessoa.getId(),
                 pessoa.getNome(),
                 pessoa.getSobrenome(),
@@ -68,5 +96,12 @@ public final class PessoaDtoMapper {
                 pessoa.getUpdated(),
                 dependentes
         );
+
+        adicinarEnderecoResponse(
+                pessoa,
+                pessoaRequest
+        );
+
+        return pessoaRequest;
     }
 }

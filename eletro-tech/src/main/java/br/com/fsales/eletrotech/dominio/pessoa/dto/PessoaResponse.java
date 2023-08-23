@@ -72,10 +72,14 @@ public record PessoaResponse(
                 example = Swagger.API_PESSOA_OPERATION_JSON_DEPENDENTES
         )
 
-        Collection<PessoaResponse> dependentes
+        Collection<PessoaResponse> dependentes,
+
+        @JsonInclude(JsonInclude.Include.NON_EMPTY)
+        @Schema(name = "enderecos", anyOf = EnderecoResponse.class)
+        Collection<EnderecoResponse> enderecos
 ) {
 
-    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes) {
+    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes, Collection<EnderecoResponse> enderecos) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -87,10 +91,16 @@ public record PessoaResponse(
         this.dependentes = dependentes;
         this.created = created;
         this.updated = updated;
+        this.enderecos = enderecos;
+    }
+
+    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes) {
+
+        this(id, nome, sobrenome, dataNascimento, cpf, sexoEnum, parentescoEnum, parent, created, updated, dependentes, new ArrayList<>());
     }
 
     public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexo, ParentescoEnum parentesco, Instant created, Instant updated) {
-        this(id, nome, sobrenome, dataNascimento, cpf, sexo, parentesco, null, created, updated, new ArrayList<>());
+        this(id, nome, sobrenome, dataNascimento, cpf, sexo, parentesco, null, created, updated, new ArrayList<>(), new ArrayList<>());
     }
 
 
