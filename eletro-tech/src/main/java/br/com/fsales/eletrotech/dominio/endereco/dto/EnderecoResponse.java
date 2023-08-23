@@ -28,12 +28,17 @@ public record EnderecoResponse(
         @JsonInclude(JsonInclude.Include.NON_NULL)
         String nome,
 
-        @Schema(name = "sobreNome da pessoa",
+        @Schema(name = "sobrenome da pessoa",
                 example = "Andrade"
         )
         @JsonInclude(JsonInclude.Include.NON_NULL)
-        String sobreNome,
+        String sobrenome,
 
+        @Schema(name = "id do responsável pelos grupo familiar",
+                example = "Andrade"
+        )
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        UUID idTitular,
         @Schema(name = "nome do responsável pelos grupo familiar",
                 example = "José"
         )
@@ -83,11 +88,12 @@ public record EnderecoResponse(
         Instant updated
 ) {
 
-    public EnderecoResponse(UUID id, UUID idPessoa, String nome, String sobreNome, String nomeTitular, String cep, String rua, String complemento, Integer numero, String bairro, String cidade, EstadoEnum estadoEnum, Instant created, Instant updated) {
+    public EnderecoResponse(UUID id, UUID idPessoa, String nome, String sobrenome, UUID idTitular, String nomeTitular, String cep, String rua, String complemento, Integer numero, String bairro, String cidade, EstadoEnum estadoEnum, Instant created, Instant updated) {
         this.id = id;
         this.idPessoa = idPessoa;
         this.nome = nome;
-        this.sobreNome = sobreNome;
+        this.sobrenome = sobrenome;
+        this.idTitular = idTitular;
         this.nomeTitular = nomeTitular;
         this.cep = cep;
         this.rua = rua;
@@ -101,7 +107,7 @@ public record EnderecoResponse(
     }
 
     public EnderecoResponse(UUID id, UUID idPessoa, String cep, String rua, String complemento, Integer numero, String bairro, String cidade, EstadoEnum estadoEnum, Instant created, Instant updated) {
-        this(id, idPessoa, null, null, null, cep, rua, complemento, numero, bairro, cidade, estadoEnum, created, updated);
+        this(id, idPessoa, null, null, null, null, cep, rua, complemento, numero, bairro, cidade, estadoEnum, created, updated);
     }
 
     @JsonProperty

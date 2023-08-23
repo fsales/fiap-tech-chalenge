@@ -30,7 +30,9 @@ public interface EnderecoProjection extends Serializable {
 
     String getNome();
 
-    String getSobreNome();
+    String getSobrenome();
 
     String getNomeTitular();
+
+    String getIdTitular();
 }
