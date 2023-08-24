@@ -1,15 +1,15 @@
 create table pessoa
 (
     id              uuid         not null,
-    data_nascimento date,
+    id_parent       uuid,
+    nome            varchar(255) not null,
+    sobrenome       varchar(255) not null,
+    cpf             varchar(255) not null,
+    data_nascimento date not null,
+    sexo            varchar(1) not null,
+    parentesco      varchar(255),
     created         timestamp(6) with time zone,
     updated         timestamp(6) with time zone,
-    id_parent       uuid,
-    cpf             varchar(255),
-    nome            varchar(255),
-    parentesco      varchar(255) not null,
-    sexo            varchar(1) not null,
-    sobrenome       varchar(255),
     primary key (id)
 );
 
