@@ -22,14 +22,14 @@ relacionadas aos usuários cadastrados em nosso sistema.
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/cadastrar
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/cadastrar
 ```
 
 2. CURL
 
 ```shell
 curl -X 'POST' \
-  'http://localhost:8080/api/pessoas' \
+  'http://127.0.0.1:8080/api/pessoas' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -129,14 +129,14 @@ curl -X 'POST' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/atualizar
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/atualizar
 ```
 
 2. CURL
 
 ```shell
 curl -X 'PUT' \
-  'http://localhost:8080/api/pessoas' \
+  'http://127.0.0.1:8080/api/pessoas' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -181,7 +181,7 @@ curl -X 'PUT' \
 
 ```json
 curl -X 'PUT' \
-  'http://localhost:8080/api/pessoas' \
+  'http://127.0.0.1:8080/api/pessoas' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -230,14 +230,14 @@ curl -X 'PUT' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/listarTodos
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/listarTodos
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/pessoas?sobrenome=Andrade&page=0&size=20' \
+  'http://127.0.0.1:8080/api/pessoas?sobrenome=Andrade&page=0&size=20' \
   -H 'accept: application/json'
  ```
 
@@ -248,142 +248,213 @@ curl -X 'GET' \
 {
   "content": [
     {
-      "id": "44206f4d-333f-4d50-865d-d7b6259de94d",
+      "id": "44b8fc05-6ae7-4657-9b6f-caaf2afbc11e",
       "nome": "Ana",
       "sobrenome": "Andrade",
       "dataNascimento": "01/01/1965",
       "cpf": "08062364003",
       "parent": {
-        "id": "44206f4d-333f-4d50-865d-d7b6259de94d",
-        "nome": "Ana",
+        "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
+        "nome": "José",
         "sobrenome": "Andrade",
-        "dataNascimento": "01/01/1965",
-        "cpf": "08062364003",
-        "created": "2023-07-04T16:37:17.360487Z",
-        "updated": "2023-07-04T16:37:17.360487Z",
-        "sexo": "Feminino",
-        "parentesco": "Mãe"
+        "dataNascimento": "13/03/1995",
+        "cpf": "50297831054",
+        "created": "2023-08-24T17:21:54.670558Z",
+        "updated": "2023-08-24T17:25:56.934279Z",
+        "enderecos": [
+          {
+            "cep": "71200020",
+            "rua": "SIA Trecho 2",
+            "complemento": "",
+            "numero": 104,
+            "bairro": "Zona Industrial (Guará)",
+            "cidade": "Brasília",
+            "estado": "Distrito Federal"
+          },
+          {
+            "cep": "71200021",
+            "rua": "SIA Trecho 2",
+            "complemento": "até 768 - lado par",
+            "numero": 104,
+            "bairro": "Zona Industrial (Guará)",
+            "cidade": "Brasília",
+            "estado": "Distrito Federal"
+          }
+        ],
+        "parentesco": "Pai",
+        "sexo": "Masculino"
       },
-      "created": "2023-07-04T16:37:17.360487Z",
-      "updated": "2023-07-04T16:37:17.360487Z",
-      "sexo": "Feminino",
-      "parentesco": "Mãe"
+      "created": "2023-08-24T17:21:54.700554Z",
+      "updated": "2023-08-24T17:21:54.700554Z",
+      "enderecos": [
+        {
+          "cep": "71200020",
+          "rua": "SIA Trecho 2",
+          "complemento": "",
+          "numero": 104,
+          "bairro": "Zona Industrial (Guará)",
+          "cidade": "Brasília",
+          "estado": "Distrito Federal"
+        }
+      ],
+      "parentesco": "Mãe",
+      "sexo": "Feminino"
     },
     {
-      "id": "94f0c37c-d0d8-427e-b9e4-06c1a6f117d1",
-      "nome": "Andre",
+      "id": "1e49cb08-bdc3-4125-977c-f94b5d693efe",
+      "nome": "Anderson",
       "sobrenome": "Andrade",
       "dataNascimento": "22/06/1965",
       "cpf": "84483706004",
       "parent": {
-        "id": "94f0c37c-d0d8-427e-b9e4-06c1a6f117d1",
-        "nome": "Andre",
+        "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
+        "nome": "José",
         "sobrenome": "Andrade",
-        "dataNascimento": "22/06/1965",
-        "cpf": "84483706004",
-        "created": "2023-07-04T16:37:17.360487Z",
-        "updated": "2023-07-04T16:37:17.360487Z",
-        "sexo": "Masculino",
-        "parentesco": "Pai"
+        "dataNascimento": "13/03/1995",
+        "cpf": "50297831054",
+        "created": "2023-08-24T17:21:54.670558Z",
+        "updated": "2023-08-24T17:25:56.934279Z",
+        "enderecos": [
+          {
+            "cep": "71200020",
+            "rua": "SIA Trecho 2",
+            "complemento": "",
+            "numero": 104,
+            "bairro": "Zona Industrial (Guará)",
+            "cidade": "Brasília",
+            "estado": "Distrito Federal"
+          },
+          {
+            "cep": "71200021",
+            "rua": "SIA Trecho 2",
+            "complemento": "até 768 - lado par",
+            "numero": 104,
+            "bairro": "Zona Industrial (Guará)",
+            "cidade": "Brasília",
+            "estado": "Distrito Federal"
+          }
+        ],
+        "parentesco": "Pai",
+        "sexo": "Masculino"
       },
-      "created": "2023-07-04T16:37:17.360487Z",
-      "updated": "2023-07-04T16:37:17.360487Z",
-      "sexo": "Masculino",
-      "parentesco": "Pai"
+      "created": "2023-08-24T17:21:54.699554Z",
+      "updated": "2023-08-24T17:21:54.699554Z",
+      "enderecos": [
+        {
+          "cep": "71200020",
+          "rua": "SIA Trecho 2",
+          "complemento": "",
+          "numero": 104,
+          "bairro": "Zona Industrial (Guará)",
+          "cidade": "Brasília",
+          "estado": "Distrito Federal"
+        }
+      ],
+      "parentesco": "Pai",
+      "sexo": "Masculino"
     },
     {
-      "id": "fb70d8d2-012b-44a2-b91d-0f29329a9447",
-      "nome": "Clara",
+      "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
+      "nome": "José",
       "sobrenome": "Andrade",
-      "dataNascimento": "01/01/1968",
-      "cpf": "56485638091",
-      "parent": {
-        "id": "fb70d8d2-012b-44a2-b91d-0f29329a9447",
-        "nome": "Clara",
-        "sobrenome": "Andrade",
-        "dataNascimento": "01/01/1968",
-        "cpf": "56485638091",
-        "created": "2023-07-04T16:37:17.361488Z",
-        "updated": "2023-07-04T16:37:17.361488Z",
-        "sexo": "Feminino",
-        "parentesco": "Filho(a)"
-      },
-      "created": "2023-07-04T16:37:17.361488Z",
-      "updated": "2023-07-04T16:37:17.361488Z",
-      "sexo": "Feminino",
-      "parentesco": "Filho(a)"
-    },
-    {
-      "id": "ee607be1-25d6-4ae4-8db8-7022d7380c5e",
-      "nome": "Marcos Andre",
-      "sobrenome": "Andrade",
-      "dataNascimento": "17/02/1995",
+      "dataNascimento": "13/03/1995",
       "cpf": "50297831054",
-      "created": "2023-07-04T16:37:17.331485Z",
-      "updated": "2023-07-04T16:37:17.331485Z",
+      "created": "2023-08-24T17:21:54.670558Z",
+      "updated": "2023-08-24T17:25:56.934279Z",
       "dependentes": [
         {
-          "id": "94f0c37c-d0d8-427e-b9e4-06c1a6f117d1",
-          "nome": "Andre",
+          "id": "1e49cb08-bdc3-4125-977c-f94b5d693efe",
+          "nome": "Anderson",
           "sobrenome": "Andrade",
           "dataNascimento": "22/06/1965",
           "cpf": "84483706004",
-          "created": "2023-07-04T16:37:17.360487Z",
-          "updated": "2023-07-04T16:37:17.360487Z",
-          "sexo": "Masculino",
-          "parentesco": "Pai"
+          "created": "2023-08-24T17:21:54.699554Z",
+          "updated": "2023-08-24T17:21:54.699554Z",
+          "enderecos": [
+            {
+              "cep": "71200020",
+              "rua": "SIA Trecho 2",
+              "complemento": "",
+              "numero": 104,
+              "bairro": "Zona Industrial (Guará)",
+              "cidade": "Brasília",
+              "estado": "Distrito Federal"
+            }
+          ],
+          "parentesco": "Pai",
+          "sexo": "Masculino"
         },
         {
-          "id": "44206f4d-333f-4d50-865d-d7b6259de94d",
+          "id": "44b8fc05-6ae7-4657-9b6f-caaf2afbc11e",
           "nome": "Ana",
           "sobrenome": "Andrade",
           "dataNascimento": "01/01/1965",
           "cpf": "08062364003",
-          "created": "2023-07-04T16:37:17.360487Z",
-          "updated": "2023-07-04T16:37:17.360487Z",
-          "sexo": "Feminino",
-          "parentesco": "Mãe"
-        },
-        {
-          "id": "fb70d8d2-012b-44a2-b91d-0f29329a9447",
-          "nome": "Clara",
-          "sobrenome": "Andrade",
-          "dataNascimento": "01/01/1968",
-          "cpf": "56485638091",
-          "created": "2023-07-04T16:37:17.361488Z",
-          "updated": "2023-07-04T16:37:17.361488Z",
-          "sexo": "Feminino",
-          "parentesco": "Filho(a)"
+          "created": "2023-08-24T17:21:54.700554Z",
+          "updated": "2023-08-24T17:21:54.700554Z",
+          "enderecos": [
+            {
+              "cep": "71200020",
+              "rua": "SIA Trecho 2",
+              "complemento": "",
+              "numero": 104,
+              "bairro": "Zona Industrial (Guará)",
+              "cidade": "Brasília",
+              "estado": "Distrito Federal"
+            }
+          ],
+          "parentesco": "Mãe",
+          "sexo": "Feminino"
         }
       ],
-      "sexo": "Masculino",
-      "parentesco": "Filho(a)"
+      "enderecos": [
+        {
+          "cep": "71200020",
+          "rua": "SIA Trecho 2",
+          "complemento": "",
+          "numero": 104,
+          "bairro": "Zona Industrial (Guará)",
+          "cidade": "Brasília",
+          "estado": "Distrito Federal"
+        },
+        {
+          "cep": "71200021",
+          "rua": "SIA Trecho 2",
+          "complemento": "até 768 - lado par",
+          "numero": 104,
+          "bairro": "Zona Industrial (Guará)",
+          "cidade": "Brasília",
+          "estado": "Distrito Federal"
+        }
+      ],
+      "parentesco": "Pai",
+      "sexo": "Masculino"
     }
   ],
   "pageable": {
     "sort": {
       "empty": false,
-      "unsorted": false,
-      "sorted": true
+      "sorted": true,
+      "unsorted": false
     },
     "offset": 0,
-    "pageNumber": 0,
     "pageSize": 20,
+    "pageNumber": 0,
     "unpaged": false,
     "paged": true
   },
   "last": true,
   "totalPages": 1,
-  "totalElements": 4,
+  "totalElements": 3,
   "size": 20,
   "number": 0,
   "sort": {
     "empty": false,
-    "unsorted": false,
-    "sorted": true
+    "sorted": true,
+    "unsorted": false
   },
   "first": true,
-  "numberOfElements": 4,
+  "numberOfElements": 3,
   "empty": false
 }
   ```
@@ -397,14 +468,14 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/detalhar
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/detalhar
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/pessoas/44206f4d-333f-4d50-865d-d7b6259de94d' \
+  'http://127.0.0.1:8080/api/pessoas/44206f4d-333f-4d50-865d-d7b6259de94d' \
   -H 'accept: application/json'
  ```
 
@@ -413,26 +484,57 @@ curl -X 'GET' \
 
   ```json
 {
-  "id": "44206f4d-333f-4d50-865d-d7b6259de94d",
-  "nome": "Ana",
+  "id": "1e49cb08-bdc3-4125-977c-f94b5d693efe",
+  "nome": "Anderson",
   "sobrenome": "Andrade",
-  "dataNascimento": "01/01/1965",
-  "cpf": "08062364003",
+  "dataNascimento": "22/06/1965",
+  "cpf": "84483706004",
   "parent": {
-    "id": "44206f4d-333f-4d50-865d-d7b6259de94d",
-    "nome": "Ana",
+    "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
+    "nome": "José",
     "sobrenome": "Andrade",
-    "dataNascimento": "01/01/1965",
-    "cpf": "08062364003",
-    "created": "2023-07-04T16:37:17.360487Z",
-    "updated": "2023-07-04T16:37:17.360487Z",
-    "sexo": "Feminino",
-    "parentesco": "Mãe"
+    "dataNascimento": "13/03/1995",
+    "cpf": "50297831054",
+    "created": "2023-08-24T17:21:54.670558Z",
+    "updated": "2023-08-24T17:25:56.934279Z",
+    "enderecos": [
+      {
+        "cep": "71200020",
+        "rua": "SIA Trecho 2",
+        "complemento": "",
+        "numero": 104,
+        "bairro": "Zona Industrial (Guará)",
+        "cidade": "Brasília",
+        "estado": "Distrito Federal"
+      },
+      {
+        "cep": "71200021",
+        "rua": "SIA Trecho 2",
+        "complemento": "até 768 - lado par",
+        "numero": 104,
+        "bairro": "Zona Industrial (Guará)",
+        "cidade": "Brasília",
+        "estado": "Distrito Federal"
+      }
+    ],
+    "parentesco": "Pai",
+    "sexo": "Masculino"
   },
-  "created": "2023-07-04T16:37:17.360487Z",
-  "updated": "2023-07-04T16:37:17.360487Z",
-  "sexo": "Feminino",
-  "parentesco": "Mãe"
+  "created": "2023-08-24T17:21:54.699554Z",
+  "updated": "2023-08-24T17:21:54.699554Z",
+  "enderecos": [
+    {
+      "cep": "71200020",
+      "rua": "SIA Trecho 2",
+      "complemento": "",
+      "numero": 104,
+      "bairro": "Zona Industrial (Guará)",
+      "cidade": "Brasília",
+      "estado": "Distrito Federal"
+    }
+  ],
+  "parentesco": "Pai",
+  "sexo": "Masculino"
 }
   ```
 
@@ -445,13 +547,13 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/delete
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20pessoas/delete
 ```
 
 2. CURL
 
 ```shell
 curl -X 'DELETE' \
-  'http://localhost:8080/api/pessoas/6c46153b-224d-4368-bf0b-f2df7603eea7' \
+  'http://127.0.0.1:8080/api/pessoas/6c46153b-224d-4368-bf0b-f2df7603eea7' \
   -H 'accept: */*'
 ```
