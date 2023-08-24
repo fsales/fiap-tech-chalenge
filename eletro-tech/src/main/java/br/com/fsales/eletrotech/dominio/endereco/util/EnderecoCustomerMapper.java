@@ -3,15 +3,13 @@ package br.com.fsales.eletrotech.dominio.endereco.util;
 import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoResponse;
+import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoResponse;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
-import org.mapstruct.InheritConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface EnderecoCustomerMapper {
 
     EnderecoCustomerMapper INSTANCE = Mappers.getMapper(EnderecoCustomerMapper.class);
@@ -24,7 +22,9 @@ public interface EnderecoCustomerMapper {
     EnderecoResponse enderecoToEnderecoResponse(Endereco endereco);
 
     @Mapping(target = "estadoEnum", expression = "java(br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum.getEnum(endereco.getSiglaEstado()))")
-    EnderecoResponse enderecoProjectionToEnderecoResponse(EnderecoProjection endereco);
+    ListarEnderecoResponse enderecoProjectionToListarEnderecoResponse(EnderecoProjection endereco);
+
+
 
     /**
      * @param enderecoRequest

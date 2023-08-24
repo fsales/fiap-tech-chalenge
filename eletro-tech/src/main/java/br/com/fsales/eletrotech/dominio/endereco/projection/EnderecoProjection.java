@@ -29,6 +29,6 @@ public interface EnderecoProjection extends Serializable {
     Instant getUpdated();
 
     @Value(
-            "#{new br.com.fsales.eletrotech.dominio.endereco.projection.PessoaProjection(target.pessoaId, target.pessoaNome, target.pessoaSobrenome, new br.com.fsales.eletrotech.dominio.endereco.projection.ParentProjection(target.parentId, target.parentNome, target.parentSobrenome))}")
+            "#{new br.com.fsales.eletrotech.dominio.endereco.projection.PessoaProjection(target.pessoaId, target.pessoaNome, target.pessoaSobrenome,target.pessoaParentesco, new br.com.fsales.eletrotech.dominio.endereco.projection.ParentProjection(target.parentId, target.parentNome, target.parentSobrenome, target.parentParentesco))}")
     PessoaProjection getPessoa();
 }

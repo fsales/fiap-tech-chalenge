@@ -30,9 +30,11 @@ public interface IEnderecoRepository extends JpaRepository<Endereco, UUID> {
                      	e.id_pessoa as pessoaId,
                     	p.nome  as pessoaNome,
                     	p.sobrenome as pessoaSobrenome,
-                    	parent.id   parentId,
-                    	parent.nome parentNome,
-                    	parent.sobrenome parentSobrenome
+                    	p.parentesco as pessoaParentesco,
+                    	parent.id   as parentId,
+                    	parent.nome as parentNome,
+                    	parent.sobrenome as parentSobrenome,
+                    	parent.parentesco as parentParentesco
                     	
                     from
                     	endereco e

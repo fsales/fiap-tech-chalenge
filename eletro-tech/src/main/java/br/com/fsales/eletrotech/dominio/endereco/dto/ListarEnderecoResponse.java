@@ -1,6 +1,5 @@
 package br.com.fsales.eletrotech.dominio.endereco.dto;
 
-import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -10,17 +9,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.Instant;
 import java.util.UUID;
 
-
-public record EnderecoResponse(
+public record ListarEnderecoResponse(
 
         @Schema(name = "id",
                 example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
         )
         UUID id,
+
         @Schema(name = "cep",
-                example = "99999999"
+                example = "71200020"
         )
         String cep,
+
         @Schema(name = "rua",
                 example = "Rua quatro"
         )
@@ -50,6 +50,12 @@ public record EnderecoResponse(
         @Schema(hidden = true)
         EstadoEnum estadoEnum,
 
+        @Schema(name = "pessoa",
+                implementation = PessoaResponse.class,
+                anyOf = {PessoaResponse.class}
+        )
+        PessoaResponse pessoa,
+
         @Schema(name = "created")
         @JsonInclude(JsonInclude.Include.NON_NULL)
         Instant created,
@@ -73,27 +79,5 @@ public record EnderecoResponse(
     )
     public String siglaEstado() {
         return estadoEnum == null ? null : estadoEnum.sigla();
-    }
-
-    /**
-     * @param endereco
-     * @return
-     */
-    public static EnderecoResponse fromEnderecoToResponse(
-            Endereco endereco
-    ) {
-
-        return new EnderecoResponse(
-                endereco.getId(),
-                endereco.cep(),
-                endereco.getRua(),
-                endereco.getComplemento(),
-                endereco.getNumero(),
-                endereco.getBairro(),
-                endereco.getCidade(),
-                endereco.getEstado(),
-                endereco.getCreated(),
-                endereco.getUpdated()
-        );
     }
 }

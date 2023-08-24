@@ -1,10 +1,7 @@
 package br.com.fsales.eletrotech.dominio.endereco.controller;
 
 import br.com.fsales.eletrotech.dominio.endereco.controller.openapi.Swagger;
-import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoRequest;
-import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
-import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoResponse;
-import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
+import br.com.fsales.eletrotech.dominio.endereco.dto.*;
 import br.com.fsales.eletrotech.dominio.endereco.service.EnderecoService;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
 import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.Violation;
@@ -81,7 +78,7 @@ public class EnderecoController {
     )
     @PageableAsQueryParam
     @GetMapping
-    public ResponseEntity<Page<EnderecoResponse>> listar(
+    public ResponseEntity<Page<ListarEnderecoResponse>> listar(
             ListarEnderecoRequest request,
             @Parameter(hidden = true) @PageableDefault(page = 0, size = 10) Pageable pageable
     ) {
@@ -92,7 +89,7 @@ public class EnderecoController {
         );
 
         return ResponseEntity.ok(
-                enderecoPage.map(enderecoMapper::enderecoProjectionToEnderecoResponse)
+                enderecoPage.map(enderecoMapper::enderecoProjectionToListarEnderecoResponse)
         );
     }
 
@@ -148,7 +145,7 @@ public class EnderecoController {
                 .created(
                         uri
                 ).body(
-                        EnderecoDtoMapper.fromEnderecoToResponse(endereco)
+                        EnderecoResponse.fromEnderecoToResponse(endereco)
                 );
     }
 
@@ -182,7 +179,7 @@ public class EnderecoController {
         var endereco = enderecoService.detalhar(id);
 
         return ResponseEntity.ok(
-                EnderecoDtoMapper.fromEnderecoToResponse(endereco)
+                EnderecoResponse.fromEnderecoToResponse(endereco)
         );
     }
 
@@ -258,7 +255,7 @@ public class EnderecoController {
         var endereco = enderecoService.atualizar(request);
 
         return ResponseEntity.ok(
-                EnderecoDtoMapper.fromEnderecoToResponse(endereco)
+                EnderecoResponse.fromEnderecoToResponse(endereco)
         );
     }
 }
