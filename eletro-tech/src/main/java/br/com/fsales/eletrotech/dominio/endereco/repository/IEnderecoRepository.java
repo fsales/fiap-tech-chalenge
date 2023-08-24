@@ -25,13 +25,15 @@ public interface IEnderecoRepository extends JpaRepository<Endereco, UUID> {
                     	e.cidade,
                     	e.estado siglaEstado,
                     	e.cep,
-                    	e.id_pessoa idPessoa,
                     	e.created,
                      	e.updated,
-                    	p.nome,
-                    	p.sobrenome,
-                    	parent.nome nomeTitular,
-                    	parent.id   idTitular
+                     	e.id_pessoa as pessoaId,
+                    	p.nome  as pessoaNome,
+                    	p.sobrenome as pessoaSobrenome,
+                    	parent.id   parentId,
+                    	parent.nome parentNome,
+                    	parent.sobrenome parentSobrenome
+                    	
                     from
                     	endereco e
                     inner join pessoa p on

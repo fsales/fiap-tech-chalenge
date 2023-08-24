@@ -1,5 +1,7 @@
 package br.com.fsales.eletrotech.dominio.endereco.projection;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
@@ -26,13 +28,7 @@ public interface EnderecoProjection extends Serializable {
 
     Instant getUpdated();
 
-    UUID getIdPessoa();
-
-    String getNome();
-
-    String getSobrenome();
-
-    String getNomeTitular();
-
-    String getIdTitular();
+    @Value(
+            "#{new br.com.fsales.eletrotech.dominio.endereco.projection.PessoaProjection(target.pessoaId, target.pessoaNome, target.pessoaSobrenome, new br.com.fsales.eletrotech.dominio.endereco.projection.ParentProjection(target.parentId, target.parentNome, target.parentSobrenome))}")
+    PessoaProjection getPessoa();
 }
