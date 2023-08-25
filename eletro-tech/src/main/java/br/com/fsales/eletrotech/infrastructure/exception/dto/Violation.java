@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.infrastructure.handler.exception.dto;
+package br.com.fsales.eletrotech.infrastructure.exception.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

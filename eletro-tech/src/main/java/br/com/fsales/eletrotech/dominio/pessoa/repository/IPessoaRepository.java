@@ -30,4 +30,12 @@ public interface IPessoaRepository extends JpaRepository<Pessoa, UUID> {
             ListarPessoaRequest filtro,
             Pageable pageable
     );
+
+    /**
+     * verifica se o cpf já existe na base
+     *
+     * @param cpf
+     * @return
+     */
+    boolean existsByCpf(String cpf);
 }

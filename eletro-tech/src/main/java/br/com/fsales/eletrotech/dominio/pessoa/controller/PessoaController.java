@@ -6,7 +6,7 @@ import br.com.fsales.eletrotech.dominio.pessoa.dto.ListarPessoaRequest;
 import br.com.fsales.eletrotech.dominio.pessoa.dto.PessoaRequest;
 import br.com.fsales.eletrotech.dominio.pessoa.dto.PessoaResponse;
 import br.com.fsales.eletrotech.dominio.pessoa.service.PessoaService;
-import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.Violation;
+import br.com.fsales.eletrotech.infrastructure.exception.dto.Violation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

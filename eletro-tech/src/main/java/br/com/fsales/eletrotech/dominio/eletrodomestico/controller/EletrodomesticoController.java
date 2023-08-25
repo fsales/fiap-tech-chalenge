@@ -6,7 +6,7 @@ import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoReque
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.service.EletrodomesticoService;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.util.EletrodomesticoCustomerMapper;
-import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.Violation;
+import br.com.fsales.eletrotech.infrastructure.exception.dto.Violation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

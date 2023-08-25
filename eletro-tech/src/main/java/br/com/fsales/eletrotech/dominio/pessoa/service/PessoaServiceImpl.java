@@ -8,6 +8,7 @@ import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.repository.IPessoaRepository;
 import br.com.fsales.eletrotech.dominio.pessoa.util.PessoaCustomerMapper;
+import br.com.fsales.eletrotech.dominio.pessoa.validacao.ValidarPessoa;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,8 @@ public class PessoaServiceImpl implements PessoaService {
 
     private final PessoaCustomerMapper pessoaCustomerMapper;
 
+    private final List<ValidarPessoa> validadores;
+
     @Override
     public Page<Pessoa> consultaPaginada(
             final ListarPessoaRequest pessoaRequest,
@@ -55,6 +58,17 @@ public class PessoaServiceImpl implements PessoaService {
     ) {
         log.debug("Salvando a pessoa");
         List<Pessoa> dependentes = null;
+
+        // validar
+        validadores.forEach(v -> {
+            v.validar(
+                    pessoaRequest
+            );
+            v.validar(
+                    pessoaRequest
+                            .dependentes()
+            );
+        });
 
         var pessoaEntitie = PessoaMapper
                 .fromRequestToPessoa(

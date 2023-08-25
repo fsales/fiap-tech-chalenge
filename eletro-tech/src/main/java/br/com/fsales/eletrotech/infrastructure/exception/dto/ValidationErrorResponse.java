@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.infrastructure.handler.exception.dto;
+package br.com.fsales.eletrotech.infrastructure.exception.dto;
 
 import lombok.Value;
 
@@ -11,7 +11,13 @@ public class ValidationErrorResponse {
     private final List<Violation> violations = new ArrayList<>();
 
     public void violation(Violation violation) {
-        violations.add(violation);
+
+        this.violations.add(violation);
+    }
+
+    public void violation(List<Violation> violations) {
+        if (violations != null)
+            this.violations.addAll(violations);
     }
 
 }

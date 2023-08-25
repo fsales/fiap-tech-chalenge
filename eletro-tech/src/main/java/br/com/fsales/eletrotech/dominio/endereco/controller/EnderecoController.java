@@ -4,7 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.controller.openapi.Swagger;
 import br.com.fsales.eletrotech.dominio.endereco.dto.*;
 import br.com.fsales.eletrotech.dominio.endereco.service.EnderecoService;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
-import br.com.fsales.eletrotech.infrastructure.handler.exception.dto.Violation;
+import br.com.fsales.eletrotech.infrastructure.exception.dto.Violation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

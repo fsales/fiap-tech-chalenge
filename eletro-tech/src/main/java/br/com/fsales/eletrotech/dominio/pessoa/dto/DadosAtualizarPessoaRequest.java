@@ -75,5 +75,5 @@ public record DadosAtualizarPessoaRequest(
 
         @Valid
         Collection<DadosAtualizarPessoaRequest> dependentes
-) {
+) implements IPessoa {
 }

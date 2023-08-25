@@ -66,5 +66,5 @@ public record PessoaRequest(
 
         @Valid
         Collection<PessoaRequest> dependentes
-) {
+) implements IPessoa {
 }
