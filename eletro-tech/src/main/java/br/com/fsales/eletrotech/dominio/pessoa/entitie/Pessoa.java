@@ -57,7 +57,6 @@ public final class Pessoa extends BaseEntity {
     @NotNull
     private SexoEnum sexo;
 
-    @NotNull
     private ParentescoEnum parentesco;
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.dominio.pessoa.validate;
+package br.com.fsales.eletrotech.dominio.pessoa.controller.validation;
 
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
 import jakarta.validation.ConstraintValidator;
@@ -12,6 +12,7 @@ public class ParentescoValidatorImpl implements ConstraintValidator<Parentesco, 
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
-        return ParentescoEnum.getEnum(value) != null;
+
+        return value == null || ParentescoEnum.getEnum(value) != null;
     }
 }

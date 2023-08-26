@@ -60,15 +60,7 @@ public class PessoaServiceImpl implements PessoaService {
         List<Pessoa> dependentes = null;
 
         // validar
-        validadores.forEach(v -> {
-            v.validar(
-                    pessoaRequest
-            );
-            v.validar(
-                    pessoaRequest
-                            .dependentes()
-            );
-        });
+        validadores.forEach(v -> v.validar(pessoaRequest));
 
         var pessoaEntitie = PessoaMapper
                 .fromRequestToPessoa(
@@ -133,6 +125,8 @@ public class PessoaServiceImpl implements PessoaService {
     public Pessoa atualizar(
             DadosAtualizarPessoaRequest pessoaRequest
     ) {
+        // validar
+        validadores.forEach(v -> v.validar(pessoaRequest));
 
         var pessoaExistente = repository.getReferenceById(pessoaRequest.id());
 

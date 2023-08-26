@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.dominio.pessoa.validate;
+package br.com.fsales.eletrotech.dominio.pessoa.controller.validation;
 
 
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;

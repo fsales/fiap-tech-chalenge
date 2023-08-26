@@ -7,7 +7,7 @@ create table pessoa
     cpf             varchar(255) not null,
     data_nascimento date not null,
     sexo            varchar(1) not null,
-    parentesco      varchar(255),
+    parentesco varchar(1),
     created         timestamp(6) with time zone,
     updated         timestamp(6) with time zone,
     primary key (id)

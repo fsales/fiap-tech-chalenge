@@ -1,8 +1,9 @@
 package br.com.fsales.eletrotech.dominio.pessoa.dto;
 
 import br.com.fsales.eletrotech.dominio.pessoa.controller.openapi.Swagger;
-import br.com.fsales.eletrotech.dominio.pessoa.validate.Parentesco;
-import br.com.fsales.eletrotech.dominio.pessoa.validate.Sexo;
+import br.com.fsales.eletrotech.dominio.pessoa.controller.validation.Parentesco;
+import br.com.fsales.eletrotech.dominio.pessoa.controller.validation.Sexo;
+import br.com.fsales.eletrotech.dominio.pessoa.validacao.IPessoa;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
@@ -64,7 +65,6 @@ public record DadosAtualizarPessoaRequest(
                 example = "F",
                 description = "Valores possíveis: P (Pai), M (Mãe), I (Irmão(a)), F (Filho(a)) ou O (Outros)"
         )
-        @NotNull
         @Parentesco
         String siglaParentesco,
 
@@ -76,4 +76,5 @@ public record DadosAtualizarPessoaRequest(
         @Valid
         Collection<DadosAtualizarPessoaRequest> dependentes
 ) implements IPessoa {
+
 }

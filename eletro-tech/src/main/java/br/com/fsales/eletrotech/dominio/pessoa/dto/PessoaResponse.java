@@ -117,6 +117,7 @@ public record PessoaResponse(
     @Schema(name = "parentesco",
             example = "FILHO"
     )
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String parentesco() {
         return parentescoEnum == null ? null : parentescoEnum.getDescricao();
     }

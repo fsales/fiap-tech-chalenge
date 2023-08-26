@@ -4,4 +4,10 @@ import br.com.fsales.eletrotech.infrastructure.exception.EletroTechNegocioExcept
 
 public class ValidaPessoaException extends EletroTechNegocioException {
 
+    public ValidaPessoaException() {
+    }
+
+    public ValidaPessoaException(String message) {
+        super(message);
+    }
 }

@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.dominio.pessoa.validate;
+package br.com.fsales.eletrotech.dominio.pessoa.controller.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -14,9 +14,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Documented
 
-@Constraint(validatedBy = SexoValidatorImpl.class)
-public @interface Sexo {
-    String message() default "A sigla do sexo não existente.";
+@Constraint(validatedBy = ParentescoValidatorImpl.class)
+public @interface Parentesco {
+    String message() default "A sigla do parentescoEnum não existente.";
 
     Class<?>[] groups() default {};
 

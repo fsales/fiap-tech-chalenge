@@ -38,4 +38,12 @@ public interface IPessoaRepository extends JpaRepository<Pessoa, UUID> {
      * @return
      */
     boolean existsByCpf(String cpf);
+
+    /**
+     * @param cpf
+     * @param id
+     * @return
+     */
+    @Query("SELECT case when count(p)> 0 then true else false end FROM PESSOA p WHERE p.cpf = :cpf and ( :#{#id} IS NULL OR p.id <> :#{#id}) ")
+    boolean existsByCpfAndIdDifference(String cpf, UUID id);
 }
