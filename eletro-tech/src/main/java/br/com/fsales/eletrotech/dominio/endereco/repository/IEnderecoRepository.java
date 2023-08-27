@@ -18,6 +18,7 @@ public interface IEnderecoRepository extends JpaRepository<Endereco, UUID> {
             value = """
                     select
                     	e.id,
+                    	e.nome_endereco nomeEndereco,
                     	e.rua,
                     	e.complemento,
                     	e.numero,

@@ -17,6 +17,8 @@ public record DadosAtualizarEnderecoRequest(
         @NotNull
         UUID idPessoa,
         @NotEmpty
+        String nomeEndereco,
+        @NotEmpty
         @Pattern(regexp = "[0-9]{8}", message = "O CEP deve conter somente número com 8 posições")
         String cep,
         @NotEmpty

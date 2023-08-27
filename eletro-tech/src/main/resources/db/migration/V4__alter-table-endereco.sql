@@ -3,6 +3,8 @@ ALTER TABLE endereco
     ADD id_pessoa uuid not null;
 ALTER TABLE endereco
     ADD cep varchar(8) not null;
+ALTER TABLE endereco
+    ADD nome_endereco varchar(255) not null;
 
 
 -- adincionar constraints

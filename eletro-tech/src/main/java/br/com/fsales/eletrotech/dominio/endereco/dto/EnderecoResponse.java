@@ -17,6 +17,10 @@ public record EnderecoResponse(
                 example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
         )
         UUID id,
+        @Schema(name = "nomeEndereco",
+                example = "Minha Casa"
+        )
+        String nomeEndereco,
         @Schema(name = "cep",
                 example = "99999999"
         )
@@ -85,6 +89,7 @@ public record EnderecoResponse(
 
         return new EnderecoResponse(
                 endereco.getId(),
+                endereco.getNomeEndereco(),
                 endereco.cep(),
                 endereco.getRua(),
                 endereco.getComplemento(),

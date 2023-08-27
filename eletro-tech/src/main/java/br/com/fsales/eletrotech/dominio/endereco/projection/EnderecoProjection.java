@@ -10,6 +10,8 @@ public interface EnderecoProjection extends Serializable {
 
     UUID getId();
 
+    String getNomeEndereco();
+
     String getRua();
 
     String getComplemento();

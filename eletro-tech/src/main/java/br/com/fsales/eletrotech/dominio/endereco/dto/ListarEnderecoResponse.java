@@ -15,7 +15,10 @@ public record ListarEnderecoResponse(
                 example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
         )
         UUID id,
-
+        @Schema(name = "nomeCep",
+                example = "Minha Casa"
+        )
+        String nomeEndereco,
         @Schema(name = "cep",
                 example = "71200020"
         )

@@ -33,6 +33,8 @@ public class Endereco extends BaseEntity {
     @UuidGenerator
     private UUID id;
 
+    private String nomeEndereco;
+
     private String cep;
 
     private String rua;
@@ -62,6 +64,15 @@ public class Endereco extends BaseEntity {
 
     public Endereco setId(UUID id) {
         this.id = id;
+        return this;
+    }
+
+    public String getNomeEndereco() {
+        return nomeEndereco;
+    }
+
+    public Endereco setNomeEndereco(String nomeEndereco) {
+        this.nomeEndereco = nomeEndereco;
         return this;
     }
 
