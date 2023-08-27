@@ -19,12 +19,20 @@ public interface IPessoaRepository extends JpaRepository<Pessoa, UUID> {
      * @return
      */
     @Query(
-            "SELECT pessoa FROM PESSOA pessoa LEFT JOIN FETCH pessoa.dependentes dependentes " +
-                    "WHERE (:#{#filtro?.nome} IS NULL OR UPPER(pessoa.nome) LIKE  CONCAT('%',upper(:#{#filtro?.nome}),'%') )" +
-                    "AND (:#{#filtro?.sobrenome} IS NULL OR UPPER(pessoa.sobrenome) LIKE  CONCAT('%',upper(:#{#filtro?.sobrenome}),'%') )" +
-                    "AND (:#{#filtro?.siglaSexo} IS NULL OR UPPER(pessoa.sexo) = upper(:#{#filtro?.siglaSexo}) )" +
-                    "AND (:#{#filtro?.siglaParentesco} IS NULL OR UPPER(pessoa.parentesco) = upper(:#{#filtro?.siglaParentesco}) )" +
-                    "AND (:#{#filtro?.cpf} IS NULL OR UPPER(pessoa.cpf) = upper(:#{#filtro?.cpf}) )"
+            value = """
+                            SELECT pessoa FROM PESSOA pessoa
+                                WHERE
+                                    (:#{#filtro?.nome} IS NULL OR UPPER(pessoa.nome) LIKE  CONCAT('%',upper(:#{#filtro?.nome}),'%') )
+                                AND 
+                                    (:#{#filtro?.sobrenome} IS NULL OR UPPER(pessoa.sobrenome) LIKE  CONCAT('%',upper(:#{#filtro?.sobrenome}),'%') )
+                                AND 
+                                    (:#{#filtro?.siglaSexo} IS NULL OR UPPER(pessoa.sexo) = upper(:#{#filtro?.siglaSexo}) )
+                                AND
+                                    (:#{#filtro?.siglaParentesco} IS NULL OR UPPER(pessoa.parentesco) = upper(:#{#filtro?.siglaParentesco}) )
+                                AND 
+                                    (:#{#filtro?.cpf} IS NULL OR UPPER(pessoa.cpf) = upper(:#{#filtro?.cpf}) )
+                            
+                    """
     )
     Page<Pessoa> consultarPessoaPaginada(
             ListarPessoaRequest filtro,

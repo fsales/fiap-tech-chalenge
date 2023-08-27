@@ -74,7 +74,7 @@ public final class Pessoa extends BaseEntity {
     @OneToMany(
             mappedBy = "pessoa"
     )
-    private List<Endereco> enderecos = List.of();
+    private List<Endereco> enderecos = new ArrayList<>();
 
     @Override
     public UUID getId() {
