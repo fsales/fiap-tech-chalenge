@@ -2,9 +2,9 @@ create table pessoa
 (
     id              uuid         not null,
     id_parent       uuid,
-    nome            varchar(255) not null,
-    sobrenome       varchar(255) not null,
-    cpf             varchar(255) not null,
+    nome      varchar(100) not null,
+    sobrenome varchar(100) not null,
+    cpf       varchar(11)  not null,
     data_nascimento date not null,
     sexo            varchar(1) not null,
     parentesco varchar(1),
