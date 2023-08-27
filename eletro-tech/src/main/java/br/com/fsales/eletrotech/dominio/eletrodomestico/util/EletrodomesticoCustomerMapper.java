@@ -6,6 +6,7 @@ import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRespo
 import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
@@ -24,6 +25,8 @@ public interface EletrodomesticoCustomerMapper {
      * @param eletrodomesticoRequest
      * @return
      */
+    @Mapping(target = "pessoa.id", source = "idPessoa")
+    @Mapping(target = "endereco.id", source = "idEndereco")
     Eletrodomestico eletrodomesticoRequestToEletrodomestico(EletrodomesticoRequest eletrodomesticoRequest);
 
     /**

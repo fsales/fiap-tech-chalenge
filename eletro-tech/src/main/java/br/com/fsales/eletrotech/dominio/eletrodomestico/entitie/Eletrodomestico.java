@@ -1,10 +1,9 @@
 package br.com.fsales.eletrotech.dominio.eletrodomestico.entitie;
 
+import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -44,6 +43,22 @@ public class Eletrodomestico extends BaseEntity {
     private Integer voltagem;
 
     private Integer tempoUsoDiario;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "id_pessoa",
+            referencedColumnName = "id",
+            columnDefinition = "fk_eletrodomentico_pessoa"
+    )
+    private Pessoa pessoa;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "id_endereco",
+            referencedColumnName = "id",
+            columnDefinition = "fk_eletrodomentico_endereco"
+    )
+    private Endereco endereco;
 
     public UUID id() {
         return id;
@@ -109,6 +124,24 @@ public class Eletrodomestico extends BaseEntity {
 
     public Eletrodomestico setTempoUsoDiario(Integer tempoUsoDiario) {
         this.tempoUsoDiario = tempoUsoDiario;
+        return this;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public Eletrodomestico setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public Eletrodomestico setEndereco(Endereco endereco) {
+        this.endereco = endereco;
         return this;
     }
 }

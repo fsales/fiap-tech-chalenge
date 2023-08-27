@@ -5,6 +5,7 @@ import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoReque
 import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.repository.EletrodomesticoRepository;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.util.EletrodomesticoCustomerMapper;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.validacao.ValidarEletrodomestico;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -24,6 +26,8 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
     private final EletrodomesticoRepository eletrodomesticoRepository;
 
     private final EletrodomesticoCustomerMapper eletrodomesticoCustomerMapper;
+
+    private final List<ValidarEletrodomestico> validadores;
 
     /**
      * @param pageable
@@ -45,7 +49,11 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
     public Eletrodomestico cadastrar(final EletrodomesticoRequest eletrodomesticoRequest) {
         log.debug("Salvando eletrodomestico");
 
-        var eletrodomestico = eletrodomesticoCustomerMapper.eletrodomesticoRequestToEletrodomestico(eletrodomesticoRequest);
+        validadores.forEach(v -> v.validar(eletrodomesticoRequest));
+        var eletrodomestico = eletrodomesticoCustomerMapper
+                .eletrodomesticoRequestToEletrodomestico(
+                        eletrodomesticoRequest
+                );
 
         return eletrodomesticoRepository.save(eletrodomestico);
     }
