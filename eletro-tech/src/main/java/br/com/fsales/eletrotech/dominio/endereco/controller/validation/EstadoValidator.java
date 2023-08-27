@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.dominio.endereco.validate;
+package br.com.fsales.eletrotech.dominio.endereco.controller.validation;
 
 import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
 import jakarta.validation.ConstraintValidator;

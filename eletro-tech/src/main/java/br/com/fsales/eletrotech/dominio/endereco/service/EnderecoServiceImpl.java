@@ -7,6 +7,7 @@ import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
+import br.com.fsales.eletrotech.dominio.endereco.validacao.ValidarEndereco;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -26,6 +28,8 @@ public class EnderecoServiceImpl implements EnderecoService {
     private final IEnderecoRepository enderecoRepository;
 
     private final EnderecoCustomerMapper enderecoMapper;
+
+    private final List<ValidarEndereco> validadores;
 
     /**
      * @param filtro
@@ -55,6 +59,9 @@ public class EnderecoServiceImpl implements EnderecoService {
     ) {
 
         log.debug("Salvando endereço");
+
+        // validar
+        validadores.forEach(v -> v.validar(enderecoRequest));
 
         var estado = enderecoMapper.enderecoRequestToEndereco(
                 enderecoRequest
@@ -96,6 +103,7 @@ public class EnderecoServiceImpl implements EnderecoService {
     @Transactional
     public Endereco atualizar(DadosAtualizarEnderecoRequest enderecoRequest) {
 
+        validadores.forEach(v -> v.validar(enderecoRequest));
         var enderecoExistente = enderecoRepository.getReferenceById(enderecoRequest.id());
 
 

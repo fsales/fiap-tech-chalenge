@@ -1,6 +1,7 @@
 package br.com.fsales.eletrotech.dominio.endereco.dto;
 
-import br.com.fsales.eletrotech.dominio.endereco.validate.Estado;
+import br.com.fsales.eletrotech.dominio.endereco.controller.validation.Estado;
+import br.com.fsales.eletrotech.dominio.endereco.validacao.IEndereco;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -38,5 +39,5 @@ public record DadosAtualizarEnderecoRequest(
         @NotEmpty
         @Estado
         String siglaEstado
-) {
+) implements IEndereco {
 }
