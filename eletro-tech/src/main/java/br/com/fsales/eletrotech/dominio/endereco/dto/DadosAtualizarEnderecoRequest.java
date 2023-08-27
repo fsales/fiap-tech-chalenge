@@ -15,8 +15,6 @@ public record DadosAtualizarEnderecoRequest(
         )
         @NotNull
         UUID id,
-        @NotNull
-        UUID idPessoa,
         @NotEmpty
         String nomeEndereco,
         @NotEmpty

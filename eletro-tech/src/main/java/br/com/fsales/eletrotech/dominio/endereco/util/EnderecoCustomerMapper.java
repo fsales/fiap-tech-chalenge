@@ -40,6 +40,7 @@ public interface EnderecoCustomerMapper {
      */
     @InheritConfiguration
     @Mapping(target = "estado", expression = "java(br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum.getEnum(enderecoRequest.siglaEstado()))")
+    @Mapping(target = "id", ignore = true)
     void update(DadosAtualizarEnderecoRequest enderecoRequest, @MappingTarget Endereco endereco);
 
 }

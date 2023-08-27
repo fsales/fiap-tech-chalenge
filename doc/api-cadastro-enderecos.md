@@ -21,23 +21,26 @@ A API de gestão de endereços tem como objetivo permitir o gerenciamento de inf
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/cadastrar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/cadastrar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'POST' \
-  'http://localhost:8080/api/enderecos' \
+  'http://127.0.0.1:8080/api/enderecos' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "rua": "Nova Conquista",
-  "complemento": "Bloco 5",
-  "numero": 104,
-  "bairro": "Conquista",
-  "cidade": "Salvador",
-  "siglaEstado": "BA"
+  "idPessoa": "6bdfe9d7-b8ca-48db-b1b9-8c1e58573cf2",
+  "nomeEndereco": "Minha Casa",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 10,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "siglaEstado": "SP"
 }'
 ```
 
@@ -46,14 +49,18 @@ curl -X 'POST' \
 
 ```json
 {
-  "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista",
-  "complemento": "Bloco 5",
-  "numero": 104,
-  "bairro": "Conquista",
-  "cidade": "Salvador",
-  "nomeEstado": "Bahia",
-  "siglaEstado": "BA"
+  "id": "4603b9ae-4a82-4222-8143-4e681cd626bf",
+  "nomeEndereco": "Minha Casa",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 10,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "created": "2023-08-27T18:57:25.537450500Z",
+  "updated": "2023-08-27T18:57:25.537450500Z",
+  "nomeEstado": "São Paulo",
+  "siglaEstado": "SP"
 }
 ```
 
@@ -66,24 +73,26 @@ curl -X 'POST' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/atualizar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/atualizar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'PUT' \
-  'http://localhost:8080/api/enderecos' \
+  'http://127.0.0.1:8080/api/enderecos' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "id":"bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista II",
-  "complemento": "Bloco 15",
-  "numero": 10,
-  "bairro": "Nova Morada",
-  "cidade": "Correntina",
-  "siglaEstado": "BA"
+  "id": "4603b9ae-4a82-4222-8143-4e681cd626bf",
+  "nomeEndereco": "Minha Casa 2",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 11,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "siglaEstado": "SP"
 }'
 ```
 
@@ -92,14 +101,18 @@ curl -X 'PUT' \
 
 ```json
 {
-  "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista II",
-  "complemento": "Bloco 15",
-  "numero": 10,
-  "bairro": "Nova Morada",
-  "cidade": "Correntina",
-  "siglaEstado": "BA",
-  "nomeEstado": "Bahia"
+  "id": "4603b9ae-4a82-4222-8143-4e681cd626bf",
+  "nomeEndereco": "Minha Casa 2",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 11,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "created": "2023-08-27T18:57:25.537451Z",
+  "updated": "2023-08-27T19:06:43.548875100Z",
+  "siglaEstado": "SP",
+  "nomeEstado": "São Paulo"
 }
 ```
 
@@ -112,14 +125,14 @@ curl -X 'PUT' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/listar
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/listar
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/enderecos?page=0&size=20' \
+  'http://127.0.0.1:8080/api/enderecos?idPessoa=6bdfe9d7-b8ca-48db-b1b9-8c1e58573cf2&rua=SIA%20Trecho%202&bairro=Zona%20Industrial&cidade=Bras%C3%ADlia&siglaEstado=df&page=0&size=20' \
   -H 'accept: application/json'
  ```
 
@@ -130,40 +143,42 @@ curl -X 'GET' \
   {
   "content": [
     {
-      "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-      "rua": "Nova Conquista II",
-      "complemento": "Bloco 15",
-      "numero": 10,
-      "bairro": "Nova Morada",
-      "cidade": "Correntina",
-      "siglaEstado": "BA",
-      "nomeEstado": "Bahia"
+      "id": "6d2c13ef-7028-4741-9bac-a75f5c5cfa96",
+      "nomeEndereco": "Casa do meu filho",
+      "cep": "71200021",
+      "rua": "SIA Trecho 2",
+      "complemento": "até 768 - lado par",
+      "numero": 104,
+      "bairro": "Zona Industrial (Guará)",
+      "cidade": "Brasília",
+      "pessoa": {
+        "idPessoa": "6bdfe9d7-b8ca-48db-b1b9-8c1e58573cf2",
+        "nome": "Marcos",
+        "sobrenome": "Andrade",
+        "parent": {}
+      },
+      "created": "2023-08-27T18:50:01.493630Z",
+      "updated": "2023-08-27T18:50:01.493630Z",
+      "siglaEstado": "DF",
+      "nomeEstado": "Distrito Federal"
     }
   ],
   "pageable": {
-    "sort": {
-      "empty": false,
-      "sorted": true,
-      "unsorted": false
-    },
+    "sort": [],
     "offset": 0,
     "pageNumber": 0,
     "pageSize": 20,
-    "unpaged": false,
-    "paged": true
+    "paged": true,
+    "unpaged": false
   },
   "last": true,
-  "totalElements": 1,
   "totalPages": 1,
+  "totalElements": 1,
   "size": 20,
   "number": 0,
-  "sort": {
-    "empty": false,
-    "sorted": true,
-    "unsorted": false
-  },
-  "numberOfElements": 1,
+  "sort": [],
   "first": true,
+  "numberOfElements": 1,
   "empty": false
 }
   ```
@@ -177,14 +192,14 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/detalhar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/detalhar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/enderecos/bed06b7c-9767-4418-8096-6942dfa2646a' \
+  'http://127.0.0.1:8080/api/enderecos/4bc6b235-84ae-40fe-8930-0ee0530fc170' \
   -H 'accept: application/json'
  ```
 
@@ -193,14 +208,18 @@ curl -X 'GET' \
 
   ```json
 {
-  "id": "bed06b7c-9767-4418-8096-6942dfa2646a",
-  "rua": "Nova Conquista II",
-  "complemento": "Bloco 15",
-  "numero": 10,
-  "bairro": "Nova Morada",
-  "cidade": "Correntina",
-  "siglaEstado": "BA",
-  "nomeEstado": "Bahia"
+  "id": "4bc6b235-84ae-40fe-8930-0ee0530fc170",
+  "nomeEndereco": "Minha Casa 2",
+  "cep": "01001000",
+  "rua": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "numero": 11,
+  "bairro": "Sé",
+  "cidade": "São Paulo",
+  "created": "2023-08-27T18:57:25.537451Z",
+  "updated": "2023-08-27T19:06:43.548875Z",
+  "siglaEstado": "SP",
+  "nomeEstado": "São Paulo"
 }
   ```
 
@@ -213,13 +232,13 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/delete_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Endere%C3%A7os/delete_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'DELETE' \
-  'http://localhost:8080/api/enderecos/bed06b7c-9767-4418-8096-6942dfa2646a' \
+  'http://127.0.0.1:8080/api/enderecos/bed06b7c-9767-4418-8096-6942dfa2646a' \
   -H 'accept: */*'
 ```
