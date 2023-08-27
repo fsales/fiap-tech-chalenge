@@ -26,3 +26,8 @@ logging:
     br:
       com:
         fsales: debug
+    org:
+      hibernate:
+        type: TRACE
+        SQL: DEBUG
+

@@ -21,6 +21,7 @@
     - [Aluno](#aluno)
   - [Ferramentas](#ferramentas)
   - [Tecnologias](#tecnologias)
+  - [Integração com Serviços](#integração-com-serviços)
   - [Pré-requisitos](#pré-requisitos)
   - [Como Executar](#como-executar)
     - [Localmente](#localmente)
@@ -126,6 +127,19 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
 
   > O [Lombok](https://projectlombok.org/) é um framework para Java que permite escrever código eliminando a verbosidade, o que permite ganhar tempo de desenvolvimento para o que realmente é importante. Seu uso permite gerar em tempo de compilação os métodos getters e setters, métodos construtores, padrão builder e muito mais[^8].
 </details>
+
+<details>
+  <summary>Spring Cloud OpenFeign</summary>
+
+> O [Spring Cloud OpenFeign](https://spring.io/projects/spring-cloud-openfeign) é uma biblioteca que facilita a criação
+> de clientes HTTP sem escreve muito código fonte. Um cliente HTTP e usado para comunicação com outros microsserviços
+> quando trabalhamos com API de terceiros ou integrando com sistemas internos.
+</details>
+
+## Integração com Serviços
+
+- ViaCEP
+  > O [ViaCEP](https://viacep.com.br/) é um serviço para consulta gratuita de código postais de endereçamento do Brasil.
 
 ## Pré-requisitos
 
