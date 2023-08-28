@@ -6,6 +6,7 @@ import br.com.fsales.eletrotech.dominio.pessoa.dto.PessoaRequest;
 import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;
+import br.com.fsales.eletrotech.dominio.pessoa.integracao.IValidarPessaoIntegracao;
 import br.com.fsales.eletrotech.dominio.pessoa.repository.IPessoaRepository;
 import br.com.fsales.eletrotech.dominio.pessoa.util.PessoaCustomerMapper;
 import br.com.fsales.eletrotech.dominio.pessoa.validacao.ValidarPessoa;
@@ -29,7 +30,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class PessoaServiceImpl implements PessoaService {
+public class PessoaServiceImpl implements PessoaService, IValidarPessaoIntegracao {
 
     public static final String PESSOA_NAO_ENCONTRADA = "Pessoa não encontrada.";
 
@@ -190,5 +191,16 @@ public class PessoaServiceImpl implements PessoaService {
     private Pessoa addParentToPessoa(Pessoa parent, Pessoa pessoa) {
 
         return pessoa.setParent(parent);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean verificarSeIdExiste(final UUID id) {
+
+        return Objects.nonNull(id) &&
+               repository.existsById(id);
     }
 }

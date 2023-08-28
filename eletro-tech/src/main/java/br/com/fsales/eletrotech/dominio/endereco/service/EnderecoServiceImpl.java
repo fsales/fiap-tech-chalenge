@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoReque
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.dominio.endereco.integracao.IValidarEnderecoIntegracao;
 import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.dominio.endereco.util.EnderecoCustomerMapper;
@@ -17,13 +18,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 
-public class EnderecoServiceImpl implements EnderecoService {
+public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoIntegracao {
 
     private final IEnderecoRepository enderecoRepository;
 
@@ -110,5 +112,15 @@ public class EnderecoServiceImpl implements EnderecoService {
         enderecoMapper.update(enderecoRequest, enderecoExistente);
 
         return enderecoExistente;
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean verificarSeIdExiste(UUID id) {
+        return Objects.nonNull(id) &&
+               enderecoRepository.existsById(id);
     }
 }

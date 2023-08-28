@@ -1,27 +1,25 @@
 package br.com.fsales.eletrotech.dominio.eletrodomestico.validacao;
 
 
-import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
+import br.com.fsales.eletrotech.dominio.endereco.integracao.IValidarEnderecoIntegracao;
 import br.com.fsales.eletrotech.dominio.endereco.validacao.exception.ValidarEnderecoException;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ValidarEletrodomesticoIdentificadorEndereco implements ValidarEletrodomestico {
 
-    private final IEnderecoRepository enderecoRepository;
+    private final IValidarEnderecoIntegracao validarEnderecoIntegracao;
 
-    public ValidarEletrodomesticoIdentificadorEndereco(IEnderecoRepository enderecoRepository) {
-        this.enderecoRepository = enderecoRepository;
+    public ValidarEletrodomesticoIdentificadorEndereco(IValidarEnderecoIntegracao validarEnderecoIntegracao) {
+        this.validarEnderecoIntegracao = validarEnderecoIntegracao;
     }
 
     /**
      * @param eletrodomestico
      */
     @Override
-    public void validar(IEletrodomestico eletrodomestico) {
-        if (eletrodomestico.idEndereco() != null &&
-            !enderecoRepository.existsById(eletrodomestico.idEndereco())
-        )
+    public void validar(final IEletrodomestico eletrodomestico) {
+        if (!validarEnderecoIntegracao.verificarSeIdExiste(eletrodomestico.idEndereco()))
             throw new ValidarEnderecoException(
                     String.format(
                             "Não foi localizado o endereço de id: %s ",

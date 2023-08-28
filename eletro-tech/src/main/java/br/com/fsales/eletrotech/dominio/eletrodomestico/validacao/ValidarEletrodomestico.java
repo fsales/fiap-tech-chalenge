@@ -1,5 +1,5 @@
 package br.com.fsales.eletrotech.dominio.eletrodomestico.validacao;
 
 public interface ValidarEletrodomestico {
-    void validar(IEletrodomestico eletrodomestico);
+    void validar(final IEletrodomestico eletrodomestico);
 }
