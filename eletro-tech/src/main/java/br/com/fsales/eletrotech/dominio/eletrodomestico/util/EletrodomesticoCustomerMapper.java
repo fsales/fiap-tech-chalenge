@@ -19,6 +19,8 @@ public interface EletrodomesticoCustomerMapper {
      * @param eletrodomestico
      * @return
      */
+    @Mapping(target = "idPessoa", source = "pessoa.id")
+    @Mapping(target = "idEndereco", source = "endereco.id")
     EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(Eletrodomestico eletrodomestico);
 
     /**
@@ -34,6 +36,9 @@ public interface EletrodomesticoCustomerMapper {
      * @param eletrodomestico
      */
     @InheritConfiguration
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "pessoa", ignore = true)
+    @Mapping(target = "endereco", ignore = true)
     void update(DadosAtualizarEletrodomesticoRequest enderecoRequest, @MappingTarget Eletrodomestico eletrodomestico);
 
 }

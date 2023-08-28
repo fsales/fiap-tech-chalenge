@@ -94,9 +94,12 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
     public Eletrodomestico atualizar(final DadosAtualizarEletrodomesticoRequest eletrodomesticoRequest) {
         log.debug("Atualizando eletrodomestico");
 
-        var eletrodomesticoExistente = eletrodomesticoRepository.getReferenceById(eletrodomesticoRequest.id());
+        var eletrodomesticoExistente = eletrodomesticoRepository
+                .getReferenceById(eletrodomesticoRequest.id());
 
         eletrodomesticoCustomerMapper.update(eletrodomesticoRequest, eletrodomesticoExistente);
+
+        eletrodomesticoRepository.saveAndFlush(eletrodomesticoExistente);
 
         return eletrodomesticoExistente;
     }

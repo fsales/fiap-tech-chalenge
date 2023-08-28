@@ -11,6 +11,14 @@ public record EletrodomesticoResponse(
                 example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
         )
         UUID id,
+        @Schema(name = "idPessoa",
+                example = "6aaefc80-b9dc-4512-bbed-6dbebe396636"
+        )
+        UUID idPessoa,
+        @Schema(name = "idEndereco",
+                example = "4bc6b235-84ae-40fe-8930-0ee0530fc170"
+        )
+        UUID idEndereco,
 
         @Schema(name = "nome",
                 example = "Microondas"

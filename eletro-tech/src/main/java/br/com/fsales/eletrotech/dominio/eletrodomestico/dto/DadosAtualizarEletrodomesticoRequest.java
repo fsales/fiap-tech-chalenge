@@ -8,12 +8,11 @@ import java.util.UUID;
 
 public record DadosAtualizarEletrodomesticoRequest(
         @Schema(name = "id",
-                example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
+                example = "71a0c60b-2da6-47c2-8402-51ef163f96bf"
         )
 
         @NotNull
         UUID id,
-
         @Schema(name = "nome",
                 example = "Microondas"
         )
@@ -21,31 +20,31 @@ public record DadosAtualizarEletrodomesticoRequest(
         String nome,
 
         @Schema(name = "modelo",
-                example = "MRAS2"
+                example = "MRAS222"
         )
         @NotEmpty
         String modelo,
 
         @Schema(name = "potencia",
-                example = "700"
+                example = "800"
         )
         @NotNull
         Integer potencia,
 
         @Schema(name = "fabricante",
-                example = "Electrolux"
+                example = "Electrolux SA"
         )
         @NotEmpty
         String fabricante,
 
         @Schema(name = "voltagem",
-                example = "220"
+                example = "110"
         )
         @NotNull
         Integer voltagem,
 
         @Schema(name = "tempoUsoDiario",
-                example = "4"
+                example = "8"
         )
         @NotNull
         Integer tempoUsoDiario

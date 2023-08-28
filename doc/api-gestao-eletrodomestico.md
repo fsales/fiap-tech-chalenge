@@ -21,17 +21,19 @@ A API de gestão de eletrodomésticos tem como objetivo permitir o cadastro e ge
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/cadastrar_2
+http://127.0.0.1:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/cadastrar_2
 ```
 
 2. CURL
 
 ```shell
 curl -X 'POST' \
-  'http://localhost:8080/api/eletrodomesticos' \
+  'http://127.0.0.1:8080/api/eletrodomesticos' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
+  "idPessoa": "6aaefc80-b9dc-4512-bbed-6dbebe396636",
+  "idEndereco": "4bc6b235-84ae-40fe-8930-0ee0530fc170",
   "nome": "Microondas",
   "modelo": "MRAS2",
   "potencia": 700,
@@ -46,15 +48,17 @@ curl -X 'POST' \
 
 ```json
 {
-    "id": "dde2e939-933a-4def-af7c-146b8320b485",
-    "nome": "Microondas",
-    "modelo": "MRAS2",
-    "potencia": 700,
-    "fabricante": "Electrolux",
-    "voltagem": 220,
-    "tempoUsoDiario": 4,
-    "created": "2023-07-04T12:46:27.606387600Z",
-    "updated": "2023-07-04T12:46:27.606387600Z"
+  "id": "af0f67c8-2cee-4cbc-be59-275f5c41da33",
+  "idPessoa": "6aaefc80-b9dc-4512-bbed-6dbebe396636",
+  "idEndereco": "4bc6b235-84ae-40fe-8930-0ee0530fc170",
+  "nome": "Microondas",
+  "modelo": "MRAS2",
+  "potencia": 700,
+  "fabricante": "Electrolux",
+  "voltagem": 220,
+  "tempoUsoDiario": 4,
+  "created": "2023-08-28T23:06:27.045231800Z",
+  "updated": "2023-08-28T23:06:27.045231800Z"
 }
 ```
 
@@ -67,24 +71,24 @@ curl -X 'POST' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/atualizar_2
+http://127.0.0.1:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/atualizar_2
 ```
 
 2. CURL
 
 ```shell
 curl -X 'PUT' \
-  'http://localhost:8080/api/eletrodomesticos' \
+  'http://127.0.0.1:8080/api/eletrodomesticos' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "id": "dde2e939-933a-4def-af7c-146b8320b485",
+  "id": "71a0c60b-2da6-47c2-8402-51ef163f96bf",
   "nome": "Microondas",
-  "modelo": "MRAS2",
-  "potencia": 700,
-  "fabricante": "Electrolux",
-  "voltagem": 220,
-  "tempoUsoDiario": 4
+  "modelo": "MRAS222",
+  "potencia": 800,
+  "fabricante": "Electrolux SA",
+  "voltagem": 110,
+  "tempoUsoDiario": 8
 }'
 ```
 
@@ -93,15 +97,17 @@ curl -X 'PUT' \
 
 ```json
 {
-  "id": "dde2e939-933a-4def-af7c-146b8320b485",
+  "id": "71a0c60b-2da6-47c2-8402-51ef163f96bf",
+  "idPessoa": "6aaefc80-b9dc-4512-bbed-6dbebe396636",
+  "idEndereco": "4bc6b235-84ae-40fe-8930-0ee0530fc170",
   "nome": "Microondas",
-  "modelo": "MRAS2",
-  "potencia": 700,
-  "fabricante": "Electrolux",
-  "voltagem": 220,
-  "tempoUsoDiario": 4,
-  "created": "2023-07-04T12:46:27.606388Z",
-  "updated": "2023-07-04T12:46:27.606388Z"
+  "modelo": "MRAS222",
+  "potencia": 800,
+  "fabricante": "Electrolux SA",
+  "voltagem": 110,
+  "tempoUsoDiario": 8,
+  "created": "2023-08-27T19:43:57.800257Z",
+  "updated": "2023-08-28T23:19:51.680733Z"
 }
 ```
 
@@ -114,14 +120,14 @@ curl -X 'PUT' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/listar_1
+http://127.0.0.1:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/listar_1
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/eletrodomesticos?page=0&size=20' \
+  'http://127.0.0.1:8080/api/eletrodomesticos?page=0&size=20' \
   -H 'accept: application/json'
  ```
 
@@ -180,14 +186,14 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/detalhar_2
+http://127.0.0.1:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/detalhar_2
 ```
 
 2. CURL
 
 ```shell
 curl -X 'GET' \
-  'http://localhost:8080/api/eletrodomesticos/dde2e939-933a-4def-af7c-146b8320b485' \
+  'http://127.0.0.1:8080/api/eletrodomesticos/dde2e939-933a-4def-af7c-146b8320b485' \
   -H 'accept: application/json'
  ```
 
@@ -217,13 +223,13 @@ curl -X 'GET' \
 1. Swagger
 
 ```shell
-http://localhost:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/delete_2
+http://127.0.0.1:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de%20eletrodom%C3%A9sticos/delete_2
 ```
 
 2. CURL
 
 ```shell
 curl -X 'DELETE' \
-  'http://localhost:8080/api/eletrodomesticos/dde2e939-933a-4def-af7c-146b8320b485' \
+  'http://127.0.0.1:8080/api/eletrodomesticos/dde2e939-933a-4def-af7c-146b8320b485' \
   -H 'accept: */*'
 ```
