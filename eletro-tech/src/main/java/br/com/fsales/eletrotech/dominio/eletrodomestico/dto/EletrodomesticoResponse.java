@@ -1,6 +1,9 @@
 package br.com.fsales.eletrotech.dominio.eletrodomestico.dto;
 
+import br.com.fsales.eletrotech.dominio.eletrodomestico.consumo.ICalcularConsumo;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.consumo.IDadosAparelho;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.Instant;
@@ -57,5 +60,14 @@ public record EletrodomesticoResponse(
         @Schema(name = "updated")
         @JsonInclude(JsonInclude.Include.NON_NULL)
         Instant updated
-) {
+) implements IDadosAparelho, ICalcularConsumo {
+
+    @JsonProperty
+    @Schema(name = "consumo",
+            example = "60 kwh/mês",
+            description = "o consumo em kWh do equipamento por dia"
+    )
+    public ConsumoResposta consumo() {
+        return consumoAparelho(this);
+    }
 }

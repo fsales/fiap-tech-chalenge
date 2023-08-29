@@ -193,7 +193,7 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/A%20API%20de%20gest%C3%A3o%20de
 
 ```shell
 curl -X 'GET' \
-  'http://127.0.0.1:8080/api/eletrodomesticos/dde2e939-933a-4def-af7c-146b8320b485' \
+  'http://127.0.0.1:8080/api/eletrodomesticos/71a0c60b-2da6-47c2-8402-51ef163f96bf' \
   -H 'accept: application/json'
  ```
 
@@ -202,15 +202,21 @@ curl -X 'GET' \
 
   ```json
 {
-  "id": "dde2e939-933a-4def-af7c-146b8320b485",
+  "id": "71a0c60b-2da6-47c2-8402-51ef163f96bf",
+  "idPessoa": "6aaefc80-b9dc-4512-bbed-6dbebe396636",
+  "idEndereco": "4bc6b235-84ae-40fe-8930-0ee0530fc170",
   "nome": "Microondas",
-  "modelo": "MRAS2",
-  "potencia": 700,
-  "fabricante": "Electrolux",
-  "voltagem": 220,
-  "tempoUsoDiario": 4,
-  "created": "2023-07-04T12:46:27.606388Z",
-  "updated": "2023-07-04T12:46:27.606388Z"
+  "modelo": "MRAS222",
+  "potencia": 800,
+  "fabricante": "Electrolux SA",
+  "voltagem": 110,
+  "tempoUsoDiario": 8,
+  "created": "2023-08-27T19:43:57.800257Z",
+  "updated": "2023-08-28T23:19:51.680733Z",
+  "consumo": {
+    "watt": 192,
+    "unidadeMedida": "kwh/Mês"
+  }
 }
   ```
 

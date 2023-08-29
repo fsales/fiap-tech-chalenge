@@ -2,6 +2,7 @@ package br.com.fsales.eletrotech.dominio.eletrodomestico.service;
 
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.DadosAtualizarEletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRequest;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.repository.EletrodomesticoRepository;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.util.EletrodomesticoCustomerMapper;
@@ -46,7 +47,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      */
     @Override
     @Transactional
-    public Eletrodomestico cadastrar(final EletrodomesticoRequest eletrodomesticoRequest) {
+    public EletrodomesticoResponse cadastrar(final EletrodomesticoRequest eletrodomesticoRequest) {
         log.debug("Salvando eletrodomestico");
 
         validadores.forEach(v -> v.validar(eletrodomesticoRequest));
@@ -55,7 +56,10 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
                         eletrodomesticoRequest
                 );
 
-        return eletrodomesticoRepository.save(eletrodomestico);
+        return eletrodomesticoCustomerMapper
+                .eletrodomesticoToEletrodomesticoResponse(
+                        eletrodomesticoRepository.save(eletrodomestico)
+                );
     }
 
     /**
@@ -63,14 +67,20 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      * @return
      */
     @Override
-    public Eletrodomestico detalhar(final UUID id) {
+    public EletrodomesticoResponse detalhar(final UUID id) {
         log.debug("Detalhar");
 
-        return eletrodomesticoRepository
+        var eletrodomestico = eletrodomesticoRepository
                 .findById(id)
                 .orElseThrow(
                         () -> new NotFoundException("Electrodoméstico  n\u00E3o encontrado.")
                 );
+
+        return eletrodomesticoCustomerMapper
+                .eletrodomesticoToEletrodomesticoResponse(
+                        eletrodomestico
+                );
+
     }
 
     /**
@@ -91,7 +101,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      */
     @Override
     @Transactional
-    public Eletrodomestico atualizar(final DadosAtualizarEletrodomesticoRequest eletrodomesticoRequest) {
+    public EletrodomesticoResponse atualizar(final DadosAtualizarEletrodomesticoRequest eletrodomesticoRequest) {
         log.debug("Atualizando eletrodomestico");
 
         var eletrodomesticoExistente = eletrodomesticoRepository
@@ -101,6 +111,6 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
 
         eletrodomesticoRepository.saveAndFlush(eletrodomesticoExistente);
 
-        return eletrodomesticoExistente;
+        return eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(eletrodomesticoExistente);
     }
 }

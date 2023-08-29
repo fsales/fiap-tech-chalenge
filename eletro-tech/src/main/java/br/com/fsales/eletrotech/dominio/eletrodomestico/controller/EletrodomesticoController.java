@@ -138,8 +138,7 @@ public class EletrodomesticoController {
                 .created(
                         uri
                 ).body(
-                        eletrodomesticoCustomerMapper
-                                .eletrodomesticoToEletrodomesticoResponse(eletrodomestico)
+                        eletrodomestico
                 );
     }
 
@@ -174,10 +173,9 @@ public class EletrodomesticoController {
                 "Dados request: {}",
                 id
         );
-        var eletrodomestico = eletrodomesticoService.detalhar(id);
 
         return ResponseEntity.ok(
-                eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(eletrodomestico)
+                eletrodomesticoService.detalhar(id)
         );
     }
 
@@ -261,7 +259,7 @@ public class EletrodomesticoController {
         var eletrodomestico = eletrodomesticoService.atualizar(request);
 
         return ResponseEntity.ok(
-                eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(eletrodomestico)
+                eletrodomestico
         );
     }
 

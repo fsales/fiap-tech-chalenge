@@ -2,6 +2,7 @@ package br.com.fsales.eletrotech.dominio.eletrodomestico.service;
 
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.DadosAtualizarEletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRequest;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,13 +22,13 @@ public interface EletrodomesticoService {
      * @param eletrodomesticoRequest
      * @return
      */
-    Eletrodomestico cadastrar(final EletrodomesticoRequest eletrodomesticoRequest);
+    EletrodomesticoResponse cadastrar(final EletrodomesticoRequest eletrodomesticoRequest);
 
     /**
      * @param id
      * @return
      */
-    Eletrodomestico detalhar(final UUID id);
+    EletrodomesticoResponse detalhar(final UUID id);
 
     /**
      * @param id
@@ -38,6 +39,6 @@ public interface EletrodomesticoService {
      * @param eletrodomesticoRequest
      * @return
      */
-    Eletrodomestico atualizar(final DadosAtualizarEletrodomesticoRequest eletrodomesticoRequest);
+    EletrodomesticoResponse atualizar(final DadosAtualizarEletrodomesticoRequest eletrodomesticoRequest);
 
 }
