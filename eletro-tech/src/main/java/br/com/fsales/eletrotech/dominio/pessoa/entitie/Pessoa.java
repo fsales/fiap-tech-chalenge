@@ -8,10 +8,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -34,7 +31,7 @@ import java.util.UUID;
 )
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Builder
 public final class Pessoa extends BaseEntity {
 
     @Id
@@ -72,12 +69,12 @@ public final class Pessoa extends BaseEntity {
 
 
     @OneToMany(
-            mappedBy = "pessoa"
+            mappedBy = "enderecoId.pessoa"
     )
     private List<Endereco> enderecos = new ArrayList<>();
 
-    @Override
-    public UUID getId() {
+
+    public UUID id() {
         return id;
     }
 
@@ -86,7 +83,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public String getNome() {
+    public String nome() {
         return nome;
     }
 
@@ -95,7 +92,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public String getSobrenome() {
+    public String sobrenome() {
         return sobrenome;
     }
 
@@ -104,7 +101,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public LocalDate getDataNascimento() {
+    public LocalDate dataNascimento() {
         return dataNascimento;
     }
 
@@ -113,7 +110,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public String getCpf() {
+    public String cpf() {
         return cpf;
     }
 
@@ -122,7 +119,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public SexoEnum getSexo() {
+    public SexoEnum sexo() {
         return sexo;
     }
 
@@ -131,7 +128,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public ParentescoEnum getParentesco() {
+    public ParentescoEnum parentesco() {
         return parentesco;
     }
 
@@ -140,7 +137,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public Pessoa getParent() {
+    public Pessoa parent() {
         return parent;
     }
 
@@ -149,7 +146,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public List<Pessoa> getDependentes() {
+    public List<Pessoa> dependentes() {
         return dependentes;
     }
 
@@ -158,14 +155,18 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
+    public List<Endereco> enderecos() {
+        return enderecos;
+    }
+
+    public Pessoa setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+        return this;
+    }
+
     public Pessoa addDependentes(List<Pessoa> dependentes) {
         if (Objects.nonNull(dependentes))
             this.dependentes.addAll(dependentes);
         return this;
-    }
-
-
-    public List<Endereco> enderecos() {
-        return enderecos;
     }
 }

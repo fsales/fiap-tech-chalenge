@@ -32,12 +32,18 @@ public interface EnderecoService {
      * @param id
      * @return
      */
-    Endereco detalhar(final UUID id);
+    Endereco detalhar(
+            final UUID id,
+            final UUID idPessoa
+    );
 
     /**
      * @param id
      */
-    void excluir(final UUID id);
+    void excluir(
+            final UUID id,
+            final UUID idPessoa
+    );
 
     /**
      * @param enderecoRequest

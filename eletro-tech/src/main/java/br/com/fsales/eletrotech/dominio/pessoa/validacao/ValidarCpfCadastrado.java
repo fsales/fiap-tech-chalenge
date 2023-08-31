@@ -28,7 +28,7 @@ public class ValidarCpfCadastrado implements ValidarPessoa {
     private void validaCpfTitularEDependente(IPessoa pessoa) {
         verificarCpfExistente(pessoa);
         if (pessoa.dependentes() != null &&
-                !pessoa.dependentes().isEmpty())
+            !pessoa.dependentes().isEmpty())
             pessoa
                     .dependentes()
                     .forEach(this::verificarCpfExistente);

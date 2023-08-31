@@ -8,7 +8,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.UUID;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -38,8 +37,4 @@ public abstract class BaseEntity implements Serializable {
         return this;
     }
 
-    /**
-     * @return
-     */
-    public abstract UUID getId();
 }

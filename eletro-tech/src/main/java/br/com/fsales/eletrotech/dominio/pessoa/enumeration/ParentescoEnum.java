@@ -75,7 +75,7 @@ public enum ParentescoEnum {
 
 
         if (sigla == null
-                || !SIGLA_PARENTESCO_MAP.containsKey(sigla)) return null;
+            || !SIGLA_PARENTESCO_MAP.containsKey(sigla)) return null;
 
         return SIGLA_PARENTESCO_MAP.get(sigla);
     }

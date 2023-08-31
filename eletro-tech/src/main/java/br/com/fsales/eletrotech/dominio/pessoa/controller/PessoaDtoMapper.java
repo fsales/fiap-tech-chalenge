@@ -22,14 +22,14 @@ public final class PessoaDtoMapper {
 
         // parent
         PessoaResponse parent = null;
-        if (pessoa.getParent() != null)
-            parent = fromPessoaToPessoaResponse(pessoa.getParent());
+        if (pessoa.parent() != null)
+            parent = fromPessoaToPessoaResponse(pessoa.parent());
 
         // dependentes
         var dependentes = new ArrayList<PessoaResponse>();
 
-        if (pessoa.getDependentes() != null)
-            pessoa.getDependentes().forEach(dependente -> dependentes.add(PessoaDtoMapper.fromPessoaToPessoaResponse(dependente)));
+        if (pessoa.dependentes() != null)
+            pessoa.dependentes().forEach(dependente -> dependentes.add(PessoaDtoMapper.fromPessoaToPessoaResponse(dependente)));
 
         return PessoaDtoMapper.fromPessoaToPessoaResponse(
                 pessoa,
@@ -43,13 +43,13 @@ public final class PessoaDtoMapper {
         if (pessoa == null) return null;
 
         var pessoaResponse = new PessoaResponse(
-                pessoa.getId(),
-                pessoa.getNome(),
-                pessoa.getSobrenome(),
-                pessoa.getDataNascimento(),
-                pessoa.getCpf(),
-                pessoa.getSexo(),
-                pessoa.getParentesco(),
+                pessoa.id(),
+                pessoa.nome(),
+                pessoa.sobrenome(),
+                pessoa.dataNascimento(),
+                pessoa.cpf(),
+                pessoa.sexo(),
+                pessoa.parentesco(),
                 pessoa.getCreated(),
                 pessoa.getUpdated()
         );
@@ -84,13 +84,13 @@ public final class PessoaDtoMapper {
             Collection<PessoaResponse> dependentes
     ) {
         var pessoaRequest = new PessoaResponse(
-                pessoa.getId(),
-                pessoa.getNome(),
-                pessoa.getSobrenome(),
-                pessoa.getDataNascimento(),
-                pessoa.getCpf(),
-                pessoa.getSexo(),
-                pessoa.getParentesco(),
+                pessoa.id(),
+                pessoa.nome(),
+                pessoa.sobrenome(),
+                pessoa.dataNascimento(),
+                pessoa.cpf(),
+                pessoa.sexo(),
+                pessoa.parentesco(),
                 parent,
                 pessoa.getCreated(),
                 pessoa.getUpdated(),

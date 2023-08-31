@@ -138,7 +138,12 @@ public class EnderecoController {
         var uri = uriComponentsBuilder.path(
                 "/enderecos/{id}"
         ).buildAndExpand(
-                endereco.getId()
+                String.format(
+                        "%s/pessoa/%s",
+                        endereco.id(),
+                        endereco.idPessoa()
+                )
+
         ).toUri();
 
         return ResponseEntity
@@ -171,12 +176,16 @@ public class EnderecoController {
                     )
             }
     )
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/pessoa/{idPessoa:.+}")
     public ResponseEntity<EnderecoResponse> detalhar(
-            @PathVariable UUID id
+            @PathVariable UUID id,
+            @PathVariable UUID idPessoa
     ) {
 
-        var endereco = enderecoService.detalhar(id);
+        var endereco = enderecoService.detalhar(
+                id,
+                idPessoa
+        );
 
         return ResponseEntity.ok(
                 EnderecoResponse.fromEnderecoToResponse(endereco)
@@ -208,12 +217,16 @@ public class EnderecoController {
                     )
             }
     )
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/pessoa/{idPessoa:.+}")
     public ResponseEntity<Void> delete(
-            @PathVariable UUID id
+            @PathVariable UUID id,
+            @PathVariable UUID idPessoa
     ) {
 
-        enderecoService.excluir(id);
+        enderecoService.excluir(
+                id,
+                idPessoa
+        );
 
         return ResponseEntity
                 .noContent()

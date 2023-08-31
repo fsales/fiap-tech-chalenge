@@ -1,13 +1,13 @@
--- adicinar novas colunas
-ALTER TABLE eletrodomestico
-    ADD id_pessoa uuid not null;
+-- ADICINAR NOVAS COLUNAS
+ALTER TABLE ELETRODOMESTICO
+    ADD ID_PESSOA UUID NOT NULL;
 
-ALTER TABLE eletrodomestico
-    ADD id_endereco uuid not null;
+ALTER TABLE ELETRODOMESTICO
+    ADD ID_ENDERECO UUID NOT NULL;
 
--- adincionar constraints
-alter table if exists eletrodomestico
-    add constraint fk_eletrodomentico_pessoa foreign key (id_pessoa) references pessoa (id);
-
-alter table if exists eletrodomestico
-    add constraint fk_eletrodomentico_endereco foreign key (id_endereco) references endereco (id);
+-- ADINCIONAR CONSTRAINTS
+-- ALTER TABLE IF EXISTS ELETRODOMESTICO
+--     ADD CONSTRAINT FK_ELETRODOMENTICO_PESSOA FOREIGN KEY (ID_PESSOA) REFERENCES PESSOA (ID);
+--
+-- ALTER TABLE IF EXISTS ELETRODOMESTICO
+--     ADD CONSTRAINT FK_ELETRODOMENTICO_ENDERECO FOREIGN KEY (ID_ENDERECO) REFERENCES ENDERECO (ID);

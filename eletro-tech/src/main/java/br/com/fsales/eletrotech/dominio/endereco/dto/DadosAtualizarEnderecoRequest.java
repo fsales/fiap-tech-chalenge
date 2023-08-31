@@ -15,6 +15,11 @@ public record DadosAtualizarEnderecoRequest(
         )
         @NotNull
         UUID id,
+        @NotNull
+        @Schema(name = "idPessoa",
+                example = "6aaefc80-b9dc-4512-bbed-6dbebe396636"
+        )
+        UUID idPessoa,
         @NotEmpty
         String nomeEndereco,
         @NotEmpty

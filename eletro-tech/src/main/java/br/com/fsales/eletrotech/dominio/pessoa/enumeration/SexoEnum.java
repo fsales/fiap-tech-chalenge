@@ -60,7 +60,7 @@ public enum SexoEnum {
         var sigla = siglaSexo == null ? null : siglaSexo.toUpperCase();
 
         if (sigla == null
-                || !SIGLA_SEXO_MAP.containsKey(sigla)) return null;
+            || !SIGLA_SEXO_MAP.containsKey(sigla)) return null;
 
         return SIGLA_SEXO_MAP.get(sigla);
     }

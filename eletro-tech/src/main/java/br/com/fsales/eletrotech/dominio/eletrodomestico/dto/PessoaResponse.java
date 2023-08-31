@@ -31,13 +31,13 @@ public record PessoaResponse(
         @JsonIgnore
         String parentesco
 ) {
-        @JsonProperty
-        @Schema(name = "parentesco",
-                example = "FILHO"
-        )
-        public String parentesco() {
-                var parentescoEnum = ParentescoEnum.getEnum(parentesco);
+    @JsonProperty
+    @Schema(name = "parentesco",
+            example = "FILHO"
+    )
+    public String parentesco() {
+        var parentescoEnum = ParentescoEnum.getEnum(parentesco);
 
-                return parentescoEnum == null ? null : parentescoEnum.getDescricao();
-        }
+        return parentescoEnum == null ? null : parentescoEnum.getDescricao();
+    }
 }

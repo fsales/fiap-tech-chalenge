@@ -20,24 +20,24 @@ public interface EletrodomesticoCustomerMapper {
      * @param eletrodomestico
      * @return
      */
-    @Mapping(target = "idPessoa", source = "pessoa.id")
-    @Mapping(target = "idEndereco", source = "endereco.id")
+    //@Mapping(target = "idPessoa", source = "pessoa.id")
+    //@Mapping(target = "idEndereco", source = "endereco.id")
     EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(Eletrodomestico eletrodomestico);
 
     /**
      * @param eletrodomestico
      * @return
      */
-    @Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
-    @Mapping(target = "pessoa.parent.idPessoa", source = "pessoa.parent.id")
+    //@Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
+    //@Mapping(target = "pessoa.parent.idPessoa", source = "pessoa.parent.id")
     EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(EletrodomesticoProjection eletrodomestico);
 
     /**
      * @param eletrodomesticoRequest
      * @return
      */
-    @Mapping(target = "pessoa.id", source = "idPessoa")
-    @Mapping(target = "endereco.id", source = "idEndereco")
+    //@Mapping(target = "pessoa.id", source = "idPessoa")
+    //@Mapping(target = "endereco.id", source = "idEndereco")
     Eletrodomestico eletrodomesticoRequestToEletrodomestico(EletrodomesticoRequest eletrodomesticoRequest);
 
     /**

@@ -11,8 +11,6 @@ public interface IDadosAparelho {
         return 0;
     }
 
-    ;
-
     /**
      * Horas por dia de utilização do aparelho
      *
@@ -21,8 +19,6 @@ public interface IDadosAparelho {
     default Integer tempoUsoDiario() {
         return 0;
     }
-
-    ;
 
     /**
      * Número de dias de utilização do aparelho
@@ -33,7 +29,5 @@ public interface IDadosAparelho {
     default int numeroDeDias() {
         return 30;
     }
-
-    ;
 
 }

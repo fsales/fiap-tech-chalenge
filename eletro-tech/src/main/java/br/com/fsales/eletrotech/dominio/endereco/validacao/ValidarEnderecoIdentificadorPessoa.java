@@ -18,14 +18,12 @@ public class ValidarEnderecoIdentificadorPessoa implements ValidarEndereco {
      */
     @Override
     public void validar(IEndereco endereco) {
-        if (validarPessaoIntegracao.verificarSeIdExiste(endereco.idPessoa()))
+        if (!validarPessaoIntegracao.verificarSeIdExiste(endereco.idPessoa()))
             throw new ValidarEnderecoException(
                     String.format(
                             "Não foi localizado a pessoa de id: %s ",
                             endereco.idPessoa()
                     )
             );
-
-
     }
 }

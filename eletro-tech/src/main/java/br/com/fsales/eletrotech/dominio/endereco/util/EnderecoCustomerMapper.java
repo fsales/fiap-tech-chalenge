@@ -30,8 +30,9 @@ public interface EnderecoCustomerMapper {
      * @param enderecoRequest
      * @return
      */
-    @Mapping(target = "pessoa.id", source = "idPessoa")
+    //@Mapping(target = "pessoa.id", source = "idPessoa")
     @Mapping(target = "estado", expression = "java(br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum.getEnum(enderecoRequest.siglaEstado()))")
+    @Mapping(target = "enderecoId.pessoa.id", source = "idPessoa")
     Endereco enderecoRequestToEndereco(EnderecoRequest enderecoRequest);
 
     /**
@@ -40,7 +41,7 @@ public interface EnderecoCustomerMapper {
      */
     @InheritConfiguration
     @Mapping(target = "estado", expression = "java(br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum.getEnum(enderecoRequest.siglaEstado()))")
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "enderecoId", ignore = true)
     void update(DadosAtualizarEnderecoRequest enderecoRequest, @MappingTarget Endereco endereco);
 
 }

@@ -1,26 +1,27 @@
 package br.com.fsales.eletrotech.dominio.endereco.entitie;
 
 import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
-import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
-import jakarta.persistence.*;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.UuidGenerator;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Table
 @Entity(name = "ENDERECO")
 
 @EqualsAndHashCode(
-        of = {"id"},
+        of = {"enderecoId"},
         callSuper = true
 )
 @ToString(
-        of = {"id"},
+        of = {"enderecoId"},
         callSuper = true
 )
 @NoArgsConstructor
@@ -28,10 +29,9 @@ import java.util.UUID;
 
 public class Endereco extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @UuidGenerator
-    private UUID id;
+
+    @EmbeddedId
+    private EnderecoId enderecoId;
 
     private String nomeEndereco;
 
@@ -49,25 +49,16 @@ public class Endereco extends BaseEntity {
 
     private EstadoEnum estado;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "id_pessoa",
-            referencedColumnName = "id",
-            columnDefinition = "FK_ENDERECO_PESSOA"
-    )
-    private Pessoa pessoa;
-
-    @Override
-    public UUID getId() {
-        return id;
+    public EnderecoId enderecoId() {
+        return enderecoId;
     }
 
-    public Endereco setId(UUID id) {
-        this.id = id;
+    public Endereco setEnderecoId(EnderecoId enderecoId) {
+        this.enderecoId = enderecoId;
         return this;
     }
 
-    public String getNomeEndereco() {
+    public String nomeEndereco() {
         return nomeEndereco;
     }
 
@@ -85,7 +76,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String getRua() {
+    public String rua() {
         return rua;
     }
 
@@ -94,7 +85,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String getComplemento() {
+    public String complemento() {
         return complemento;
     }
 
@@ -103,7 +94,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public Integer getNumero() {
+    public Integer numero() {
         return numero;
     }
 
@@ -112,7 +103,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String getBairro() {
+    public String bairro() {
         return bairro;
     }
 
@@ -121,7 +112,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String getCidade() {
+    public String cidade() {
         return cidade;
     }
 
@@ -130,7 +121,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public EstadoEnum getEstado() {
+    public EstadoEnum estado() {
         return estado;
     }
 
@@ -139,14 +130,11 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public Endereco setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-        return this;
+    public UUID id() {
+        return Objects.nonNull(enderecoId) ? enderecoId.id() : null;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public UUID idPessoa() {
+        return Objects.nonNull(enderecoId) && Objects.nonNull(enderecoId.pessoa()) ? enderecoId.pessoa().id() : null;
     }
-
-
 }

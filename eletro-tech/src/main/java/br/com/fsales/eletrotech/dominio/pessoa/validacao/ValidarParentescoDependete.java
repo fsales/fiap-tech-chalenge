@@ -35,7 +35,7 @@ public class ValidarParentescoDependete implements ValidarPessoa {
         }
         var pessoaExistene = pessoaRepository.getReferenceById(pessoa.id());
         if (
-                pessoaExistene.getParent() != null &&
+                pessoaExistene.parent() != null &&
                 pessoa.siglaParentesco() == null)
             addMensagemValidacao(pessoa);
 

@@ -17,6 +17,10 @@ public record EnderecoResponse(
                 example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
         )
         UUID id,
+        @Schema(name = "idPessoa",
+                example = "6aaefc80-b9dc-4512-bbed-6dbebe396636"
+        )
+        UUID idPessoa,
         @Schema(name = "nomeEndereco",
                 example = "Minha Casa"
         )
@@ -88,15 +92,16 @@ public record EnderecoResponse(
     ) {
 
         return new EnderecoResponse(
-                endereco.getId(),
-                endereco.getNomeEndereco(),
+                endereco.id(),
+                endereco.idPessoa(),
+                endereco.nomeEndereco(),
                 endereco.cep(),
-                endereco.getRua(),
-                endereco.getComplemento(),
-                endereco.getNumero(),
-                endereco.getBairro(),
-                endereco.getCidade(),
-                endereco.getEstado(),
+                endereco.rua(),
+                endereco.complemento(),
+                endereco.numero(),
+                endereco.bairro(),
+                endereco.cidade(),
+                endereco.estado(),
                 endereco.getCreated(),
                 endereco.getUpdated()
         );

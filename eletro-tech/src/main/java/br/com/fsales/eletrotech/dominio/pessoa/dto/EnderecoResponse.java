@@ -3,9 +3,12 @@ package br.com.fsales.eletrotech.dominio.pessoa.dto;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public record EnderecoResponse(
+        UUID id,
+        String nomeEndereco,
         String cep,
 
         String rua,
@@ -28,13 +31,15 @@ public record EnderecoResponse(
             Endereco endereco
     ) {
         return new EnderecoResponse(
+                endereco.id(),
+                endereco.nomeEndereco(),
                 endereco.cep(),
-                endereco.getRua(),
-                endereco.getComplemento(),
-                endereco.getNumero(),
-                endereco.getBairro(),
-                endereco.getCidade(),
-                endereco.getEstado().nome()
+                endereco.rua(),
+                endereco.complemento(),
+                endereco.numero(),
+                endereco.bairro(),
+                endereco.cidade(),
+                endereco.estado().nome()
         );
     }
 

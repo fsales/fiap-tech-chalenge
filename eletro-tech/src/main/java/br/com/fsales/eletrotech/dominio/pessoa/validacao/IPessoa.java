@@ -12,7 +12,6 @@ public interface IPessoa {
         return null;
     }
 
-    ;
     /**
      * @return representa o numero do cpf da pessoa
      */

@@ -1,13 +1,16 @@
-create table eletrodomestico
+CREATE TABLE ELETRODOMESTICO
 (
-    id                uuid         not null,
-    nome              varchar(255) not null,
-    modelo            varchar(255) not null,
-    fabricante        varchar(255) not null,
-    potencia          integer      not null,
-    voltagem          integer      not null,
-    tempo_uso_diario  integer      not null,
-    created           timestamp(6) with time zone,
-    updated           timestamp(6) with time zone,
-    primary key (id)
+    ID               UUID         NOT NULL,
+    NOME             VARCHAR(255) NOT NULL,
+    MODELO           VARCHAR(255) NOT NULL,
+    FABRICANTE       VARCHAR(255) NOT NULL,
+    POTENCIA         INTEGER      NOT NULL,
+    VOLTAGEM         INTEGER      NOT NULL,
+    TEMPO_USO_DIARIO INTEGER      NOT NULL,
+    CREATED          TIMESTAMP(6) WITH TIME ZONE,
+    UPDATED          TIMESTAMP(6) WITH TIME ZONE
 );
+
+
+ALTER TABLE ELETRODOMESTICO
+    ADD CONSTRAINT PK_ELETRODOMESTICO PRIMARY KEY (ID);

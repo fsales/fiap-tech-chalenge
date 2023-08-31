@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.endereco.dto.DadosAtualizarEnderecoReque
 import br.com.fsales.eletrotech.dominio.endereco.dto.EnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.dominio.endereco.entitie.EnderecoId;
 import br.com.fsales.eletrotech.dominio.endereco.integracao.IValidarEnderecoIntegracao;
 import br.com.fsales.eletrotech.dominio.endereco.projection.EnderecoProjection;
 import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
@@ -69,6 +70,9 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
                 enderecoRequest
         );
 
+        // definindo o ID de endereço da chave composta
+        estado.enderecoId().setId(UUID.randomUUID());
+
         return enderecoRepository.save(
                 estado
         );
@@ -79,9 +83,12 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
      * @return
      */
     @Override
-    public Endereco detalhar(final UUID id) {
+    public Endereco detalhar(
+            final UUID id,
+            final UUID idPessoa
+    ) {
 
-        return enderecoRepository.findById(id)
+        return enderecoRepository.findById(new EnderecoId(id, idPessoa))
                 .orElseThrow(
                         () -> new NotFoundException("Endere\u00E7o n\u00E3o encontrado.")
                 );
@@ -92,9 +99,17 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
      */
     @Override
     @Transactional
-    public void excluir(UUID id) {
+    public void excluir(
+            final UUID id,
+            final UUID idPessoa
+    ) {
         enderecoRepository
-                .deleteById(id);
+                .deleteById(
+                        new EnderecoId(
+                                id,
+                                idPessoa
+                        )
+                );
     }
 
     /**
@@ -106,7 +121,12 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
     public Endereco atualizar(DadosAtualizarEnderecoRequest enderecoRequest) {
 
         validadores.forEach(v -> v.validar(enderecoRequest));
-        var enderecoExistente = enderecoRepository.getReferenceById(enderecoRequest.id());
+        var enderecoExistente = enderecoRepository.getReferenceById(
+                new EnderecoId(
+                        enderecoRequest.id(),
+                        enderecoRequest.idPessoa()
+                )
+        );
 
 
         enderecoMapper.update(enderecoRequest, enderecoExistente);
@@ -119,8 +139,8 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
      * @return
      */
     @Override
-    public boolean verificarSeIdExiste(UUID id) {
+    public boolean verificarSeIdExiste(UUID id, UUID idPessoa) {
         return Objects.nonNull(id) &&
-               enderecoRepository.existsById(id);
+               enderecoRepository.existsById(new EnderecoId(id, idPessoa));
     }
 }

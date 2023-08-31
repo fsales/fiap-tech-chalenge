@@ -19,7 +19,12 @@ public class ValidarEletrodomesticoIdentificadorEndereco implements ValidarEletr
      */
     @Override
     public void validar(final IEletrodomestico eletrodomestico) {
-        if (!validarEnderecoIntegracao.verificarSeIdExiste(eletrodomestico.idEndereco()))
+        if (
+                !validarEnderecoIntegracao.verificarSeIdExiste(
+                        eletrodomestico.idEndereco(),
+                        eletrodomestico.idPessoa()
+                )
+        )
             throw new ValidarEnderecoException(
                     String.format(
                             "Não foi localizado o endereço de id: %s ",
