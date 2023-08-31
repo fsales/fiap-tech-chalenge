@@ -144,7 +144,7 @@ public class PessoaController {
         var uri = uriComponentsBuilder
                 .path("/pessoas/{id}")
                 .buildAndExpand(
-                        pessoa.id()
+                        pessoa.getId()
                 )
                 .toUri();
 

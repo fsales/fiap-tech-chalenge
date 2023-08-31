@@ -71,7 +71,7 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
         );
 
         // definindo o ID de endereço da chave composta
-        estado.enderecoId().setId(UUID.randomUUID());
+        estado.getEnderecoId().setId(UUID.randomUUID());
 
         return enderecoRepository.save(
                 estado

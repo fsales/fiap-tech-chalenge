@@ -37,7 +37,7 @@ public class EnderecoId implements Serializable {
                 .build();
     }
 
-    public UUID id() {
+    public UUID getId() {
         return id;
     }
 
@@ -46,7 +46,7 @@ public class EnderecoId implements Serializable {
         return this;
     }
 
-    public Pessoa pessoa() {
+    public Pessoa getPessoa() {
         return pessoa;
     }
 

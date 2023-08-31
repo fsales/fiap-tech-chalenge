@@ -51,14 +51,17 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
         log.debug("Salvando eletrodomestico");
 
         validadores.forEach(v -> v.validar(eletrodomesticoRequest));
-        var eletrodomestico = eletrodomesticoCustomerMapper
-                .eletrodomesticoRequestToEletrodomestico(
-                        eletrodomesticoRequest
-                );
+
+        var eletrodomestico = eletrodomesticoRepository.save(
+                eletrodomesticoCustomerMapper
+                        .eletrodomesticoRequestToEletrodomestico(
+                                eletrodomesticoRequest
+                        )
+        );
 
         return eletrodomesticoCustomerMapper
                 .eletrodomesticoToEletrodomesticoResponse(
-                        eletrodomesticoRepository.save(eletrodomestico)
+                        eletrodomesticoRepository.getReferenceById(eletrodomestico.getId())
                 );
     }
 

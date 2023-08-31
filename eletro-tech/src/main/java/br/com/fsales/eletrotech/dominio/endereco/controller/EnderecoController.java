@@ -140,8 +140,8 @@ public class EnderecoController {
         ).buildAndExpand(
                 String.format(
                         "%s/pessoa/%s",
-                        endereco.id(),
-                        endereco.idPessoa()
+                        endereco.getId(),
+                        endereco.getIdPessoa()
                 )
 
         ).toUri();

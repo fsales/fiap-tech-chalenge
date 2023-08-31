@@ -31,15 +31,15 @@ public record EnderecoResponse(
             Endereco endereco
     ) {
         return new EnderecoResponse(
-                endereco.id(),
-                endereco.nomeEndereco(),
-                endereco.cep(),
-                endereco.rua(),
-                endereco.complemento(),
-                endereco.numero(),
-                endereco.bairro(),
-                endereco.cidade(),
-                endereco.estado().nome()
+                endereco.getId(),
+                endereco.getNomeEndereco(),
+                endereco.getCep(),
+                endereco.getRua(),
+                endereco.getComplemento(),
+                endereco.getNumero(),
+                endereco.getBairro(),
+                endereco.getCidade(),
+                endereco.getEstado().nome()
         );
     }
 

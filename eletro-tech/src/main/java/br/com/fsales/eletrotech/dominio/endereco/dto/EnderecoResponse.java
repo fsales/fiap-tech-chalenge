@@ -92,16 +92,16 @@ public record EnderecoResponse(
     ) {
 
         return new EnderecoResponse(
-                endereco.id(),
-                endereco.idPessoa(),
-                endereco.nomeEndereco(),
-                endereco.cep(),
-                endereco.rua(),
-                endereco.complemento(),
-                endereco.numero(),
-                endereco.bairro(),
-                endereco.cidade(),
-                endereco.estado(),
+                endereco.getId(),
+                endereco.getIdPessoa(),
+                endereco.getNomeEndereco(),
+                endereco.getCep(),
+                endereco.getRua(),
+                endereco.getComplemento(),
+                endereco.getNumero(),
+                endereco.getBairro(),
+                endereco.getCidade(),
+                endereco.getEstado(),
                 endereco.getCreated(),
                 endereco.getUpdated()
         );

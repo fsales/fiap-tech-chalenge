@@ -74,7 +74,7 @@ public final class Pessoa extends BaseEntity {
     private List<Endereco> enderecos = new ArrayList<>();
 
 
-    public UUID id() {
+    public UUID getId() {
         return id;
     }
 
@@ -83,7 +83,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public String nome() {
+    public String getNome() {
         return nome;
     }
 
@@ -92,7 +92,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public String sobrenome() {
+    public String getSobrenome() {
         return sobrenome;
     }
 
@@ -101,7 +101,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public LocalDate dataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
@@ -110,7 +110,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public String cpf() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -119,7 +119,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public SexoEnum sexo() {
+    public SexoEnum getSexo() {
         return sexo;
     }
 
@@ -128,7 +128,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public ParentescoEnum parentesco() {
+    public ParentescoEnum getParentesco() {
         return parentesco;
     }
 
@@ -137,7 +137,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public Pessoa parent() {
+    public Pessoa getParent() {
         return parent;
     }
 
@@ -146,7 +146,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public List<Pessoa> dependentes() {
+    public List<Pessoa> getDependentes() {
         return dependentes;
     }
 
@@ -155,7 +155,7 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public List<Endereco> enderecos() {
+    public List<Endereco> getEnderecos() {
         return enderecos;
     }
 

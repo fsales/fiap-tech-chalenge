@@ -49,7 +49,7 @@ public class Endereco extends BaseEntity {
 
     private EstadoEnum estado;
 
-    public EnderecoId enderecoId() {
+    public EnderecoId getEnderecoId() {
         return enderecoId;
     }
 
@@ -58,7 +58,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String nomeEndereco() {
+    public String getNomeEndereco() {
         return nomeEndereco;
     }
 
@@ -67,7 +67,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String cep() {
+    public String getCep() {
         return cep;
     }
 
@@ -76,7 +76,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String rua() {
+    public String getRua() {
         return rua;
     }
 
@@ -85,7 +85,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String complemento() {
+    public String getComplemento() {
         return complemento;
     }
 
@@ -94,7 +94,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public Integer numero() {
+    public Integer getNumero() {
         return numero;
     }
 
@@ -103,7 +103,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String bairro() {
+    public String getBairro() {
         return bairro;
     }
 
@@ -112,7 +112,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public String cidade() {
+    public String getCidade() {
         return cidade;
     }
 
@@ -121,7 +121,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public EstadoEnum estado() {
+    public EstadoEnum getEstado() {
         return estado;
     }
 
@@ -130,11 +130,11 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public UUID id() {
-        return Objects.nonNull(enderecoId) ? enderecoId.id() : null;
+    public UUID getId() {
+        return Objects.nonNull(enderecoId) ? enderecoId.getId() : null;
     }
 
-    public UUID idPessoa() {
-        return Objects.nonNull(enderecoId) && Objects.nonNull(enderecoId.pessoa()) ? enderecoId.pessoa().id() : null;
+    public UUID getIdPessoa() {
+        return Objects.nonNull(enderecoId) && Objects.nonNull(enderecoId.getPessoa()) ? enderecoId.getPessoa().getId() : null;
     }
 }

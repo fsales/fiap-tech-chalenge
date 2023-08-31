@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Table
@@ -44,7 +45,7 @@ public class Eletrodomestico extends BaseEntity {
 
     private Integer tempoUsoDiario;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumns({
             @JoinColumn(
                     name = "ID_ENDERECO",
@@ -127,6 +128,11 @@ public class Eletrodomestico extends BaseEntity {
     public Eletrodomestico setEndereco(Endereco endereco) {
         this.endereco = endereco;
         return this;
+    }
+
+    public Pessoa getPessoa(){
+        return Objects.nonNull(this.endereco) &&
+                Objects.nonNull(this.endereco.getEnderecoId()) ? this.endereco.getEnderecoId().getPessoa() : null;
     }
 
 }

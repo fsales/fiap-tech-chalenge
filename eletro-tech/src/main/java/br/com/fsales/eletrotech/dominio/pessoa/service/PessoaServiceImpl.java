@@ -109,7 +109,7 @@ public class PessoaServiceImpl implements PessoaService, IValidarPessaoIntegraca
                 );
 
         repository.deleteAll(
-                pessoa.dependentes()
+                pessoa.getDependentes()
         );
 
         repository.delete(
@@ -149,7 +149,7 @@ public class PessoaServiceImpl implements PessoaService, IValidarPessaoIntegraca
             !pessoaRequest.dependentes().isEmpty()) {
 
             pessoaExistente
-                    .dependentes()
+                    .getDependentes()
                     .clear();
 
             pessoaRequest.dependentes().forEach(depenteRequest -> {
@@ -157,7 +157,7 @@ public class PessoaServiceImpl implements PessoaService, IValidarPessaoIntegraca
                 pessoaCustomerMapper.updatePessoaFromPessoaRequest(depenteRequest, dep);
 
                 pessoaExistente
-                        .dependentes().add(dep);
+                        .getDependentes().add(dep);
             });
 
         }
