@@ -53,13 +53,17 @@ public class Eletrodomestico extends BaseEntity {
     @Transient
     private Pessoa pessoa;
 
-    //    @ManyToOne
-//    @JoinColumn(
-//            name = "id_endereco",
-//            referencedColumnName = "id",
-//            columnDefinition = "fk_eletrodomentico_endereco"
-//    )
-    @Transient
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(
+                    name = "ID_ENDERECO",
+                    referencedColumnName = "id"
+            ),
+            @JoinColumn(
+                    name = "ID_PESSOA",
+                    referencedColumnName = "ID_PESSOA"
+            )
+    })
     private Endereco endereco;
 
     public UUID id() {
