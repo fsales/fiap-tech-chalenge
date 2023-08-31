@@ -6,20 +6,25 @@ public interface ICalcularConsumo {
 
 
     default ConsumoResposta consumoAparelho(IDadosAparelho dadosAparelho) {
-        if (Objects.isNull(dadosAparelho))
+        if (
+                Objects.isNull(dadosAparelho) ||
+                        Objects.isNull(dadosAparelho.potencia()) ||
+                        Objects.isNull(dadosAparelho.tempoUsoDiario())
+
+        )
             return null;
 
         var wattHoras = dadosAparelho.potencia() *
-                        dadosAparelho.tempoUsoDiario();
+                dadosAparelho.tempoUsoDiario();
         var wattNumeroDias = wattHoras * dadosAparelho.numeroDeDias();
 
-        Double watt = (double) (wattNumeroDias / 1_000);
+        var watt = wattNumeroDias / 1_000;
 
         return new ConsumoResposta(watt, "kwh/Mês");
     }
 
     record ConsumoResposta(
-            Double watt,
+            Integer watt,
             String unidadeMedida
     ) {
 

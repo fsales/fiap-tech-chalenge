@@ -27,8 +27,9 @@ public class ValidarEletrodomesticoIdentificadorEndereco implements ValidarEletr
         )
             throw new ValidarEnderecoException(
                     String.format(
-                            "Não foi localizado o endereço de id: %s ",
-                            eletrodomestico.idEndereco()
+                            "Não foi localizado o endereço de id: %s idPessoa: %s ",
+                            eletrodomestico.idEndereco(),
+                            eletrodomestico.idPessoa()
                     )
             );
     }

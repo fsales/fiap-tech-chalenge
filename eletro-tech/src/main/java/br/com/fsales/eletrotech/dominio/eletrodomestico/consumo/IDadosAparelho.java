@@ -7,18 +7,14 @@ public interface IDadosAparelho {
      *
      * @return
      */
-    default Integer potencia() {
-        return 0;
-    }
+    Integer potencia();
 
     /**
      * Horas por dia de utilização do aparelho
      *
      * @return
      */
-    default Integer tempoUsoDiario() {
-        return 0;
-    }
+    Integer tempoUsoDiario();
 
     /**
      * Número de dias de utilização do aparelho

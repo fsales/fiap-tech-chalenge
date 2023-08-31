@@ -44,15 +44,6 @@ public class Eletrodomestico extends BaseEntity {
 
     private Integer tempoUsoDiario;
 
-    //    @ManyToOne
-//    @JoinColumn(
-//            name = "id_pessoa",
-//            referencedColumnName = "id",
-//            columnDefinition = "fk_eletrodomentico_pessoa"
-//    )
-    @Transient
-    private Pessoa pessoa;
-
     @ManyToOne
     @JoinColumns({
             @JoinColumn(
@@ -65,10 +56,6 @@ public class Eletrodomestico extends BaseEntity {
             )
     })
     private Endereco endereco;
-
-    public UUID id() {
-        return id;
-    }
 
     public UUID getId() {
         return id;
@@ -133,15 +120,6 @@ public class Eletrodomestico extends BaseEntity {
         return this;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public Eletrodomestico setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-        return this;
-    }
-
     public Endereco getEndereco() {
         return endereco;
     }
@@ -150,4 +128,5 @@ public class Eletrodomestico extends BaseEntity {
         this.endereco = endereco;
         return this;
     }
+
 }
