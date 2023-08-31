@@ -3,7 +3,7 @@ package br.com.fsales.eletrotech.dominio.eletrodomestico.service;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.DadosAtualizarEletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
-import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.projection.EletrodomesticoProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,7 +16,7 @@ public interface EletrodomesticoService {
      * @param pageable
      * @return
      */
-    Page<Eletrodomestico> consultaPaginada(final Pageable pageable);
+    Page<EletrodomesticoProjection> consultaPaginada(final Pageable pageable);
 
     /**
      * @param eletrodomesticoRequest

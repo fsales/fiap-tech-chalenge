@@ -17,10 +17,12 @@ public record EletrodomesticoResponse(
         @Schema(name = "idPessoa",
                 example = "6aaefc80-b9dc-4512-bbed-6dbebe396636"
         )
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         UUID idPessoa,
         @Schema(name = "idEndereco",
                 example = "4bc6b235-84ae-40fe-8930-0ee0530fc170"
         )
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         UUID idEndereco,
 
         @Schema(name = "nome",
@@ -59,7 +61,19 @@ public record EletrodomesticoResponse(
 
         @Schema(name = "updated")
         @JsonInclude(JsonInclude.Include.NON_NULL)
-        Instant updated
+        Instant updated,
+
+        @Schema(name = "pessoa",
+                implementation = PessoaResponse.class,
+                anyOf = {PessoaResponse.class}
+        )
+        PessoaResponse pessoa,
+        @Schema(name = "endereco",
+                implementation = EnderecoResponse.class,
+                anyOf = {EnderecoResponse.class}
+        )
+
+        EnderecoResponse endereco
 ) implements IDadosAparelho, ICalcularConsumo {
 
     @JsonProperty

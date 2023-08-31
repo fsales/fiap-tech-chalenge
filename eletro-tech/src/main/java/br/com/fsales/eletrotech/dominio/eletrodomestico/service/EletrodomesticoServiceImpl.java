@@ -3,7 +3,7 @@ package br.com.fsales.eletrotech.dominio.eletrodomestico.service;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.DadosAtualizarEletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
-import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.projection.EletrodomesticoProjection;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.repository.EletrodomesticoRepository;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.util.EletrodomesticoCustomerMapper;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.validacao.ValidarEletrodomestico;
@@ -35,10 +35,10 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      * @return
      */
     @Override
-    public Page<Eletrodomestico> consultaPaginada(final Pageable pageable) {
+    public Page<EletrodomesticoProjection> consultaPaginada(final Pageable pageable) {
         log.debug("Consulta Paginada");
 
-        return eletrodomesticoRepository.findAll(pageable);
+        return eletrodomesticoRepository.consultarEnderecoPaginado(pageable);
     }
 
     /**

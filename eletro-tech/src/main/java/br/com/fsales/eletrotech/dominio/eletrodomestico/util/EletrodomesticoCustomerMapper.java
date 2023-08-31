@@ -4,6 +4,7 @@ import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.DadosAtualizarEletro
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.projection.EletrodomesticoProjection;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,6 +23,14 @@ public interface EletrodomesticoCustomerMapper {
     @Mapping(target = "idPessoa", source = "pessoa.id")
     @Mapping(target = "idEndereco", source = "endereco.id")
     EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(Eletrodomestico eletrodomestico);
+
+    /**
+     * @param eletrodomestico
+     * @return
+     */
+    @Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
+    @Mapping(target = "pessoa.parent.idPessoa", source = "pessoa.parent.id")
+    EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(EletrodomesticoProjection eletrodomestico);
 
     /**
      * @param eletrodomesticoRequest
