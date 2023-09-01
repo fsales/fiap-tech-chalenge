@@ -1,16 +1,18 @@
 package br.com.fsales.eletrotech.dominio.endereco.entitie;
 
+import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
 import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
+import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 @Table
@@ -48,6 +50,26 @@ public class Endereco extends BaseEntity {
     private String cidade;
 
     private EstadoEnum estado;
+
+    @MapsId(
+            "idPessoa"
+    )
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(
+            name = "id_pessoa",
+            referencedColumnName = "id",
+            nullable = false
+    )
+    private Pessoa pessoa;
+
+    @OneToMany(
+            mappedBy = "endereco"
+    )
+    private Set<Eletrodomestico> eletrodomesticos = new LinkedHashSet<>();
+
 
     public EnderecoId getEnderecoId() {
         return enderecoId;
@@ -130,11 +152,43 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public Endereco setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
+    public Set<Eletrodomestico> getEletrodomesticos() {
+        return eletrodomesticos;
+    }
+
     public UUID getId() {
         return Objects.nonNull(enderecoId) ? enderecoId.getId() : null;
     }
 
     public UUID getIdPessoa() {
-        return Objects.nonNull(enderecoId) && Objects.nonNull(enderecoId.getPessoa()) ? enderecoId.getPessoa().getId() : null;
+        return Objects.nonNull(enderecoId) ? enderecoId.getIdPessoa() : null;
     }
+
+    /**
+     * retorna o nome do estado com base no {@link EstadoEnum}
+     *
+     * @return
+     */
+    public String getNomeEstado() {
+        return Objects.nonNull(estado) ? estado.nome() : null;
+    }
+
+    /**
+     * retorna a sigla do estado com base no {@link EstadoEnum}
+     *
+     * @return
+     */
+    public String getSiglaEstado() {
+        return Objects.nonNull(estado) ? estado.sigla() : null;
+    }
+
 }

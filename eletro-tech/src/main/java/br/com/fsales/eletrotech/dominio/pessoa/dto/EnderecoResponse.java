@@ -2,7 +2,7 @@ package br.com.fsales.eletrotech.dominio.pessoa.dto;
 
 import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -47,12 +47,12 @@ public record EnderecoResponse(
      * @param enderecos
      * @return
      */
-    public static List<EnderecoResponse> toEnderecoResponse(
-            List<Endereco> enderecos
+    public static Set<EnderecoResponse> toEnderecoResponse(
+            Set<Endereco> enderecos
     ) {
         return enderecos
                 .stream()
                 .map(EnderecoResponse::toEnderecoResponse)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 }

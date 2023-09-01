@@ -13,10 +13,7 @@ import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Table
 @Entity(name = "PESSOA")
@@ -65,13 +62,13 @@ public final class Pessoa extends BaseEntity {
     private Pessoa parent;
 
     @OneToMany(mappedBy = "parent")
-    private List<Pessoa> dependentes = new ArrayList<>();
+    private Set<Pessoa> dependentes = new LinkedHashSet<>();
 
 
     @OneToMany(
-            mappedBy = "enderecoId.pessoa"
+            mappedBy = "pessoa"
     )
-    private List<Endereco> enderecos = new ArrayList<>();
+    private Set<Endereco> enderecos = new LinkedHashSet<>();
 
 
     public UUID getId() {
@@ -146,20 +143,20 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public List<Pessoa> getDependentes() {
+    public Set<Pessoa> getDependentes() {
         return dependentes;
     }
 
-    public Pessoa setDependentes(List<Pessoa> dependentes) {
+    public Pessoa setDependentes(Set<Pessoa> dependentes) {
         this.dependentes = dependentes;
         return this;
     }
 
-    public List<Endereco> getEnderecos() {
+    public Set<Endereco> getEnderecos() {
         return enderecos;
     }
 
-    public Pessoa setEnderecos(List<Endereco> enderecos) {
+    public Pessoa setEnderecos(Set<Endereco> enderecos) {
         this.enderecos = enderecos;
         return this;
     }
@@ -168,5 +165,35 @@ public final class Pessoa extends BaseEntity {
         if (Objects.nonNull(dependentes))
             this.dependentes.addAll(dependentes);
         return this;
+    }
+
+    /**
+     * retorna a descrição do parentesco com base no {@link ParentescoEnum}
+     *
+     * @return
+     */
+    public String getDescricaoParentesco() {
+
+        return parentesco == null ? null : parentesco.getDescricao();
+    }
+
+    /**
+     * retorna a sigla do parentesco com base no {@link ParentescoEnum}
+     *
+     * @return
+     */
+    public String getSiglaParentesco() {
+
+        return parentesco == null ? null : parentesco.getSigla();
+    }
+
+    /**
+     * retorna o tipo da pessoa conforme a hierarquia
+     *
+     * @return
+     */
+    public String getTipoPessoa() {
+        return Objects.isNull(parent)
+               || Objects.isNull(parent.getId()) ? "Titular" : "Dependente";
     }
 }

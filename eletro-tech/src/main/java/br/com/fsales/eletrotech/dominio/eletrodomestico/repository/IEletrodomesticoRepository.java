@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  *
  */
-public interface EletrodomesticoRepository extends JpaRepository<Eletrodomestico, UUID> {
+public interface IEletrodomesticoRepository extends JpaRepository<Eletrodomestico, UUID> {
 
     @Query(value = """
                 select

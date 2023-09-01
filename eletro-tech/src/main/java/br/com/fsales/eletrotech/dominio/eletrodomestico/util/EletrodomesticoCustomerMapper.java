@@ -20,27 +20,26 @@ public interface EletrodomesticoCustomerMapper {
      * @param eletrodomestico
      * @return
      */
-    //@Mapping(target = "idPessoa", source = "endereco.enderecoId.pessoa.id")
-    //@Mapping(target = "idEndereco", source = "endereco.enderecoId.id")
     @Mapping(target = "pessoa", source = "pessoa")
     @Mapping(target = "endereco", source = "endereco")
+    @Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
     EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(Eletrodomestico eletrodomestico);
-
-    /**
-     * @param eletrodomestico
-     * @return
-     */
-    //@Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
-    //@Mapping(target = "pessoa.parent.idPessoa", source = "pessoa.parent.id")
-    EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(EletrodomesticoProjection eletrodomestico);
 
     /**
      * @param eletrodomesticoRequest
      * @return
      */
-    @Mapping(target = "endereco.enderecoId.pessoa.id", source = "idPessoa")
+    @Mapping(target = "endereco.enderecoId.idPessoa", source = "idPessoa")
     @Mapping(target = "endereco.enderecoId.id", source = "idEndereco")
     Eletrodomestico eletrodomesticoRequestToEletrodomestico(EletrodomesticoRequest eletrodomesticoRequest);
+
+    /**
+     * @param eletrodomestico
+     * @return
+     */
+    @Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
+    @Mapping(target = "pessoa.parent.idPessoa", source = "pessoa.parent.id")
+    EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(EletrodomesticoProjection eletrodomestico);
 
     /**
      * @param enderecoRequest
@@ -48,8 +47,8 @@ public interface EletrodomesticoCustomerMapper {
      */
     @InheritConfiguration
     @Mapping(target = "id", ignore = true)
-//    @Mapping(target = "pessoa", ignore = true)
-//    @Mapping(target = "endereco", ignore = true)
+    @Mapping(target = "endereco.enderecoId.idPessoa", source = "idPessoa")
+    @Mapping(target = "endereco.enderecoId.id", source = "idEndereco")
     void update(DadosAtualizarEletrodomesticoRequest enderecoRequest, @MappingTarget Eletrodomestico eletrodomestico);
 
 }

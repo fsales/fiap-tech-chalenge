@@ -11,9 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.UUID;
+import java.util.*;
 
 
 public record PessoaResponse(
@@ -76,10 +74,10 @@ public record PessoaResponse(
 
         @JsonInclude(JsonInclude.Include.NON_EMPTY)
         @Schema(name = "enderecos", anyOf = EnderecoResponse.class)
-        Collection<EnderecoResponse> enderecos
+        Set<EnderecoResponse> enderecos
 ) {
 
-    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes, Collection<EnderecoResponse> enderecos) {
+    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes, Set<EnderecoResponse> enderecos) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -96,11 +94,11 @@ public record PessoaResponse(
 
     public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes) {
 
-        this(id, nome, sobrenome, dataNascimento, cpf, sexoEnum, parentescoEnum, parent, created, updated, dependentes, new ArrayList<>());
+        this(id, nome, sobrenome, dataNascimento, cpf, sexoEnum, parentescoEnum, parent, created, updated, dependentes, new LinkedHashSet<>());
     }
 
     public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexo, ParentescoEnum parentesco, Instant created, Instant updated) {
-        this(id, nome, sobrenome, dataNascimento, cpf, sexo, parentesco, null, created, updated, new ArrayList<>(), new ArrayList<>());
+        this(id, nome, sobrenome, dataNascimento, cpf, sexo, parentesco, null, created, updated, new ArrayList<>(), new LinkedHashSet<>());
     }
 
 

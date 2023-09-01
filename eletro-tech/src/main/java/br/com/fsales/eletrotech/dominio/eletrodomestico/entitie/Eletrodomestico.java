@@ -45,16 +45,13 @@ public class Eletrodomestico extends BaseEntity {
 
     private Integer tempoUsoDiario;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
     @JoinColumns({
-            @JoinColumn(
-                    name = "ID_ENDERECO",
-                    referencedColumnName = "id"
-            ),
-            @JoinColumn(
-                    name = "ID_PESSOA",
-                    referencedColumnName = "ID_PESSOA"
-            )
+            @JoinColumn(name = "id_pessoa", referencedColumnName = "id_pessoa", nullable = false),
+            @JoinColumn(name = "id_endereco", referencedColumnName = "id", nullable = false)
     })
     private Endereco endereco;
 
@@ -132,7 +129,7 @@ public class Eletrodomestico extends BaseEntity {
 
     public Pessoa getPessoa(){
         return Objects.nonNull(this.endereco) &&
-                Objects.nonNull(this.endereco.getEnderecoId()) ? this.endereco.getEnderecoId().getPessoa() : null;
+               Objects.nonNull(this.endereco.getEnderecoId()) ? this.endereco.getPessoa() : null;
     }
 
 }

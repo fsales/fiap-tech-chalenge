@@ -30,9 +30,9 @@ public interface EnderecoCustomerMapper {
      * @param enderecoRequest
      * @return
      */
-    //@Mapping(target = "pessoa.id", source = "idPessoa")
     @Mapping(target = "estado", expression = "java(br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum.getEnum(enderecoRequest.siglaEstado()))")
-    @Mapping(target = "enderecoId.pessoa.id", source = "idPessoa")
+    @Mapping(target = "pessoa.id", source = "idPessoa")
+    @Mapping(target = "enderecoId.idPessoa", source = "idPessoa")
     Endereco enderecoRequestToEndereco(EnderecoRequest enderecoRequest);
 
     /**

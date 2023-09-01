@@ -1,5 +1,6 @@
 package br.com.fsales.eletrotech.dominio.eletrodomestico.dto;
 
+import br.com.fsales.eletrotech.dominio.eletrodomestico.validacao.IEletrodomestico;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +14,13 @@ public record DadosAtualizarEletrodomesticoRequest(
 
         @NotNull
         UUID id,
+        @NotNull
+        UUID idPessoa,
+        @Schema(name = "idEndereco",
+                example = "4bc6b235-84ae-40fe-8930-0ee0530fc170"
+        )
+        @NotNull
+        UUID idEndereco,
         @Schema(name = "nome",
                 example = "Microondas"
         )
@@ -48,5 +56,5 @@ public record DadosAtualizarEletrodomesticoRequest(
         )
         @NotNull
         Integer tempoUsoDiario
-) {
+) implements IEletrodomestico {
 }

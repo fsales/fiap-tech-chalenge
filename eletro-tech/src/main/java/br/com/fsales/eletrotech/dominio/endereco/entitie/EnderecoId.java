@@ -1,27 +1,26 @@
 package br.com.fsales.eletrotech.dominio.endereco.entitie;
 
-import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @EqualsAndHashCode
+@ToString
 
 @Embeddable
 public class EnderecoId implements Serializable {
 
+    private static final long serialVersionUID = -625014989758525368L;
+
+    @Column(name = "id", nullable = false)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "id_pessoa",
-            referencedColumnName = "id"
-    )
-    private Pessoa pessoa;
+    @Column(name = "id_pessoa", nullable = false)
+    private UUID idPessoa;
 
     public EnderecoId() {
     }
@@ -31,10 +30,7 @@ public class EnderecoId implements Serializable {
             UUID idPessoa
     ) {
         this.id = id;
-        this.pessoa = Pessoa
-                .builder()
-                .id(idPessoa)
-                .build();
+        this.idPessoa = idPessoa;
     }
 
     public UUID getId() {
@@ -46,12 +42,12 @@ public class EnderecoId implements Serializable {
         return this;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public UUID getIdPessoa() {
+        return idPessoa;
     }
 
-    public EnderecoId setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public EnderecoId setIdPessoa(UUID idPessoa) {
+        this.idPessoa = idPessoa;
         return this;
     }
 }

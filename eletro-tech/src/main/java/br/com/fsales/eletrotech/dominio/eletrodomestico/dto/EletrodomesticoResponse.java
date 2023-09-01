@@ -2,9 +2,6 @@ package br.com.fsales.eletrotech.dominio.eletrodomestico.dto;
 
 import br.com.fsales.eletrotech.dominio.eletrodomestico.consumo.ICalcularConsumo;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.consumo.IDadosAparelho;
-import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
-import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -140,17 +137,13 @@ public record EletrodomesticoResponse(
             @Schema(name = "siglaEstado",
                     example = "GO"
             )
-            String siglaEstado
+            String siglaEstado,
+            @JsonProperty
+            @Schema(name = "nomeEstado",
+                    example = "Goiás"
+            )
+            String nomeEstado
     ) {
-
-        @JsonProperty
-        @Schema(name = "nomeEstado",
-                example = "Goiás"
-        )
-        public String nomeEstado() {
-            var estadoEnum = EstadoEnum.getEnum(siglaEstado());
-            return estadoEnum == null ? null : estadoEnum.nome();
-        }
 
     }
 
@@ -198,17 +191,22 @@ public record EletrodomesticoResponse(
             )
             PessoaResponse parent,
 
-            @JsonIgnore
-            String parentesco
-    ) {
-        @JsonProperty
-        @Schema(name = "parentesco",
-                example = "FILHO"
-        )
-        public String parentesco() {
-            var parentescoEnum = ParentescoEnum.getEnum(parentesco);
+            @JsonProperty
+            @Schema(name = "descricaoParentesco",
+                    example = "Mãe"
+            )
+            String descricaoParentesco,
+            @JsonProperty
+            @Schema(name = "siglaParentesco",
+                    example = "M"
+            )
+            String siglaParentesco,
 
-            return parentescoEnum == null ? null : parentescoEnum.getDescricao();
-        }
+            @JsonProperty
+            @Schema(name = "tipoPessoa",
+                    example = "Titular"
+            )
+            String tipoPessoa
+    ) {
     }
 }

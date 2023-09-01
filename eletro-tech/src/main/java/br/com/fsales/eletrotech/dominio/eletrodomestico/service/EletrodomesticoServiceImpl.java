@@ -4,9 +4,10 @@ import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.DadosAtualizarEletro
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoRequest;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.dto.EletrodomesticoResponse;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.projection.EletrodomesticoProjection;
-import br.com.fsales.eletrotech.dominio.eletrodomestico.repository.EletrodomesticoRepository;
+import br.com.fsales.eletrotech.dominio.eletrodomestico.repository.IEletrodomesticoRepository;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.util.EletrodomesticoCustomerMapper;
 import br.com.fsales.eletrotech.dominio.eletrodomestico.validacao.ValidarEletrodomestico;
+import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +25,9 @@ import java.util.UUID;
 @Slf4j
 public class EletrodomesticoServiceImpl implements EletrodomesticoService {
 
-    private final EletrodomesticoRepository eletrodomesticoRepository;
+    private final IEletrodomesticoRepository eletrodomesticoRepository;
+
+    private final IEnderecoRepository enderecoRepository;
 
     private final EletrodomesticoCustomerMapper eletrodomesticoCustomerMapper;
 
@@ -52,17 +55,21 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
 
         validadores.forEach(v -> v.validar(eletrodomesticoRequest));
 
+        var eletrodomesticoSalvar = eletrodomesticoCustomerMapper
+                .eletrodomesticoRequestToEletrodomestico(
+                        eletrodomesticoRequest
+                );
+
+        var endereco = enderecoRepository.getReferenceById(
+                eletrodomesticoSalvar.getEndereco().getEnderecoId()
+        );
+        eletrodomesticoSalvar.setEndereco(endereco);
+
         var eletrodomestico = eletrodomesticoRepository.save(
-                eletrodomesticoCustomerMapper
-                        .eletrodomesticoRequestToEletrodomestico(
-                                eletrodomesticoRequest
-                        )
+                eletrodomesticoSalvar
         );
 
-        return eletrodomesticoCustomerMapper
-                .eletrodomesticoToEletrodomesticoResponse(
-                        eletrodomesticoRepository.getReferenceById(eletrodomestico.getId())
-                );
+        return detalhar(eletrodomestico.getId());
     }
 
     /**
@@ -107,13 +114,13 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
     public EletrodomesticoResponse atualizar(final DadosAtualizarEletrodomesticoRequest eletrodomesticoRequest) {
         log.debug("Atualizando eletrodomestico");
 
+        validadores.forEach(v -> v.validar(eletrodomesticoRequest));
+
         var eletrodomesticoExistente = eletrodomesticoRepository
                 .getReferenceById(eletrodomesticoRequest.id());
 
         eletrodomesticoCustomerMapper.update(eletrodomesticoRequest, eletrodomesticoExistente);
 
-        eletrodomesticoRepository.saveAndFlush(eletrodomesticoExistente);
-
-        return eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(eletrodomesticoExistente);
+        return detalhar(eletrodomesticoExistente.getId());
     }
 }
