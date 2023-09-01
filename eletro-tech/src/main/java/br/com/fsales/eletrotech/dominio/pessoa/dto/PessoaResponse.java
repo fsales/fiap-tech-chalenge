@@ -1,10 +1,7 @@
 package br.com.fsales.eletrotech.dominio.pessoa.dto;
 
 import br.com.fsales.eletrotech.dominio.pessoa.controller.openapi.Swagger;
-import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
-import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -41,14 +38,6 @@ public record PessoaResponse(
         )
         String cpf,
 
-        @JsonIgnore
-        @Schema(hidden = true)
-        SexoEnum sexoEnum,
-
-        @JsonIgnore
-        @Schema(hidden = true)
-        ParentescoEnum parentescoEnum,
-
         @Schema(name = "parent",
                 implementation = PessoaResponse.class,
                 example = Swagger.API_PESSOA_OPERATION_JSON_PESSOA_PARENT
@@ -74,49 +63,66 @@ public record PessoaResponse(
 
         @JsonInclude(JsonInclude.Include.NON_EMPTY)
         @Schema(name = "enderecos", anyOf = EnderecoResponse.class)
-        Set<EnderecoResponse> enderecos
+        Set<EnderecoResponse> enderecos,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        @JsonProperty
+        @Schema(name = "descricaoParentesco",
+                example = "Mãe"
+        )
+        String descricaoParentesco,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        @JsonProperty
+        @Schema(name = "siglaParentesco",
+                example = "M"
+        )
+        String siglaParentesco,
+
+        @JsonProperty
+        @Schema(name = "tipoPessoa",
+                example = "Titular"
+        )
+        String tipoPessoa,
+
+        @JsonProperty
+        @Schema(name = "sexo",
+                example = "MASCULINO"
+        )
+        String sexoDescricao
 ) {
 
-    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes, Set<EnderecoResponse> enderecos) {
+    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf,
+                          PessoaResponse parent, Instant created, Instant updated,
+                          Collection<PessoaResponse> dependentes, Set<EnderecoResponse> enderecos,
+                          String descricaoParentesco, String siglaParentesco, String tipoPessoa, String sexoDescricao) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
-        this.sexoEnum = sexoEnum;
-        this.parentescoEnum = parentescoEnum;
         this.parent = parent;
         this.dependentes = dependentes;
         this.created = created;
         this.updated = updated;
         this.enderecos = enderecos;
+        this.descricaoParentesco = descricaoParentesco;
+        this.siglaParentesco = siglaParentesco;
+        this.tipoPessoa = tipoPessoa;
+        this.sexoDescricao = sexoDescricao;
     }
 
-    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexoEnum, ParentescoEnum parentescoEnum, PessoaResponse parent, Instant created, Instant updated, Collection<PessoaResponse> dependentes) {
+    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, PessoaResponse parent,
+                          Instant created, Instant updated, Collection<PessoaResponse> dependentes,
+                          String descricaoParentesco, String siglaParentesco, String tipoPessoa, String sexoDescricao) {
 
-        this(id, nome, sobrenome, dataNascimento, cpf, sexoEnum, parentescoEnum, parent, created, updated, dependentes, new LinkedHashSet<>());
+        this(id, nome, sobrenome, dataNascimento, cpf, parent, created, updated, dependentes, new LinkedHashSet<>(),
+                descricaoParentesco, siglaParentesco, tipoPessoa, sexoDescricao);
     }
 
-    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento, String cpf, SexoEnum sexo, ParentescoEnum parentesco, Instant created, Instant updated) {
-        this(id, nome, sobrenome, dataNascimento, cpf, sexo, parentesco, null, created, updated, new ArrayList<>(), new LinkedHashSet<>());
+    public PessoaResponse(UUID id, String nome, String sobrenome, LocalDate dataNascimento,
+                          String cpf, Instant created, Instant updated,
+                          String descricaoParentesco, String siglaParentesco, String tipoPessoa, String sexoDescricao) {
+        this(id, nome, sobrenome, dataNascimento, cpf, null, created, updated, new ArrayList<>(), new LinkedHashSet<>(),
+                descricaoParentesco, siglaParentesco, tipoPessoa, sexoDescricao);
     }
 
-
-    @JsonProperty
-    @Schema(name = "sexo",
-            example = "MASCULINO"
-    )
-    public String sexo() {
-        return sexoEnum == null ? null : sexoEnum.getDescricao();
-    }
-
-
-    @JsonProperty
-    @Schema(name = "parentesco",
-            example = "FILHO"
-    )
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public String parentesco() {
-        return parentescoEnum == null ? null : parentescoEnum.getDescricao();
-    }
 }

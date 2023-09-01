@@ -196,4 +196,13 @@ public final class Pessoa extends BaseEntity {
         return Objects.isNull(parent)
                || Objects.isNull(parent.getId()) ? "Titular" : "Dependente";
     }
+
+    /**
+     * retorna a sexo da pessoa com base no {@link SexoEnum}
+     *
+     * @return
+     */
+    public String getSexoDescricao() {
+        return sexo == null ? null : sexo.getDescricao();
+    }
 }

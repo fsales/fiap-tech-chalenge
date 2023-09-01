@@ -21,7 +21,9 @@ public record EnderecoResponse(
 
         String cidade,
 
-        String estado
+        String nomeEstado,
+
+        String siglaEstado
 ) {
     /**
      * @param endereco
@@ -39,7 +41,8 @@ public record EnderecoResponse(
                 endereco.getNumero(),
                 endereco.getBairro(),
                 endereco.getCidade(),
-                endereco.getEstado().nome()
+                endereco.getNomeEstado(),
+                endereco.getSiglaEstado()
         );
     }
 

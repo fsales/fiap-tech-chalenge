@@ -48,10 +48,12 @@ public final class PessoaDtoMapper {
                 pessoa.getSobrenome(),
                 pessoa.getDataNascimento(),
                 pessoa.getCpf(),
-                pessoa.getSexo(),
-                pessoa.getParentesco(),
                 pessoa.getCreated(),
-                pessoa.getUpdated()
+                pessoa.getUpdated(),
+                pessoa.getDescricaoParentesco(),
+                pessoa.getSiglaParentesco(),
+                pessoa.getTipoPessoa(),
+                pessoa.getSexoDescricao()
         );
 
         adicinarEnderecoResponse(pessoa, pessoaResponse);
@@ -89,12 +91,14 @@ public final class PessoaDtoMapper {
                 pessoa.getSobrenome(),
                 pessoa.getDataNascimento(),
                 pessoa.getCpf(),
-                pessoa.getSexo(),
-                pessoa.getParentesco(),
                 parent,
                 pessoa.getCreated(),
                 pessoa.getUpdated(),
-                dependentes
+                dependentes,
+                pessoa.getDescricaoParentesco(),
+                pessoa.getSiglaParentesco(),
+                pessoa.getTipoPessoa(),
+                pessoa.getSexoDescricao()
         );
 
         adicinarEnderecoResponse(
