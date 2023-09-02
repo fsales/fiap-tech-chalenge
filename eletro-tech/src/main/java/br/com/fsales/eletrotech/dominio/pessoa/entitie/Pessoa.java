@@ -1,8 +1,8 @@
 package br.com.fsales.eletrotech.dominio.pessoa.entitie;
 
-import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;
+import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;

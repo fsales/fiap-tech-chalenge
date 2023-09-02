@@ -1,6 +1,5 @@
 package br.com.fsales.eletrotech.eletrodomestico.aplication.service;
 
-import br.com.fsales.eletrotech.dominio.endereco.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.Eletrodomestico;
 import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizar;
 import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastro;
@@ -9,6 +8,7 @@ import br.com.fsales.eletrotech.eletrodomestico.aplication.util.EletrodomesticoM
 import br.com.fsales.eletrotech.eletrodomestico.aplication.validacao.ValidarEletrodomestico;
 import br.com.fsales.eletrotech.eletrodomestico.domain.repository.IEletrodomesticoRepository;
 import br.com.fsales.eletrotech.eletrodomestico.presentation.util.EletrodomesticoCustomerMapper;
+import br.com.fsales.eletrotech.endereco.domain.repository.IEnderecoRepository;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

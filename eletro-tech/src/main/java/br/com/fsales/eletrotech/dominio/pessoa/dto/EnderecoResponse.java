@@ -1,6 +1,6 @@
 package br.com.fsales.eletrotech.dominio.pessoa.dto;
 
-import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
+import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
 
 import java.util.Set;
 import java.util.UUID;

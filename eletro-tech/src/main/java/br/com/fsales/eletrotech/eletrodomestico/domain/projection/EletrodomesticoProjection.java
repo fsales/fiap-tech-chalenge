@@ -1,6 +1,6 @@
 package br.com.fsales.eletrotech.eletrodomestico.domain.projection;
 
-import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
+import br.com.fsales.eletrotech.endereco.domain.enumeration.EstadoEnum;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.Serializable;

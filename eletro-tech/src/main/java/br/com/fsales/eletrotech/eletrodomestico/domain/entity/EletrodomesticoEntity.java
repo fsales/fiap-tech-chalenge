@@ -1,7 +1,7 @@
 package br.com.fsales.eletrotech.eletrodomestico.domain.entity;
 
-import br.com.fsales.eletrotech.dominio.endereco.entitie.Endereco;
 import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
+import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

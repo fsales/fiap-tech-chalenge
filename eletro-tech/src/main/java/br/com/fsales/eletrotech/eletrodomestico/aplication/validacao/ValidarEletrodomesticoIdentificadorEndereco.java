@@ -1,8 +1,8 @@
 package br.com.fsales.eletrotech.eletrodomestico.aplication.validacao;
 
 
-import br.com.fsales.eletrotech.dominio.endereco.integracao.IValidarEnderecoIntegracao;
-import br.com.fsales.eletrotech.dominio.endereco.validacao.exception.ValidarEnderecoException;
+import br.com.fsales.eletrotech.endereco.application.integracao.IValidarEnderecoIntegracao;
+import br.com.fsales.eletrotech.endereco.application.validacao.exception.ValidarEnderecoException;
 import org.springframework.stereotype.Component;
 
 @Component
