@@ -1,8 +1,8 @@
 package br.com.fsales.eletrotech.dominio.endereco.entitie;
 
-import br.com.fsales.eletrotech.dominio.eletrodomestico.entitie.Eletrodomestico;
 import br.com.fsales.eletrotech.dominio.endereco.enumeration.EstadoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
+import br.com.fsales.eletrotech.eletrodomestico.domain.entity.EletrodomesticoEntity;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -68,7 +68,7 @@ public class Endereco extends BaseEntity {
     @OneToMany(
             mappedBy = "endereco"
     )
-    private Set<Eletrodomestico> eletrodomesticos = new LinkedHashSet<>();
+    private Set<EletrodomesticoEntity> eletrodomesticos = new LinkedHashSet<>();
 
 
     public EnderecoId getEnderecoId() {
@@ -161,7 +161,7 @@ public class Endereco extends BaseEntity {
         return this;
     }
 
-    public Set<Eletrodomestico> getEletrodomesticos() {
+    public Set<EletrodomesticoEntity> getEletrodomesticos() {
         return eletrodomesticos;
     }
 

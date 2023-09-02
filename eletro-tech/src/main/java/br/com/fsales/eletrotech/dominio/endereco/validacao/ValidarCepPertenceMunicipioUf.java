@@ -1,8 +1,8 @@
 package br.com.fsales.eletrotech.dominio.endereco.validacao;
 
+import br.com.fsales.eletrotech.client.viacep.ServicoConsultaCep;
+import br.com.fsales.eletrotech.client.viacep.dto.CepApiResponse;
 import br.com.fsales.eletrotech.dominio.endereco.validacao.exception.ValidarEnderecoException;
-import br.com.fsales.eletrotech.integracao.viacep.ServicoConsultaCep;
-import br.com.fsales.eletrotech.integracao.viacep.dto.CepApiResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
