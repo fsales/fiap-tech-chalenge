@@ -1,10 +1,6 @@
 package br.com.fsales.eletrotech.endereco.application.service;
 
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
-import br.com.fsales.eletrotech.endereco.domain.projection.EnderecoProjection;
-import br.com.fsales.eletrotech.endereco.presentation.dto.DadosAtualizarEnderecoRequest;
-import br.com.fsales.eletrotech.endereco.presentation.dto.EnderecoRequest;
-import br.com.fsales.eletrotech.endereco.presentation.dto.ListarEnderecoRequest;
+import br.com.fsales.eletrotech.endereco.application.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -17,22 +13,22 @@ public interface EnderecoService {
      * @param pageable
      * @return
      */
-    Page<EnderecoProjection> consultaPaginada(
-            final ListarEnderecoRequest filtro,
+    Page<EnderecoListar> consultaPaginada(
+            final FiltroEnderecoListar filtro,
             final Pageable pageable
     );
 
     /**
-     * @param enderecoRequest
+     * @param enderecoDTO
      * @return
      */
-    Endereco cadastrar(final EnderecoRequest enderecoRequest);
+    EnderecoDTO cadastrar(final EnderecoCadastroDTO enderecoDTO);
 
     /**
      * @param id
      * @return
      */
-    Endereco detalhar(
+    EnderecoDTO detalhar(
             final UUID id,
             final UUID idPessoa
     );
@@ -46,8 +42,8 @@ public interface EnderecoService {
     );
 
     /**
-     * @param enderecoRequest
+     * @param enderecoDTO
      * @return
      */
-    Endereco atualizar(final DadosAtualizarEnderecoRequest enderecoRequest);
+    EnderecoDTO atualizar(final EnderecoAtualizarDTO enderecoDTO);
 }

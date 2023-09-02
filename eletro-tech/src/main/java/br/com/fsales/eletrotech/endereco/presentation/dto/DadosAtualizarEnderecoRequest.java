@@ -1,7 +1,7 @@
 package br.com.fsales.eletrotech.endereco.presentation.dto;
 
 import br.com.fsales.eletrotech.endereco.application.validacao.IEndereco;
-import br.com.fsales.eletrotech.endereco.presentation.controller.validation.Estado;
+import br.com.fsales.eletrotech.endereco.presentation.validation.Estado;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

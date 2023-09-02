@@ -5,7 +5,7 @@ import br.com.fsales.eletrotech.eletrodomestico.aplication.validacao.IEletrodome
 import java.io.Serializable;
 import java.util.UUID;
 
-public record EletrodomesticoCadastro(
+public record EletrodomesticoCadastroDTO(
         UUID idPessoa,
         UUID idEndereco,
         String nome,

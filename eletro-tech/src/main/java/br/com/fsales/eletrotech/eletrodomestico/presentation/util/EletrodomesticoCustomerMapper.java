@@ -1,9 +1,9 @@
 package br.com.fsales.eletrotech.eletrodomestico.presentation.util;
 
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.Eletrodomestico;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizar;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastro;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomestico;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizarDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastroDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomesticoDTO;
 import br.com.fsales.eletrotech.eletrodomestico.domain.projection.EletrodomesticoProjection;
 import br.com.fsales.eletrotech.eletrodomestico.presentation.dto.DadosAtualizarEletrodomesticoRequest;
 import br.com.fsales.eletrotech.eletrodomestico.presentation.dto.EletrodomesticoRequest;
@@ -17,15 +17,15 @@ import org.mapstruct.factory.Mappers;
 public interface EletrodomesticoCustomerMapper {
     EletrodomesticoCustomerMapper INSTANCE = Mappers.getMapper(EletrodomesticoCustomerMapper.class);
 
-    EletrodomesticoResponse eletrodomesticoToEletrodomestico(Eletrodomestico eletrodomestico);
+    EletrodomesticoResponse eletrodomesticoToEletrodomesticoResponse(EletrodomesticoDTO eletrodomestico);
 
-    FiltroListarEletrodomestico listarEletrodomesticoRequestToFiltroListarEletrodomestico(ListarEletrodomesticoRequest eletrodomesticoRequest);
+    FiltroListarEletrodomesticoDTO listarEletrodomesticoRequestToFiltroListarEletrodomestico(ListarEletrodomesticoRequest eletrodomesticoRequest);
 
-    EletrodomesticoCadastro eletrodomesticoRequestToEletrodomesticoCadastro(EletrodomesticoRequest eletrodomestico);
+    EletrodomesticoCadastroDTO eletrodomesticoRequestToEletrodomesticoCadastro(EletrodomesticoRequest eletrodomestico);
 
-    EletrodomesticoAtualizar eletrodomesticoRequestToEletrodomesticoAtualizar(DadosAtualizarEletrodomesticoRequest request);
+    EletrodomesticoAtualizarDTO eletrodomesticoRequestToEletrodomesticoAtualizar(DadosAtualizarEletrodomesticoRequest request);
 
     @Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
     @Mapping(target = "pessoa.parent.idPessoa", source = "pessoa.parent.id")
-    Eletrodomestico eletrodomesticoToEletrodomestico(EletrodomesticoProjection eletrodomestico);
+    EletrodomesticoDTO eletrodomesticoToEletrodomesticoResponse(EletrodomesticoProjection eletrodomestico);
 }

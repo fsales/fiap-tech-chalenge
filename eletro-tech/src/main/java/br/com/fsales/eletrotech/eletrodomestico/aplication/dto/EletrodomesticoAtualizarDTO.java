@@ -4,7 +4,7 @@ import br.com.fsales.eletrotech.eletrodomestico.aplication.validacao.IEletrodome
 
 import java.util.UUID;
 
-public record EletrodomesticoAtualizar(
+public record EletrodomesticoAtualizarDTO(
         UUID id,
         UUID idPessoa,
         UUID idEndereco,

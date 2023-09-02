@@ -1,7 +1,5 @@
 package br.com.fsales.eletrotech.endereco.presentation.dto;
 
-import br.com.fsales.eletrotech.endereco.domain.enumeration.EstadoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -49,10 +47,17 @@ public record ListarEnderecoResponse(
         )
         String cidade,
 
-        @JsonIgnore
-        @Schema(hidden = true)
-        EstadoEnum estadoEnum,
+        @JsonProperty
+        @Schema(name = "nomeEstado",
+                example = "Goiás"
+        )
+        String nomeEstado,
 
+        @JsonProperty
+        @Schema(name = "siglaEstado",
+                example = "GO"
+        )
+        String siglaEstado,
         @Schema(name = "pessoa",
                 implementation = PessoaResponse.class,
                 anyOf = {PessoaResponse.class}
@@ -68,19 +73,41 @@ public record ListarEnderecoResponse(
         Instant updated
 ) {
 
-    @JsonProperty
-    @Schema(name = "nomeEstado",
-            example = "Goiás"
-    )
-    public String nomeEstado() {
-        return estadoEnum == null ? null : estadoEnum.nome();
-    }
 
-    @JsonProperty
-    @Schema(name = "siglaEstado",
-            example = "GO"
-    )
-    public String siglaEstado() {
-        return estadoEnum == null ? null : estadoEnum.sigla();
+    /****************************************/
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public record PessoaResponse(
+            @Schema(name = "id",
+                    example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
+            )
+            UUID idPessoa,
+            @Schema(name = "nome",
+                    example = "Marcos Andre"
+            )
+            String nome,
+            @Schema(name = "sobrenome",
+                    example = "Andrade"
+            )
+            String sobrenome,
+            @Schema(name = "parent",
+                    implementation = PessoaResponse.class,
+                    anyOf = {PessoaResponse.class}
+            )
+            PessoaResponse parent,
+
+            @JsonProperty
+            @Schema(name = "parentesco",
+                    example = "FILHO"
+            )
+            String parentesco,
+
+            @JsonProperty
+            @Schema(name = "tipoPessoa",
+                    description = "Titular ou Dependente",
+                    example = "Titular"
+            )
+            String tipoPessoa
+    ) {
     }
 }

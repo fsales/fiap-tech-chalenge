@@ -1,4 +1,4 @@
-package br.com.fsales.eletrotech.endereco.presentation.controller.openapi;
+package br.com.fsales.eletrotech.endereco.presentation.openapi;
 
 public final class Swagger {
 

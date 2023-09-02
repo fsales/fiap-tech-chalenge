@@ -29,7 +29,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Endereco extends BaseEntity {
+public class EnderecoEntity extends BaseEntity {
 
 
     @EmbeddedId
@@ -75,7 +75,7 @@ public class Endereco extends BaseEntity {
         return enderecoId;
     }
 
-    public Endereco setEnderecoId(EnderecoId enderecoId) {
+    public EnderecoEntity setEnderecoId(EnderecoId enderecoId) {
         this.enderecoId = enderecoId;
         return this;
     }
@@ -84,7 +84,7 @@ public class Endereco extends BaseEntity {
         return nomeEndereco;
     }
 
-    public Endereco setNomeEndereco(String nomeEndereco) {
+    public EnderecoEntity setNomeEndereco(String nomeEndereco) {
         this.nomeEndereco = nomeEndereco;
         return this;
     }
@@ -93,7 +93,7 @@ public class Endereco extends BaseEntity {
         return cep;
     }
 
-    public Endereco setCep(String cep) {
+    public EnderecoEntity setCep(String cep) {
         this.cep = cep;
         return this;
     }
@@ -102,7 +102,7 @@ public class Endereco extends BaseEntity {
         return rua;
     }
 
-    public Endereco setRua(String rua) {
+    public EnderecoEntity setRua(String rua) {
         this.rua = rua;
         return this;
     }
@@ -111,7 +111,7 @@ public class Endereco extends BaseEntity {
         return complemento;
     }
 
-    public Endereco setComplemento(String complemento) {
+    public EnderecoEntity setComplemento(String complemento) {
         this.complemento = complemento;
         return this;
     }
@@ -120,7 +120,7 @@ public class Endereco extends BaseEntity {
         return numero;
     }
 
-    public Endereco setNumero(Integer numero) {
+    public EnderecoEntity setNumero(Integer numero) {
         this.numero = numero;
         return this;
     }
@@ -129,7 +129,7 @@ public class Endereco extends BaseEntity {
         return bairro;
     }
 
-    public Endereco setBairro(String bairro) {
+    public EnderecoEntity setBairro(String bairro) {
         this.bairro = bairro;
         return this;
     }
@@ -138,7 +138,7 @@ public class Endereco extends BaseEntity {
         return cidade;
     }
 
-    public Endereco setCidade(String cidade) {
+    public EnderecoEntity setCidade(String cidade) {
         this.cidade = cidade;
         return this;
     }
@@ -147,7 +147,7 @@ public class Endereco extends BaseEntity {
         return estado;
     }
 
-    public Endereco setEstado(EstadoEnum estado) {
+    public EnderecoEntity setEstado(EstadoEnum estado) {
         this.estado = estado;
         return this;
     }
@@ -156,7 +156,7 @@ public class Endereco extends BaseEntity {
         return pessoa;
     }
 
-    public Endereco setPessoa(Pessoa pessoa) {
+    public EnderecoEntity setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
         return this;
     }

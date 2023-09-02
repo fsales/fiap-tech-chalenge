@@ -1,9 +1,10 @@
-package br.com.fsales.eletrotech.endereco.presentation.controller;
+package br.com.fsales.eletrotech.endereco.presentation;
+
 
 import br.com.fsales.eletrotech.endereco.application.service.EnderecoService;
-import br.com.fsales.eletrotech.endereco.application.util.EnderecoCustomerMapper;
-import br.com.fsales.eletrotech.endereco.presentation.controller.openapi.Swagger;
 import br.com.fsales.eletrotech.endereco.presentation.dto.*;
+import br.com.fsales.eletrotech.endereco.presentation.openapi.Swagger;
+import br.com.fsales.eletrotech.endereco.presentation.util.EnderecoCustomerMapper;
 import br.com.fsales.eletrotech.infrastructure.exception.dto.Violation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -41,7 +42,7 @@ public class EnderecoController {
 
     private final EnderecoService enderecoService;
 
-    private final EnderecoCustomerMapper enderecoMapper;
+    private final EnderecoCustomerMapper enderecoCustomMapper;
 
     /**
      * @param request
@@ -84,12 +85,12 @@ public class EnderecoController {
     ) {
 
         var enderecoPage = enderecoService.consultaPaginada(
-                request,
+                enderecoCustomMapper.listarEnderecoRequestToFiltroEnderecoListar(request),
                 pageable
         );
 
         return ResponseEntity.ok(
-                enderecoPage.map(enderecoMapper::enderecoProjectionToListarEnderecoResponse)
+                enderecoPage.map(enderecoCustomMapper::enderecoListarToListarEnderecoResponse)
         );
     }
 
@@ -129,9 +130,10 @@ public class EnderecoController {
                 request.toString()
         );
 
-
         var endereco = enderecoService.cadastrar(
-                request
+                enderecoCustomMapper.enderecoRequestToEnderecoCadastro(
+                        request
+                )
         );
 
 
@@ -140,8 +142,8 @@ public class EnderecoController {
         ).buildAndExpand(
                 String.format(
                         "%s/pessoa/%s",
-                        endereco.getId(),
-                        endereco.getIdPessoa()
+                        endereco.id(),
+                        endereco.idPessoa()
                 )
 
         ).toUri();
@@ -265,7 +267,11 @@ public class EnderecoController {
             @Valid @RequestBody DadosAtualizarEnderecoRequest request
     ) {
 
-        var endereco = enderecoService.atualizar(request);
+        var endereco = enderecoService.atualizar(
+                enderecoCustomMapper.enderecoRequestToEnderecoAtualizar(
+                        request
+                )
+        );
 
         return ResponseEntity.ok(
                 EnderecoResponse.fromEnderecoToResponse(endereco)

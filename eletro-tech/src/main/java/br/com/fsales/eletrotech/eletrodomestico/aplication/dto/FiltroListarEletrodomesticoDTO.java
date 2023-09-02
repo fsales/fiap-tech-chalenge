@@ -1,6 +1,6 @@
 package br.com.fsales.eletrotech.eletrodomestico.aplication.dto;
 
-public record FiltroListarEletrodomestico(
+public record FiltroListarEletrodomesticoDTO(
         String nome,
         String modelo,
 

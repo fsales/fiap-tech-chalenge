@@ -6,7 +6,7 @@ import br.com.fsales.eletrotech.eletrodomestico.aplication.consumo.IDadosAparelh
 import java.time.Instant;
 import java.util.UUID;
 
-public record Eletrodomestico(
+public record EletrodomesticoDTO(
         UUID id,
         UUID idPessoa,
         UUID idEndereco,

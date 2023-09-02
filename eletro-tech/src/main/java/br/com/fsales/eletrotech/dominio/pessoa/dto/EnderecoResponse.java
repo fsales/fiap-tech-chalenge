@@ -1,6 +1,6 @@
 package br.com.fsales.eletrotech.dominio.pessoa.dto;
 
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
+import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 
 import java.util.Set;
 import java.util.UUID;
@@ -30,7 +30,7 @@ public record EnderecoResponse(
      * @return
      */
     public static EnderecoResponse toEnderecoResponse(
-            Endereco endereco
+            EnderecoEntity endereco
     ) {
         return new EnderecoResponse(
                 endereco.getId(),
@@ -51,7 +51,7 @@ public record EnderecoResponse(
      * @return
      */
     public static Set<EnderecoResponse> toEnderecoResponse(
-            Set<Endereco> enderecos
+            Set<EnderecoEntity> enderecos
     ) {
         return enderecos
                 .stream()

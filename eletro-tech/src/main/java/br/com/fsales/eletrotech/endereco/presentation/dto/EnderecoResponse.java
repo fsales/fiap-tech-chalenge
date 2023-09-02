@@ -1,8 +1,6 @@
 package br.com.fsales.eletrotech.endereco.presentation.dto;
 
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
-import br.com.fsales.eletrotech.endereco.domain.enumeration.EstadoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import br.com.fsales.eletrotech.endereco.application.dto.EnderecoDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -54,9 +52,17 @@ public record EnderecoResponse(
         )
         String cidade,
 
-        @JsonIgnore
-        @Schema(hidden = true)
-        EstadoEnum estadoEnum,
+        @JsonProperty
+        @Schema(name = "siglaEstado",
+                example = "GO"
+        )
+        String siglaEstado,
+
+        @JsonProperty
+        @Schema(name = "nomeEstado",
+                example = "Goiás"
+        )
+        String nomeEstado,
 
         @Schema(name = "created")
         @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -66,44 +72,28 @@ public record EnderecoResponse(
         @JsonInclude(JsonInclude.Include.NON_NULL)
         Instant updated
 ) {
-
-    @JsonProperty
-    @Schema(name = "nomeEstado",
-            example = "Goiás"
-    )
-    public String nomeEstado() {
-        return estadoEnum == null ? null : estadoEnum.nome();
-    }
-
-    @JsonProperty
-    @Schema(name = "siglaEstado",
-            example = "GO"
-    )
-    public String siglaEstado() {
-        return estadoEnum == null ? null : estadoEnum.sigla();
-    }
-
     /**
      * @param endereco
      * @return
      */
     public static EnderecoResponse fromEnderecoToResponse(
-            Endereco endereco
+            EnderecoDTO endereco
     ) {
 
         return new EnderecoResponse(
-                endereco.getId(),
-                endereco.getIdPessoa(),
-                endereco.getNomeEndereco(),
-                endereco.getCep(),
-                endereco.getRua(),
-                endereco.getComplemento(),
-                endereco.getNumero(),
-                endereco.getBairro(),
-                endereco.getCidade(),
-                endereco.getEstado(),
-                endereco.getCreated(),
-                endereco.getUpdated()
+                endereco.id(),
+                endereco.idPessoa(),
+                endereco.nomeEndereco(),
+                endereco.cep(),
+                endereco.rua(),
+                endereco.complemento(),
+                endereco.numero(),
+                endereco.bairro(),
+                endereco.cidade(),
+                endereco.siglaEstado(),
+                endereco.nomeEstado(),
+                endereco.created(),
+                endereco.updated()
         );
     }
 }

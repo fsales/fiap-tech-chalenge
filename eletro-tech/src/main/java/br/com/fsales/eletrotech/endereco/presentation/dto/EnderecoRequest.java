@@ -1,7 +1,6 @@
 package br.com.fsales.eletrotech.endereco.presentation.dto;
 
-import br.com.fsales.eletrotech.endereco.application.validacao.IEndereco;
-import br.com.fsales.eletrotech.endereco.presentation.controller.validation.Estado;
+import br.com.fsales.eletrotech.endereco.presentation.validation.Estado;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -33,5 +32,5 @@ public record EnderecoRequest(
         @NotEmpty
         @Estado
         String siglaEstado
-) implements IEndereco {
+) {
 }

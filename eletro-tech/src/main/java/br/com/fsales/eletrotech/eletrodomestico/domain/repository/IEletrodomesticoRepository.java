@@ -1,6 +1,6 @@
 package br.com.fsales.eletrotech.eletrodomestico.domain.repository;
 
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomestico;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomesticoDTO;
 import br.com.fsales.eletrotech.eletrodomestico.domain.entity.EletrodomesticoEntity;
 import br.com.fsales.eletrotech.eletrodomestico.domain.projection.EletrodomesticoProjection;
 import org.springframework.data.domain.Page;
@@ -60,6 +60,6 @@ public interface IEletrodomesticoRepository extends JpaRepository<Eletrodomestic
             nativeQuery = true)
     Page<EletrodomesticoProjection> consultarEnderecoPaginado(
             Pageable pageable,
-            @Param("filtro") FiltroListarEletrodomestico filtro
+            @Param("filtro") FiltroListarEletrodomesticoDTO filtro
     );
 }

@@ -1,15 +1,11 @@
 package br.com.fsales.eletrotech.endereco.application.service;
 
+import br.com.fsales.eletrotech.endereco.application.dto.*;
 import br.com.fsales.eletrotech.endereco.application.integracao.IValidarEnderecoIntegracao;
-import br.com.fsales.eletrotech.endereco.application.util.EnderecoCustomerMapper;
+import br.com.fsales.eletrotech.endereco.application.util.EnderecoMapper;
 import br.com.fsales.eletrotech.endereco.application.validacao.ValidarEndereco;
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
 import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoId;
-import br.com.fsales.eletrotech.endereco.domain.projection.EnderecoProjection;
 import br.com.fsales.eletrotech.endereco.domain.repository.IEnderecoRepository;
-import br.com.fsales.eletrotech.endereco.presentation.dto.DadosAtualizarEnderecoRequest;
-import br.com.fsales.eletrotech.endereco.presentation.dto.EnderecoRequest;
-import br.com.fsales.eletrotech.endereco.presentation.dto.ListarEnderecoRequest;
 import br.com.fsales.eletrotech.infrastructure.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +26,7 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
 
     private final IEnderecoRepository enderecoRepository;
 
-    private final EnderecoCustomerMapper enderecoMapper;
+    private final EnderecoMapper enderecoMapper;
 
     private final List<ValidarEndereco> validadores;
 
@@ -40,42 +36,45 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
      * @return
      */
     @Override
-    public Page<EnderecoProjection> consultaPaginada(
-            final ListarEnderecoRequest filtro,
+    public Page<EnderecoListar> consultaPaginada(
+            final FiltroEnderecoListar filtro,
             final Pageable pageable
     ) {
 
-        return enderecoRepository.consultarEnderecoPaginado(
+        var page = enderecoRepository.consultarEnderecoPaginado(
                 filtro,
                 pageable
         );
+
+        return page.map(enderecoMapper::enderecoProjectionToEnderecoListar);
     }
 
     /**
-     * @param enderecoRequest
+     * @param enderecoDTO
      * @return
      */
     @Override
     @Transactional
-    public Endereco cadastrar(
-            final EnderecoRequest enderecoRequest
+    public EnderecoDTO cadastrar(
+            final EnderecoCadastroDTO enderecoDTO
     ) {
 
         log.debug("Salvando endereço");
 
         // validar
-        validadores.forEach(v -> v.validar(enderecoRequest));
+        validadores.forEach(v -> v.validar(enderecoDTO));
 
-        var estado = enderecoMapper.enderecoRequestToEndereco(
-                enderecoRequest
+        var endereco = enderecoMapper.enderecoCadastroToEndereco(
+                enderecoDTO
         );
 
         // definindo o ID de endereço da chave composta
-        estado.getEnderecoId().setId(UUID.randomUUID());
+        endereco.getEnderecoId().setId(UUID.randomUUID());
 
-        return enderecoRepository.save(
-                estado
-        );
+
+        return enderecoMapper.enderecoToEnderecoDTO(enderecoRepository.save(
+                endereco
+        ));
     }
 
     /**
@@ -83,15 +82,18 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
      * @return
      */
     @Override
-    public Endereco detalhar(
+    public EnderecoDTO detalhar(
             final UUID id,
             final UUID idPessoa
     ) {
 
-        return enderecoRepository.findById(new EnderecoId(id, idPessoa))
+        var endereco = enderecoRepository.findById(new EnderecoId(id, idPessoa))
                 .orElseThrow(
                         () -> new NotFoundException("Endere\u00E7o n\u00E3o encontrado.")
                 );
+        return enderecoMapper.enderecoToEnderecoDTO(
+                endereco
+        );
     }
 
     /**
@@ -113,25 +115,29 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
     }
 
     /**
-     * @param enderecoRequest
+     * @param enderecoDTO
      * @return
      */
     @Override
     @Transactional
-    public Endereco atualizar(DadosAtualizarEnderecoRequest enderecoRequest) {
+    public EnderecoDTO atualizar(EnderecoAtualizarDTO enderecoDTO) {
 
-        validadores.forEach(v -> v.validar(enderecoRequest));
+        validadores.forEach(v -> v.validar(enderecoDTO));
         var enderecoExistente = enderecoRepository.getReferenceById(
                 new EnderecoId(
-                        enderecoRequest.id(),
-                        enderecoRequest.idPessoa()
+                        enderecoDTO.id(),
+                        enderecoDTO.idPessoa()
                 )
         );
 
 
-        enderecoMapper.update(enderecoRequest, enderecoExistente);
+        enderecoMapper.update(
+                enderecoDTO, enderecoExistente
+        );
 
-        return enderecoExistente;
+        return enderecoMapper.enderecoToEnderecoDTO(
+                enderecoExistente
+        );
     }
 
     /**

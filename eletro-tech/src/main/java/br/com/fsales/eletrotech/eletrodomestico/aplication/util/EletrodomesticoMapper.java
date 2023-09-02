@@ -1,8 +1,8 @@
 package br.com.fsales.eletrotech.eletrodomestico.aplication.util;
 
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.Eletrodomestico;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizar;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastro;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizarDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastroDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoDTO;
 import br.com.fsales.eletrotech.eletrodomestico.domain.entity.EletrodomesticoEntity;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
@@ -20,12 +20,12 @@ public interface EletrodomesticoMapper {
     @Mapping(target = "pessoa", source = "pessoa")
     @Mapping(target = "pessoa.idPessoa", source = "pessoa.id")
     @Mapping(target = "idPessoa", source = "pessoa.id")
-    Eletrodomestico eletrodomesticoToEletrodomestico(EletrodomesticoEntity eletrodomestico);
+    EletrodomesticoDTO eletrodomesticoToEletrodomestico(EletrodomesticoEntity eletrodomestico);
 
 
     @Mapping(target = "endereco.enderecoId.idPessoa", source = "idPessoa")
     @Mapping(target = "endereco.enderecoId.id", source = "idEndereco")
-    EletrodomesticoEntity eletrodomesticoCadastroToEletrodomestico(EletrodomesticoCadastro eletrodomesticoCadastro);
+    EletrodomesticoEntity eletrodomesticoCadastroToEletrodomestico(EletrodomesticoCadastroDTO eletrodomesticoCadastro);
 
     /**
      * @param eletrodomesticoAtualizar
@@ -35,5 +35,5 @@ public interface EletrodomesticoMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "endereco.enderecoId.idPessoa", source = "idPessoa")
     @Mapping(target = "endereco.enderecoId.id", source = "idEndereco")
-    void update(EletrodomesticoAtualizar eletrodomesticoAtualizar, @MappingTarget EletrodomesticoEntity eletrodomestico);
+    void update(EletrodomesticoAtualizarDTO eletrodomesticoAtualizar, @MappingTarget EletrodomesticoEntity eletrodomestico);
 }

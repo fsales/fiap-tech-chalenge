@@ -1,9 +1,9 @@
 package br.com.fsales.eletrotech.endereco.domain.repository;
 
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
+import br.com.fsales.eletrotech.endereco.application.dto.FiltroEnderecoListar;
+import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoId;
 import br.com.fsales.eletrotech.endereco.domain.projection.EnderecoProjection;
-import br.com.fsales.eletrotech.endereco.presentation.dto.ListarEnderecoRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IEnderecoRepository extends JpaRepository<Endereco, EnderecoId> {
+public interface IEnderecoRepository extends JpaRepository<EnderecoEntity, EnderecoId> {
 
     @Query(
             value = """
@@ -54,7 +54,7 @@ public interface IEnderecoRepository extends JpaRepository<Endereco, EnderecoId>
             nativeQuery = true
     )
     Page<EnderecoProjection> consultarEnderecoPaginado(
-            @Param("filtro") ListarEnderecoRequest filtro,
+            @Param("filtro") FiltroEnderecoListar filtro,
             Pageable pageable
     );
 }

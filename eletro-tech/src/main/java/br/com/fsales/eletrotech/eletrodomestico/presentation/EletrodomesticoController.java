@@ -89,7 +89,7 @@ public class EletrodomesticoController {
         );
         return ResponseEntity.ok(
                 page.map(
-                        eletrodomesticoCustomerMapper::eletrodomesticoToEletrodomestico
+                        eletrodomesticoCustomerMapper::eletrodomesticoToEletrodomesticoResponse
                 )
         );
     }
@@ -146,7 +146,7 @@ public class EletrodomesticoController {
                 .created(
                         uri
                 ).body(
-                        eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomestico(eletrodomestico)
+                        eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(eletrodomestico)
                 );
     }
 
@@ -183,7 +183,7 @@ public class EletrodomesticoController {
         );
 
         return ResponseEntity.ok(
-                eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomestico(
+                eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(
                         eletrodomesticoService.detalhar(id)
                 )
         );
@@ -274,7 +274,7 @@ public class EletrodomesticoController {
 
 
         return ResponseEntity.ok(
-                eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomestico(
+                eletrodomesticoCustomerMapper.eletrodomesticoToEletrodomesticoResponse(
                         eletrodomestico
                 )
         );

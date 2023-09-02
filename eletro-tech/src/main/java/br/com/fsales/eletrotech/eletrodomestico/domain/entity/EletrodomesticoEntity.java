@@ -1,7 +1,7 @@
 package br.com.fsales.eletrotech.eletrodomestico.domain.entity;
 
 import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
+import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -60,7 +60,7 @@ public class EletrodomesticoEntity extends BaseEntity {
             @JoinColumn(name = "id_pessoa", referencedColumnName = "id_pessoa", nullable = false),
             @JoinColumn(name = "id_endereco", referencedColumnName = "id", nullable = false)
     })
-    private Endereco endereco;
+    private EnderecoEntity endereco;
 
     public UUID getId() {
         return id;
@@ -125,11 +125,11 @@ public class EletrodomesticoEntity extends BaseEntity {
         return this;
     }
 
-    public Endereco getEndereco() {
+    public EnderecoEntity getEndereco() {
         return endereco;
     }
 
-    public EletrodomesticoEntity setEndereco(Endereco endereco) {
+    public EletrodomesticoEntity setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
         return this;
     }

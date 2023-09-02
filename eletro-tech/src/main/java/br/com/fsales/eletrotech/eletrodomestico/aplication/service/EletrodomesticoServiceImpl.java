@@ -1,9 +1,9 @@
 package br.com.fsales.eletrotech.eletrodomestico.aplication.service;
 
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.Eletrodomestico;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizar;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastro;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomestico;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizarDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastroDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomesticoDTO;
 import br.com.fsales.eletrotech.eletrodomestico.aplication.util.EletrodomesticoMapper;
 import br.com.fsales.eletrotech.eletrodomestico.aplication.validacao.ValidarEletrodomestico;
 import br.com.fsales.eletrotech.eletrodomestico.domain.repository.IEletrodomesticoRepository;
@@ -40,7 +40,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      * @return
      */
     @Override
-    public Page<Eletrodomestico> consultaPaginada(final Pageable pageable, final FiltroListarEletrodomestico filtroListarEletrodomestico) {
+    public Page<EletrodomesticoDTO> consultaPaginada(final Pageable pageable, final FiltroListarEletrodomesticoDTO filtroListarEletrodomestico) {
         log.debug("Consulta Paginada");
 
         var page = eletrodomesticoRepository.consultarEnderecoPaginado(
@@ -49,7 +49,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
         );
 
         return page.map(
-                eletrodomesticoCustomerMapper::eletrodomesticoToEletrodomestico
+                eletrodomesticoCustomerMapper::eletrodomesticoToEletrodomesticoResponse
         );
     }
 
@@ -59,7 +59,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      */
     @Override
     @Transactional
-    public Eletrodomestico cadastrar(final EletrodomesticoCadastro eletrodomesticoCadastro) {
+    public EletrodomesticoDTO cadastrar(final EletrodomesticoCadastroDTO eletrodomesticoCadastro) {
         log.debug("Salvando eletrodomestico");
 
         validadores.forEach(v -> v.validar(eletrodomesticoCadastro));
@@ -86,7 +86,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      * @return
      */
     @Override
-    public Eletrodomestico detalhar(final UUID id) {
+    public EletrodomesticoDTO detalhar(final UUID id) {
         log.debug("Detalhar");
 
         var eletrodomestico = eletrodomesticoRepository
@@ -120,7 +120,7 @@ public class EletrodomesticoServiceImpl implements EletrodomesticoService {
      */
     @Override
     @Transactional
-    public Eletrodomestico atualizar(final EletrodomesticoAtualizar eletrodomesticoAtualizar) {
+    public EletrodomesticoDTO atualizar(final EletrodomesticoAtualizarDTO eletrodomesticoAtualizar) {
         log.debug("Atualizando eletrodomestico");
 
         validadores.forEach(v -> v.validar(eletrodomesticoAtualizar));

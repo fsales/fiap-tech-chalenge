@@ -1,9 +1,9 @@
 package br.com.fsales.eletrotech.eletrodomestico.aplication.service;
 
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.Eletrodomestico;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizar;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastro;
-import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomestico;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoAtualizarDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoCadastroDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.EletrodomesticoDTO;
+import br.com.fsales.eletrotech.eletrodomestico.aplication.dto.FiltroListarEletrodomesticoDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -17,19 +17,19 @@ public interface EletrodomesticoService {
      * @param filtroListarEletrodomestico
      * @return
      */
-    Page<Eletrodomestico> consultaPaginada(final Pageable pageable, final FiltroListarEletrodomestico filtroListarEletrodomestico);
+    Page<EletrodomesticoDTO> consultaPaginada(final Pageable pageable, final FiltroListarEletrodomesticoDTO filtroListarEletrodomestico);
 
     /**
      * @param eletrodomesticoCadastro
      * @return
      */
-    Eletrodomestico cadastrar(final EletrodomesticoCadastro eletrodomesticoCadastro);
+    EletrodomesticoDTO cadastrar(final EletrodomesticoCadastroDTO eletrodomesticoCadastro);
 
     /**
      * @param id
      * @return
      */
-    Eletrodomestico detalhar(final UUID id);
+    EletrodomesticoDTO detalhar(final UUID id);
 
     /**
      * @param id
@@ -40,6 +40,6 @@ public interface EletrodomesticoService {
      * @param eletrodomesticoAtualizar
      * @return
      */
-    Eletrodomestico atualizar(final EletrodomesticoAtualizar eletrodomesticoAtualizar);
+    EletrodomesticoDTO atualizar(final EletrodomesticoAtualizarDTO eletrodomesticoAtualizar);
 
 }

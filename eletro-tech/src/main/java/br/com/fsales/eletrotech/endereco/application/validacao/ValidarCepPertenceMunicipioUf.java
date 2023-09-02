@@ -47,7 +47,7 @@ public class ValidarCepPertenceMunicipioUf implements ValidarEndereco {
                 cepApiResponse)
         )
             throw new ValidarEnderecoException(
-                    "O CEP informado é inválido ou inexistente."
+                    "O CEP informado é inválido, inexistente ou  não pertence a cidade e estado. Favor validar o CEP no site dos Correios"
             );
 
 

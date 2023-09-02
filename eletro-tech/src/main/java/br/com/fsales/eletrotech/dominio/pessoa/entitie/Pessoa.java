@@ -2,7 +2,7 @@ package br.com.fsales.eletrotech.dominio.pessoa.entitie;
 
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.ParentescoEnum;
 import br.com.fsales.eletrotech.dominio.pessoa.enumeration.SexoEnum;
-import br.com.fsales.eletrotech.endereco.domain.entity.Endereco;
+import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -68,7 +68,7 @@ public final class Pessoa extends BaseEntity {
     @OneToMany(
             mappedBy = "pessoa"
     )
-    private Set<Endereco> enderecos = new LinkedHashSet<>();
+    private Set<EnderecoEntity> enderecos = new LinkedHashSet<>();
 
 
     public UUID getId() {
@@ -152,11 +152,11 @@ public final class Pessoa extends BaseEntity {
         return this;
     }
 
-    public Set<Endereco> getEnderecos() {
+    public Set<EnderecoEntity> getEnderecos() {
         return enderecos;
     }
 
-    public Pessoa setEnderecos(Set<Endereco> enderecos) {
+    public Pessoa setEnderecos(Set<EnderecoEntity> enderecos) {
         this.enderecos = enderecos;
         return this;
     }
