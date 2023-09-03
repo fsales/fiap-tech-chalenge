@@ -36,8 +36,8 @@ public class EnderecoServiceImpl implements EnderecoService, IValidarEnderecoInt
      * @return
      */
     @Override
-    public Page<EnderecoListar> consultaPaginada(
-            final FiltroEnderecoListar filtro,
+    public Page<EnderecoListarDTO> consultaPaginada(
+            final FiltroEnderecoListarDTO filtro,
             final Pageable pageable
     ) {
 

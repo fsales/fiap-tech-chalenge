@@ -1,6 +1,6 @@
 package br.com.fsales.eletrotech.endereco.domain.repository;
 
-import br.com.fsales.eletrotech.endereco.application.dto.FiltroEnderecoListar;
+import br.com.fsales.eletrotech.endereco.application.dto.FiltroEnderecoListarDTO;
 import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoId;
 import br.com.fsales.eletrotech.endereco.domain.projection.EnderecoProjection;
@@ -54,7 +54,7 @@ public interface IEnderecoRepository extends JpaRepository<EnderecoEntity, Ender
             nativeQuery = true
     )
     Page<EnderecoProjection> consultarEnderecoPaginado(
-            @Param("filtro") FiltroEnderecoListar filtro,
+            @Param("filtro") FiltroEnderecoListarDTO filtro,
             Pageable pageable
     );
 }

@@ -27,7 +27,7 @@ public enum EstadoEnum {
     CEARA("Ceará", "CE", "Fortaleza"),
     PERNAMBUCO("Pernambuco", "PE", "Recife"),
     SANTA_CATARINA("Santa Catarina", "SC", "Florianópolis"),
-    PARAIBA("Paraíba", "PB", "João Pessoa"),
+    PARAIBA("Paraíba", "PB", "João PessoaEntity"),
     RIO_GRANDE_DO_NORTE("Rio Grande do Norte", "RN", "Natal"),
     ESPIRITO_SANTO("Espírito Santo", "ES", "Vitória"),
     RIO_DE_JANEIRO("Rio de Janeiro", "RJ", "Rio de Janeiro"),

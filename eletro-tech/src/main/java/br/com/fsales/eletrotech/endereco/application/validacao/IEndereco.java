@@ -8,8 +8,6 @@ public interface IEndereco {
         return null;
     }
 
-    ;
-
     String cep();
 
     String cidade();

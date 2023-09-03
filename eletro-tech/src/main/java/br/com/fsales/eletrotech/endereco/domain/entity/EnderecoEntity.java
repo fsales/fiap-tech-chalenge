@@ -1,9 +1,9 @@
 package br.com.fsales.eletrotech.endereco.domain.entity;
 
-import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.eletrodomestico.domain.entity.EletrodomesticoEntity;
 import br.com.fsales.eletrotech.endereco.domain.enumeration.EstadoEnum;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
+import br.com.fsales.eletrotech.pessoa.domain.entity.PessoaEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -35,20 +35,28 @@ public class EnderecoEntity extends BaseEntity {
     @EmbeddedId
     private EnderecoId enderecoId;
 
+    @Column(name = "NOME_ENDERECO", nullable = false, length = 255)
     private String nomeEndereco;
 
+    @Column(name = "CEP", nullable = false, length = 8)
     private String cep;
 
+    @Column(name = "RUA", nullable = false, length = 100)
     private String rua;
 
+    @Column(name = "COMPLEMENTO", nullable = false, length = 100)
     private String complemento;
 
+    @Column(name = "NUMERO", nullable = false)
     private Integer numero;
 
+    @Column(name = "BAIRRO", nullable = false, length = 100)
     private String bairro;
 
+    @Column(name = "CIDADE", nullable = false, length = 100)
     private String cidade;
 
+    @Column(name = "ESTADO", nullable = false, length = 2)
     private EstadoEnum estado;
 
     @MapsId(
@@ -63,7 +71,7 @@ public class EnderecoEntity extends BaseEntity {
             referencedColumnName = "id",
             nullable = false
     )
-    private Pessoa pessoa;
+    private PessoaEntity pessoa;
 
     @OneToMany(
             mappedBy = "endereco"
@@ -152,11 +160,11 @@ public class EnderecoEntity extends BaseEntity {
         return this;
     }
 
-    public Pessoa getPessoa() {
+    public PessoaEntity getPessoa() {
         return pessoa;
     }
 
-    public EnderecoEntity setPessoa(Pessoa pessoa) {
+    public EnderecoEntity setPessoa(PessoaEntity pessoa) {
         this.pessoa = pessoa;
         return this;
     }

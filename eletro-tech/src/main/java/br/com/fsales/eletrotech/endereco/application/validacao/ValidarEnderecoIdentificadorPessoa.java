@@ -1,7 +1,7 @@
 package br.com.fsales.eletrotech.endereco.application.validacao;
 
-import br.com.fsales.eletrotech.dominio.pessoa.integracao.IValidarPessaoIntegracao;
 import br.com.fsales.eletrotech.endereco.application.validacao.exception.ValidarEnderecoException;
+import br.com.fsales.eletrotech.pessoa.application.integracao.IValidarPessaoIntegracao;
 import org.springframework.stereotype.Component;
 
 @Component

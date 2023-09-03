@@ -3,7 +3,7 @@ package br.com.fsales.eletrotech.endereco.application.util;
 import br.com.fsales.eletrotech.endereco.application.dto.EnderecoAtualizarDTO;
 import br.com.fsales.eletrotech.endereco.application.dto.EnderecoCadastroDTO;
 import br.com.fsales.eletrotech.endereco.application.dto.EnderecoDTO;
-import br.com.fsales.eletrotech.endereco.application.dto.EnderecoListar;
+import br.com.fsales.eletrotech.endereco.application.dto.EnderecoListarDTO;
 import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 import br.com.fsales.eletrotech.endereco.domain.projection.EnderecoProjection;
 import org.mapstruct.*;
@@ -16,7 +16,7 @@ public interface EnderecoMapper {
 
     EnderecoDTO enderecoToEnderecoDTO(EnderecoEntity endereco);
 
-    EnderecoListar enderecoProjectionToEnderecoListar(EnderecoProjection enderecoProjection);
+    EnderecoListarDTO enderecoProjectionToEnderecoListar(EnderecoProjection enderecoProjection);
 
     /**
      * @param endereco

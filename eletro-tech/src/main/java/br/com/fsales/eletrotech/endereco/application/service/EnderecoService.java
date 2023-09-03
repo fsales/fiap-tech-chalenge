@@ -13,8 +13,8 @@ public interface EnderecoService {
      * @param pageable
      * @return
      */
-    Page<EnderecoListar> consultaPaginada(
-            final FiltroEnderecoListar filtro,
+    Page<EnderecoListarDTO> consultaPaginada(
+            final FiltroEnderecoListarDTO filtro,
             final Pageable pageable
     );
 

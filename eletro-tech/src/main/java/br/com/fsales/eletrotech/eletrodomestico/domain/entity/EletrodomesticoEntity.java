@@ -1,8 +1,8 @@
 package br.com.fsales.eletrotech.eletrodomestico.domain.entity;
 
-import br.com.fsales.eletrotech.dominio.pessoa.entitie.Pessoa;
 import br.com.fsales.eletrotech.endereco.domain.entity.EnderecoEntity;
 import br.com.fsales.eletrotech.infrastructure.entitie.BaseEntity;
+import br.com.fsales.eletrotech.pessoa.domain.entity.PessoaEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -134,7 +134,7 @@ public class EletrodomesticoEntity extends BaseEntity {
         return this;
     }
 
-    public Pessoa getPessoa() {
+    public PessoaEntity getPessoa() {
         return Objects.nonNull(this.endereco) &&
                Objects.nonNull(this.endereco.getEnderecoId()) ? this.endereco.getPessoa() : null;
     }

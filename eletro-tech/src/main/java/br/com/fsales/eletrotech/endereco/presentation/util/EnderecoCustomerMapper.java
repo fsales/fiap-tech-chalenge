@@ -18,7 +18,7 @@ public interface EnderecoCustomerMapper {
 
     EnderecoAtualizarDTO enderecoRequestToEnderecoAtualizar(DadosAtualizarEnderecoRequest request);
 
-    FiltroEnderecoListar listarEnderecoRequestToFiltroEnderecoListar(ListarEnderecoRequest request);
+    FiltroEnderecoListarDTO listarEnderecoRequestToFiltroEnderecoListar(ListarEnderecoRequest request);
 
-    ListarEnderecoResponse enderecoListarToListarEnderecoResponse(EnderecoListar enderecoListar);
+    ListarEnderecoResponse enderecoListarToListarEnderecoResponse(EnderecoListarDTO enderecoListar);
 }
