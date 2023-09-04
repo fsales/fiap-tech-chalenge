@@ -18,18 +18,18 @@ import java.util.UUID;
 public record DadosAtualizarPessoaRequest(
 
         @Schema(name = "id",
-                example = "f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
+                example = "fed3f974-3b1e-449d-bcd6-3a8450b09fb9"
         )
         @NotNull
         UUID id,
 
         @Schema(name = "nome",
-                example = "Marcos Andre"
+                example = "Fernando"
         )
         @NotBlank
         String nome,
         @Schema(name = "sobrenome",
-                example = "Andrade"
+                example = "Teixeira de Oliveira"
         )
         @NotBlank
         String sobrenome,
@@ -45,7 +45,7 @@ public record DadosAtualizarPessoaRequest(
         LocalDate dataNascimento,
 
         @Schema(name = "cpf",
-                example = "50297831054"
+                example = "16418859049"
         )
         @CPF
         @NotBlank
@@ -61,7 +61,7 @@ public record DadosAtualizarPessoaRequest(
 
 
         @Schema(name = "siglaParentesco",
-                example = "F",
+                example = "I",
                 description = "Valores possíveis: P (Pai), M (Mãe), I (Irmão(a)), F (Filho(a)) ou O (Outros)"
         )
         @Parentesco
@@ -69,7 +69,7 @@ public record DadosAtualizarPessoaRequest(
 
         @Schema(name = "dependentes",
                 implementation = DadosAtualizarPessoaRequest.class,
-                example = Swagger.API_PESSOA_OPERATION_JSON_DEPENDENTES
+                example = Swagger.API_PESSOA_OPERATION_JSON_ATUALIZAR_DEPENDENTES
         )
 
         @Valid

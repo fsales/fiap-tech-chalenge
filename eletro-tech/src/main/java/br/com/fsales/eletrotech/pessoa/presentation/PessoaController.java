@@ -192,6 +192,9 @@ public class PessoaController {
     )
     @GetMapping("/{id}")
     public ResponseEntity<PessoaResponse> detalhar(
+            @Schema(name = "id",
+                    example = "5f45e907-a9d8-4455-8c98-54970d66f60d"
+            )
             @PathVariable UUID id
     ) {
         var pessoa = pessoaService
@@ -208,11 +211,6 @@ public class PessoaController {
      */
     @Operation(
             summary = Swagger.API_PESSOA_OPERATION_SUMMARY_EXCLUIR_PESSOA,
-            parameters = {
-                    @Parameter(
-                            schema = @Schema(implementation = UUID.class)
-                    )
-            },
             responses = {
                     @ApiResponse(
                             responseCode = "204",
@@ -233,6 +231,9 @@ public class PessoaController {
     )
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(
+            @Schema(name = "id",
+                    example = "5f45e907-a9d8-4455-8c98-54970d66f60d"
+            )
             @PathVariable UUID id
     ) {
         pessoaService

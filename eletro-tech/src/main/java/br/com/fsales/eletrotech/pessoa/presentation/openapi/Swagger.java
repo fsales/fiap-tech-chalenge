@@ -39,6 +39,38 @@ public final class Swagger {
             ]
             """;
 
+    public static final String API_PESSOA_OPERATION_JSON_ATUALIZAR_DEPENDENTES = """
+            [
+                {
+                   "id": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+                   "nome": "Maria",
+                   "sobrenome": "Silva de Castro",
+                   "dataNascimento": "22/06/2001",
+                   "cpf": "64630752056",
+                   "siglaParentesco": "F",
+                   "siglaSexo": "F"
+                 },
+                 {
+                   "id": "f490d55b-a411-4b9b-85d0-f81157dba97f",
+                   "nome": "Andre",
+                   "sobrenome": "Silva de Castro",
+                   "dataNascimento": "22/07/2015",
+                   "cpf": "66547968022",
+                   "siglaParentesco": "F",
+                   "siglaSexo": "M"
+                 },
+                 {
+                   "id": "5f45e907-a9d8-4455-8c98-54970d66f60d",
+                   "nome": "Livia",
+                   "sobrenome": "Silva de Castro",
+                   "dataNascimento": "01/01/1985",
+                   "cpf": "90663099030",
+                   "siglaParentesco": "M",
+                   "siglaSexo": "F"
+                 }
+            ]
+            """;
+
     public static final String API_PESSOA_OPERATION_JSON_PESSOA_PARENT = """
                 {
                     "nome": "Anderson",

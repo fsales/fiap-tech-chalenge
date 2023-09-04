@@ -164,8 +164,9 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 java -jar eletro-tech/target/eletro-tech-0.0.1-SNAPSHOT.jar
 ```
 
-A API poderá ser acessada em [localhost:8080/api](http://localhost:8080/api).
-O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](http://localhost:8080/api/swagger-ui/index.html)
+A API poderá ser acessada em [127.0.0.1:8080/api](http://127.0.0.1:8080/api).
+O Swagger poderá ser visualizado
+em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-ui/index.html)
 
 ## :hammer: Funcionalidades do projeto
 
@@ -179,7 +180,7 @@ O Swagger poderá ser visualizado em [localhost:8080/api/swagger-ui/index.html](
 
 1. [CURL](https://curl.se/docs/manual.html)
 
-2. [Swagger](http://localhost:8080/api/swagger-ui/index.html)
+2. [Swagger](http://127.0.0.1:8080/api/swagger-ui/index.html)
 
 3. [Postman](https://www.postman.com/)
    1. [Collections](doc/postman-collections/Fase%201%20-%20API%20Eletro%20Tech.postman_collection.json)

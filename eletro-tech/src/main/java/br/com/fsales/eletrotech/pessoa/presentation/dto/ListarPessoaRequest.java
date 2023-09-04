@@ -9,29 +9,31 @@ import java.io.Serializable;
 
 public record ListarPessoaRequest(
         @Schema(name = "nome",
-                example = "Marcos"
+                example = "Maria"
         )
         String nome,
         @Schema(name = "sobrenome",
-                example = "Andrade"
+                example = "Silva de Castro"
         )
         String sobrenome,
 
         @Schema(name = "siglaParentesco",
-                example = "P"
+                example = "F"
         )
         @Parentesco
         String siglaParentesco,
 
         @Schema(name = "siglaSexo",
                 description = "M ou F",
-                example = "M"
+                example = "F"
         )
         @Sexo
         String siglaSexo,
 
         @Schema(name = "cpf",
-                description = "Número de CPF válido"
+                description = "Número de CPF válido",
+                example = "64630752056"
+
         )
         @CPF
         String cpf
