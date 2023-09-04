@@ -27,6 +27,8 @@ server:
   port: 8080
 
 application:
+  title: '@project.name@'
+  version: '@project.version@'
   api-pessoa:
     swagger:
       name: API de gestão de pessoas
