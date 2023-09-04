@@ -175,6 +175,9 @@ public class EletrodomesticoController {
     )
     @GetMapping("/{id}")
     public ResponseEntity<EletrodomesticoResponse> detalhar(
+            @Schema(name = "id",
+                    example = "afd74beb-eeca-47b0-8cf5-1e16a7fa40a5"
+            )
             @PathVariable UUID id
     ) {
         log.debug(
@@ -191,11 +194,6 @@ public class EletrodomesticoController {
 
     @Operation(
             summary = Swagger.API_ELETRODOMESTICO_OPERATION_SUMMARY_EXCLUIR_ELETRODOMESTICO,
-            parameters = {
-                    @Parameter(
-                            schema = @Schema(implementation = UUID.class)
-                    )
-            },
             responses = {
                     @ApiResponse(
                             responseCode = "204",
@@ -216,6 +214,9 @@ public class EletrodomesticoController {
     )
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(
+            @Schema(name = "id",
+                    example = "afd74beb-eeca-47b0-8cf5-1e16a7fa40a5"
+            )
             @PathVariable UUID id
     ) {
 

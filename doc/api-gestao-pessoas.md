@@ -73,50 +73,58 @@ curl -X 'POST' \
 
 ```json
 {
-  "id": "ee607be1-25d6-4ae4-8db8-7022d7380c5e",
+  "id": "29e99dd0-18e3-4440-8175-936352bf956e",
   "nome": "Marcos Andre",
   "sobrenome": "Andrade",
   "dataNascimento": "17/02/1995",
   "cpf": "50297831054",
-  "created": "2023-07-04T16:37:17.331485300Z",
-  "updated": "2023-07-04T16:37:17.331485300Z",
+  "created": "2023-09-04T23:52:06.605131400Z",
+  "updated": "2023-09-04T23:52:06.605131400Z",
   "dependentes": [
     {
-      "id": "94f0c37c-d0d8-427e-b9e4-06c1a6f117d1",
+      "id": "b8186f57-51b1-44dc-ab10-c7b514f9bee2",
       "nome": "Andre",
       "sobrenome": "Andrade",
       "dataNascimento": "22/06/1965",
       "cpf": "84483706004",
-      "created": "2023-07-04T16:37:17.360486600Z",
-      "updated": "2023-07-04T16:37:17.360486600Z",
-      "sexo": "Masculino",
-      "parentesco": "Pai"
+      "created": "2023-09-04T23:52:06.669131Z",
+      "updated": "2023-09-04T23:52:06.669131Z",
+      "descricaoParentesco": "Pai",
+      "siglaParentesco": "P",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Masculino"
     },
     {
-      "id": "44206f4d-333f-4d50-865d-d7b6259de94d",
+      "id": "22792055-326f-4246-bab8-dce3248c12de",
       "nome": "Ana",
       "sobrenome": "Andrade",
       "dataNascimento": "01/01/1965",
       "cpf": "08062364003",
-      "created": "2023-07-04T16:37:17.360486600Z",
-      "updated": "2023-07-04T16:37:17.360486600Z",
-      "sexo": "Feminino",
-      "parentesco": "Mãe"
+      "created": "2023-09-04T23:52:06.670130400Z",
+      "updated": "2023-09-04T23:52:06.670130400Z",
+      "descricaoParentesco": "Mãe",
+      "siglaParentesco": "M",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Feminino"
     },
     {
-      "id": "fb70d8d2-012b-44a2-b91d-0f29329a9447",
+      "id": "6d3246f3-bd4a-4b93-9a95-cfb45129bfd3",
       "nome": "Clara",
       "sobrenome": "Andrade",
       "dataNascimento": "01/01/1968",
       "cpf": "56485638091",
-      "created": "2023-07-04T16:37:17.361488Z",
-      "updated": "2023-07-04T16:37:17.361488Z",
-      "sexo": "Feminino",
-      "parentesco": "Filho(a)"
+      "created": "2023-09-04T23:52:06.671131300Z",
+      "updated": "2023-09-04T23:52:06.671131300Z",
+      "descricaoParentesco": "Filho(a)",
+      "siglaParentesco": "F",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Feminino"
     }
   ],
-  "sexo": "Masculino",
-  "parentesco": "Filho(a)"
+  "descricaoParentesco": "Filho(a)",
+  "siglaParentesco": "F",
+  "tipoPessoa": "Titular",
+  "sexoDescricao": "Masculino"
 }
 ```
 
@@ -140,37 +148,40 @@ curl -X 'PUT' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "id": "f6c323ed-968f-43fc-aa3a-b25a764b4d5d",
-  "nome": "Marcos Andre",
-  "sobrenome": "Andrade",
+  "id": "29e99dd0-18e3-4440-8175-936352bf956e",
+  "nome": "Fernando",
+  "sobrenome": "Teixeira de Oliveira",
   "dataNascimento": "17/02/1995",
   "cpf": "50297831054",
   "siglaSexo": "M",
-  "siglaParentesco": "F",
+  "siglaParentesco": "I",
   "dependentes": [
     {
-      "nome": "Andre",
-      "sobrenome": "Andrade",
+      "id": "b8186f57-51b1-44dc-ab10-c7b514f9bee2",
+      "nome": "Maria",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "22/06/2001",
       "cpf": "84483706004",
-      "dataNascimento": "22/06/1965",
-      "siglaSexo": "M",
-      "siglaParentesco": "P"
+      "siglaParentesco": "F",
+      "siglaSexo": "F"
     },
     {
-      "nome": "Ana",
-      "sobrenome": "Andrade",
+      "id": "22792055-326f-4246-bab8-dce3248c12de",
+      "nome": "Andre",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "22/07/2015",
       "cpf": "08062364003",
-      "dataNascimento": "01/01/1965",
-      "siglaSexo": "F",
-      "siglaParentesco": "M"
+      "siglaParentesco": "F",
+      "siglaSexo": "M"
     },
     {
-      "nome": "Clara",
-      "sobrenome": "Andrade",
+      "id": "6d3246f3-bd4a-4b93-9a95-cfb45129bfd3",
+      "nome": "Livia",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "01/01/1985",
       "cpf": "56485638091",
-      "dataNascimento": "01/01/1968",
-      "siglaSexo": "F",
-      "siglaParentesco": "F"
+      "siglaParentesco": "M",
+      "siglaSexo": "F"
     }
   ]
 }'
@@ -180,45 +191,60 @@ curl -X 'PUT' \
 <summary>Resposta</summary>
 
 ```json
-curl -X 'PUT' \
-  'http://127.0.0.1:8080/api/pessoas' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "id": "f6c323ed-968f-43fc-aa3a-b25a764b4d5d",
-  "nome": "Marcos Andre",
-  "sobrenome": "Andrade",
+{
+  "id": "29e99dd0-18e3-4440-8175-936352bf956e",
+  "nome": "Fernando",
+  "sobrenome": "Teixeira de Oliveira",
   "dataNascimento": "17/02/1995",
   "cpf": "50297831054",
-  "siglaSexo": "M",
-  "siglaParentesco": "F",
+  "created": "2023-09-04T23:52:06.605131Z",
+  "updated": "2023-09-04T23:52:06.605131Z",
   "dependentes": [
     {
-      "nome": "Andre",
-      "sobrenome": "Andrade",
+      "id": "b8186f57-51b1-44dc-ab10-c7b514f9bee2",
+      "nome": "Maria",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "22/06/2001",
       "cpf": "84483706004",
-      "dataNascimento": "22/06/1965",
-      "siglaSexo": "M",
-      "siglaParentesco": "P"
+      "created": "2023-09-04T23:52:06.669131Z",
+      "updated": "2023-09-04T23:52:06.669131Z",
+      "descricaoParentesco": "Filho(a)",
+      "siglaParentesco": "F",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Feminino"
     },
     {
-      "nome": "Ana",
-      "sobrenome": "Andrade",
-      "cpf": "08062364003",
-      "dataNascimento": "01/01/1965",
-      "siglaSexo": "F",
-      "siglaParentesco": "M"
-    },
-    {
-      "nome": "Clara",
-      "sobrenome": "Andrade",
+      "id": "6d3246f3-bd4a-4b93-9a95-cfb45129bfd3",
+      "nome": "Livia",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "01/01/1985",
       "cpf": "56485638091",
-      "dataNascimento": "01/01/1968",
-      "siglaSexo": "F",
-      "siglaParentesco": "F"
+      "created": "2023-09-04T23:52:06.671131Z",
+      "updated": "2023-09-04T23:52:06.671131Z",
+      "descricaoParentesco": "Mãe",
+      "siglaParentesco": "M",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Feminino"
+    },
+    {
+      "id": "22792055-326f-4246-bab8-dce3248c12de",
+      "nome": "Andre",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "22/07/2015",
+      "cpf": "08062364003",
+      "created": "2023-09-04T23:52:06.670130Z",
+      "updated": "2023-09-04T23:52:06.670130Z",
+      "descricaoParentesco": "Filho(a)",
+      "siglaParentesco": "F",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Masculino"
     }
-  ]
-}'
+  ],
+  "descricaoParentesco": "Irmão(a)",
+  "siglaParentesco": "I",
+  "tipoPessoa": "Titular",
+  "sexoDescricao": "Masculino"
+}
 ```
 
 </details>
@@ -237,7 +263,7 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20p
 
 ```shell
 curl -X 'GET' \
-  'http://127.0.0.1:8080/api/pessoas?sobrenome=Andrade&page=0&size=20' \
+  'http://127.0.0.1:8080/api/pessoas?nome=Maria&sobrenome=Silva%20de%20Castro&siglaParentesco=F&siglaSexo=F&cpf=64630752056&page=0&size=20' \
   -H 'accept: application/json'
  ```
 
@@ -248,213 +274,92 @@ curl -X 'GET' \
 {
   "content": [
     {
-      "id": "44b8fc05-6ae7-4657-9b6f-caaf2afbc11e",
-      "nome": "Ana",
-      "sobrenome": "Andrade",
-      "dataNascimento": "01/01/1965",
-      "cpf": "08062364003",
+      "id": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+      "nome": "Maria",
+      "sobrenome": "Silva de Castro",
+      "dataNascimento": "22/06/2001",
+      "cpf": "64630752056",
       "parent": {
-        "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
-        "nome": "José",
-        "sobrenome": "Andrade",
-        "dataNascimento": "13/03/1995",
-        "cpf": "50297831054",
-        "created": "2023-08-24T17:21:54.670558Z",
-        "updated": "2023-08-24T17:25:56.934279Z",
+        "id": "fed3f974-3b1e-449d-bcd6-3a8450b09fb9",
+        "nome": "Luiz",
+        "sobrenome": "Silva de Castro",
+        "dataNascimento": "01/05/1975",
+        "cpf": "89004516000",
+        "created": "2023-09-04T21:56:38.362334Z",
+        "updated": "2023-09-04T21:56:38.362334Z",
         "enderecos": [
           {
-            "cep": "71200020",
-            "rua": "SIA Trecho 2",
-            "complemento": "",
-            "numero": 104,
-            "bairro": "Zona Industrial (Guará)",
-            "cidade": "Brasília",
-            "estado": "Distrito Federal"
-          },
-          {
-            "cep": "71200021",
-            "rua": "SIA Trecho 2",
-            "complemento": "até 768 - lado par",
-            "numero": 104,
-            "bairro": "Zona Industrial (Guará)",
-            "cidade": "Brasília",
-            "estado": "Distrito Federal"
+            "id": "3d02f4c7-91d5-4f46-9ecd-5da4254cf5b0",
+            "nomeEndereco": "Minha casa",
+            "cep": "01001000",
+            "rua": "Praça da Sé",
+            "complemento": "lado ímpar",
+            "numero": 1024,
+            "bairro": "Sé",
+            "cidade": "São Paulo",
+            "nomeEstado": "São Paulo",
+            "siglaEstado": "SP"
           }
         ],
-        "parentesco": "Pai",
-        "sexo": "Masculino"
+        "tipoPessoa": "Titular",
+        "sexoDescricao": "Masculino"
       },
-      "created": "2023-08-24T17:21:54.700554Z",
-      "updated": "2023-08-24T17:21:54.700554Z",
+      "created": "2023-09-04T21:56:38.363460Z",
+      "updated": "2023-09-04T21:56:38.363460Z",
       "enderecos": [
         {
-          "cep": "71200020",
-          "rua": "SIA Trecho 2",
-          "complemento": "",
-          "numero": 104,
-          "bairro": "Zona Industrial (Guará)",
-          "cidade": "Brasília",
-          "estado": "Distrito Federal"
+          "id": "d86a5f0d-3145-496c-bc9c-1eff2ad89fca",
+          "nomeEndereco": "Casa da família",
+          "cep": "01001000",
+          "rua": "Praça da Sé",
+          "complemento": "lado ímpar",
+          "numero": 1024,
+          "bairro": "Sé",
+          "cidade": "São Paulo",
+          "nomeEstado": "São Paulo",
+          "siglaEstado": "SP"
         }
       ],
-      "parentesco": "Mãe",
-      "sexo": "Feminino"
-    },
-    {
-      "id": "1e49cb08-bdc3-4125-977c-f94b5d693efe",
-      "nome": "Anderson",
-      "sobrenome": "Andrade",
-      "dataNascimento": "22/06/1965",
-      "cpf": "84483706004",
-      "parent": {
-        "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
-        "nome": "José",
-        "sobrenome": "Andrade",
-        "dataNascimento": "13/03/1995",
-        "cpf": "50297831054",
-        "created": "2023-08-24T17:21:54.670558Z",
-        "updated": "2023-08-24T17:25:56.934279Z",
-        "enderecos": [
-          {
-            "cep": "71200020",
-            "rua": "SIA Trecho 2",
-            "complemento": "",
-            "numero": 104,
-            "bairro": "Zona Industrial (Guará)",
-            "cidade": "Brasília",
-            "estado": "Distrito Federal"
-          },
-          {
-            "cep": "71200021",
-            "rua": "SIA Trecho 2",
-            "complemento": "até 768 - lado par",
-            "numero": 104,
-            "bairro": "Zona Industrial (Guará)",
-            "cidade": "Brasília",
-            "estado": "Distrito Federal"
-          }
-        ],
-        "parentesco": "Pai",
-        "sexo": "Masculino"
-      },
-      "created": "2023-08-24T17:21:54.699554Z",
-      "updated": "2023-08-24T17:21:54.699554Z",
-      "enderecos": [
-        {
-          "cep": "71200020",
-          "rua": "SIA Trecho 2",
-          "complemento": "",
-          "numero": 104,
-          "bairro": "Zona Industrial (Guará)",
-          "cidade": "Brasília",
-          "estado": "Distrito Federal"
-        }
-      ],
-      "parentesco": "Pai",
-      "sexo": "Masculino"
-    },
-    {
-      "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
-      "nome": "José",
-      "sobrenome": "Andrade",
-      "dataNascimento": "13/03/1995",
-      "cpf": "50297831054",
-      "created": "2023-08-24T17:21:54.670558Z",
-      "updated": "2023-08-24T17:25:56.934279Z",
-      "dependentes": [
-        {
-          "id": "1e49cb08-bdc3-4125-977c-f94b5d693efe",
-          "nome": "Anderson",
-          "sobrenome": "Andrade",
-          "dataNascimento": "22/06/1965",
-          "cpf": "84483706004",
-          "created": "2023-08-24T17:21:54.699554Z",
-          "updated": "2023-08-24T17:21:54.699554Z",
-          "enderecos": [
-            {
-              "cep": "71200020",
-              "rua": "SIA Trecho 2",
-              "complemento": "",
-              "numero": 104,
-              "bairro": "Zona Industrial (Guará)",
-              "cidade": "Brasília",
-              "estado": "Distrito Federal"
-            }
-          ],
-          "parentesco": "Pai",
-          "sexo": "Masculino"
-        },
-        {
-          "id": "44b8fc05-6ae7-4657-9b6f-caaf2afbc11e",
-          "nome": "Ana",
-          "sobrenome": "Andrade",
-          "dataNascimento": "01/01/1965",
-          "cpf": "08062364003",
-          "created": "2023-08-24T17:21:54.700554Z",
-          "updated": "2023-08-24T17:21:54.700554Z",
-          "enderecos": [
-            {
-              "cep": "71200020",
-              "rua": "SIA Trecho 2",
-              "complemento": "",
-              "numero": 104,
-              "bairro": "Zona Industrial (Guará)",
-              "cidade": "Brasília",
-              "estado": "Distrito Federal"
-            }
-          ],
-          "parentesco": "Mãe",
-          "sexo": "Feminino"
-        }
-      ],
-      "enderecos": [
-        {
-          "cep": "71200020",
-          "rua": "SIA Trecho 2",
-          "complemento": "",
-          "numero": 104,
-          "bairro": "Zona Industrial (Guará)",
-          "cidade": "Brasília",
-          "estado": "Distrito Federal"
-        },
-        {
-          "cep": "71200021",
-          "rua": "SIA Trecho 2",
-          "complemento": "até 768 - lado par",
-          "numero": 104,
-          "bairro": "Zona Industrial (Guará)",
-          "cidade": "Brasília",
-          "estado": "Distrito Federal"
-        }
-      ],
-      "parentesco": "Pai",
-      "sexo": "Masculino"
+      "descricaoParentesco": "Filho(a)",
+      "siglaParentesco": "F",
+      "tipoPessoa": "Dependente",
+      "sexoDescricao": "Feminino"
     }
   ],
   "pageable": {
-    "sort": {
-      "empty": false,
-      "sorted": true,
-      "unsorted": false
-    },
+    "sort": [
+      {
+        "direction": "ASC",
+        "property": "nome",
+        "ignoreCase": false,
+        "nullHandling": "NATIVE",
+        "ascending": true,
+        "descending": false
+      }
+    ],
     "offset": 0,
-    "pageSize": 20,
     "pageNumber": 0,
-    "unpaged": false,
-    "paged": true
+    "pageSize": 20,
+    "paged": true,
+    "unpaged": false
   },
-  "last": true,
   "totalPages": 1,
-  "totalElements": 3,
+  "totalElements": 1,
+  "last": true,
   "size": 20,
   "number": 0,
-  "sort": {
-    "empty": false,
-    "sorted": true,
-    "unsorted": false
-  },
+  "sort": [
+    {
+      "direction": "ASC",
+      "property": "nome",
+      "ignoreCase": false,
+      "nullHandling": "NATIVE",
+      "ascending": true,
+      "descending": false
+    }
+  ],
+  "numberOfElements": 1,
   "first": true,
-  "numberOfElements": 3,
   "empty": false
 }
   ```
@@ -475,7 +380,7 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20p
 
 ```shell
 curl -X 'GET' \
-  'http://127.0.0.1:8080/api/pessoas/44206f4d-333f-4d50-865d-d7b6259de94d' \
+  'http://127.0.0.1:8080/api/pessoas/608f3f7d-67da-4ea6-ba56-55d9a3721dd2' \
   -H 'accept: application/json'
  ```
 
@@ -484,57 +389,56 @@ curl -X 'GET' \
 
   ```json
 {
-  "id": "1e49cb08-bdc3-4125-977c-f94b5d693efe",
-  "nome": "Anderson",
-  "sobrenome": "Andrade",
-  "dataNascimento": "22/06/1965",
-  "cpf": "84483706004",
+  "id": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nome": "Maria",
+  "sobrenome": "Silva de Castro",
+  "dataNascimento": "22/06/2001",
+  "cpf": "64630752056",
   "parent": {
-    "id": "f15bfccc-3386-4c21-ac31-0d34d31db26d",
-    "nome": "José",
-    "sobrenome": "Andrade",
-    "dataNascimento": "13/03/1995",
-    "cpf": "50297831054",
-    "created": "2023-08-24T17:21:54.670558Z",
-    "updated": "2023-08-24T17:25:56.934279Z",
+    "id": "fed3f974-3b1e-449d-bcd6-3a8450b09fb9",
+    "nome": "Luiz",
+    "sobrenome": "Silva de Castro",
+    "dataNascimento": "01/05/1975",
+    "cpf": "89004516000",
+    "created": "2023-09-04T21:56:38.362334Z",
+    "updated": "2023-09-04T21:56:38.362334Z",
     "enderecos": [
       {
-        "cep": "71200020",
-        "rua": "SIA Trecho 2",
-        "complemento": "",
-        "numero": 104,
-        "bairro": "Zona Industrial (Guará)",
-        "cidade": "Brasília",
-        "estado": "Distrito Federal"
-      },
-      {
-        "cep": "71200021",
-        "rua": "SIA Trecho 2",
-        "complemento": "até 768 - lado par",
-        "numero": 104,
-        "bairro": "Zona Industrial (Guará)",
-        "cidade": "Brasília",
-        "estado": "Distrito Federal"
+        "id": "3d02f4c7-91d5-4f46-9ecd-5da4254cf5b0",
+        "nomeEndereco": "Minha casa",
+        "cep": "01001000",
+        "rua": "Praça da Sé",
+        "complemento": "lado ímpar",
+        "numero": 1024,
+        "bairro": "Sé",
+        "cidade": "São Paulo",
+        "nomeEstado": "São Paulo",
+        "siglaEstado": "SP"
       }
     ],
-    "parentesco": "Pai",
-    "sexo": "Masculino"
+    "tipoPessoa": "Titular",
+    "sexoDescricao": "Masculino"
   },
-  "created": "2023-08-24T17:21:54.699554Z",
-  "updated": "2023-08-24T17:21:54.699554Z",
+  "created": "2023-09-04T21:56:38.363460Z",
+  "updated": "2023-09-04T21:56:38.363460Z",
   "enderecos": [
     {
-      "cep": "71200020",
-      "rua": "SIA Trecho 2",
-      "complemento": "",
-      "numero": 104,
-      "bairro": "Zona Industrial (Guará)",
-      "cidade": "Brasília",
-      "estado": "Distrito Federal"
+      "id": "d86a5f0d-3145-496c-bc9c-1eff2ad89fca",
+      "nomeEndereco": "Casa da família",
+      "cep": "01001000",
+      "rua": "Praça da Sé",
+      "complemento": "lado ímpar",
+      "numero": 1024,
+      "bairro": "Sé",
+      "cidade": "São Paulo",
+      "nomeEstado": "São Paulo",
+      "siglaEstado": "SP"
     }
   ],
-  "parentesco": "Pai",
-  "sexo": "Masculino"
+  "descricaoParentesco": "Filho(a)",
+  "siglaParentesco": "F",
+  "tipoPessoa": "Dependente",
+  "sexoDescricao": "Feminino"
 }
   ```
 
@@ -554,6 +458,6 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20gest%C3%A3o%20de%20p
 
 ```shell
 curl -X 'DELETE' \
-  'http://127.0.0.1:8080/api/pessoas/6c46153b-224d-4368-bf0b-f2df7603eea7' \
+  'http://127.0.0.1:8080/api/pessoas/608f3f7d-67da-4ea6-ba56-55d9a3721dd2' \
   -H 'accept: */*'
 ```

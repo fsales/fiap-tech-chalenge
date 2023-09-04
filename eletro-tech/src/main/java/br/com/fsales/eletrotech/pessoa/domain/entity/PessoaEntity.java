@@ -67,12 +67,14 @@ public final class PessoaEntity extends BaseEntity {
     )
     private PessoaEntity parent;
 
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent"
+    )
     private Set<PessoaEntity> dependentes = new LinkedHashSet<>();
 
 
     @OneToMany(
-            mappedBy = "pessoa"
+            mappedBy = "pessoa",
+            cascade = CascadeType.REMOVE
     )
     private Set<EnderecoEntity> enderecos = new LinkedHashSet<>();
 

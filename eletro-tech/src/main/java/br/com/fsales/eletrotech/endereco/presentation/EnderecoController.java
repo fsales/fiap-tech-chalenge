@@ -180,7 +180,13 @@ public class EnderecoController {
     )
     @GetMapping("/{id}/pessoa/{idPessoa:.+}")
     public ResponseEntity<EnderecoResponse> detalhar(
+            @Schema(name = "id",
+                    example = "3d02f4c7-91d5-4f46-9ecd-5da4254cf5b0"
+            )
             @PathVariable UUID id,
+            @Schema(name = "idPessoa",
+                    example = "fed3f974-3b1e-449d-bcd6-3a8450b09fb9"
+            )
             @PathVariable UUID idPessoa
     ) {
 
@@ -196,11 +202,6 @@ public class EnderecoController {
 
     @Operation(
             summary = Swagger.API_ENDERECO_OPERATION_SUMMARY_EXCLUIR_ENDERECO,
-            parameters = {
-                    @Parameter(
-                            schema = @Schema(implementation = UUID.class)
-                    )
-            },
             responses = {
                     @ApiResponse(
                             responseCode = "204",
@@ -221,7 +222,13 @@ public class EnderecoController {
     )
     @DeleteMapping("/{id}/pessoa/{idPessoa:.+}")
     public ResponseEntity<Void> delete(
+            @Schema(name = "id",
+                    example = "3d02f4c7-91d5-4f46-9ecd-5da4254cf5b0"
+            )
             @PathVariable UUID id,
+            @Schema(name = "idPessoa",
+                    example = "fed3f974-3b1e-449d-bcd6-3a8450b09fb9"
+            )
             @PathVariable UUID idPessoa
     ) {
 

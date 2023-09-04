@@ -76,13 +76,6 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
 </details>
 
 <details>
-  <summary>H2DataBase</summary>
-
-  > [H2](https://www.h2database.com/html/main.html)
- é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor[^2].
-</details>
-
-<details>
   <summary>Postgres</summary>
 
   > [Postgres](https://www.postgresql.org)
@@ -200,10 +193,11 @@ em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-
 
 - [scripts](/eletro-tech/src/main/resources/db/migration/)
 
-> A API está configurada para utilizar os banco de dados Postgres e H2.
-
-- O H2 será utilizado quando for habilitado o profile de `test` não sendo necessário realizar nenhuma instalação.
 - O Postgres está configurado para ser executado como banco padrão ou quando for habilitado o profile de `dev`, para não ter a necessidade de fazer a instalação será disponibilizado o [docker-compose](#docker) com as configurações básicas.
+    - Dados de configuração do banco:
+        - url: jdbc:postgresql://localhost:5432/eletro-tech
+        - Usuário: postgres
+        - Senha: postgres
 
 ### Docker
 
@@ -222,7 +216,6 @@ em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-
 
 [^1]: [FlyWay](<https://www.linkedin.com/pulse/porqu%C3%AA-e-como-usar-flyway-com-spring-mateus-cunha/?originalSubdomain=pt>).
 
-[^2]: [H2](<https://camilacgs17.medium.com/como-configurar-e-utilizar-o-h2-no-springboot-e36c3cd378c8#:~:text=H2%20%C3%A9%20um%20sistema%20de,como%20Eclipse%20Public%20License%20original%20.>)
 
 [^3]: [Java 17](<https://www.java.com/pt-BR/download/help/whatis_java.html#:~:text=Java%20%C3%A9%20uma%20linguagem%20de,servi%C3%A7os%20e%20aplicativos%20s%C3%A3o%20desenvolvidos>).
 

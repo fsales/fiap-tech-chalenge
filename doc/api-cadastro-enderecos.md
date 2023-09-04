@@ -32,12 +32,12 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "idPessoa": "6bdfe9d7-b8ca-48db-b1b9-8c1e58573cf2",
-  "nomeEndereco": "Minha Casa",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
   "cep": "01001000",
   "rua": "Praça da Sé",
   "complemento": "lado ímpar",
-  "numero": 10,
+  "numero": 1024,
   "bairro": "Sé",
   "cidade": "São Paulo",
   "siglaEstado": "SP"
@@ -49,18 +49,19 @@ curl -X 'POST' \
 
 ```json
 {
-  "id": "4603b9ae-4a82-4222-8143-4e681cd626bf",
-  "nomeEndereco": "Minha Casa",
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
   "cep": "01001000",
   "rua": "Praça da Sé",
   "complemento": "lado ímpar",
-  "numero": 10,
+  "numero": 1024,
   "bairro": "Sé",
   "cidade": "São Paulo",
-  "created": "2023-08-27T18:57:25.537450500Z",
-  "updated": "2023-08-27T18:57:25.537450500Z",
+  "siglaEstado": "SP",
   "nomeEstado": "São Paulo",
-  "siglaEstado": "SP"
+  "created": "2023-09-05T00:01:33.516778400Z",
+  "updated": "2023-09-05T00:01:33.516778400Z"
 }
 ```
 
@@ -84,15 +85,16 @@ curl -X 'PUT' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "id": "4603b9ae-4a82-4222-8143-4e681cd626bf",
-  "nomeEndereco": "Minha Casa 2",
-  "cep": "01001000",
-  "rua": "Praça da Sé",
-  "complemento": "lado ímpar",
-  "numero": 11,
-  "bairro": "Sé",
-  "cidade": "São Paulo",
-  "siglaEstado": "SP"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "91040000",
+  "rua": "Rua Domingos Rubbo",
+  "complemento": "BL 16",
+  "numero": 35,
+  "bairro": "Cristo Redentor",
+  "cidade": "Porto Alegre",
+  "siglaEstado": "RS"
 }'
 ```
 
@@ -101,18 +103,19 @@ curl -X 'PUT' \
 
 ```json
 {
-  "id": "4603b9ae-4a82-4222-8143-4e681cd626bf",
-  "nomeEndereco": "Minha Casa 2",
-  "cep": "01001000",
-  "rua": "Praça da Sé",
-  "complemento": "lado ímpar",
-  "numero": 11,
-  "bairro": "Sé",
-  "cidade": "São Paulo",
-  "created": "2023-08-27T18:57:25.537451Z",
-  "updated": "2023-08-27T19:06:43.548875100Z",
-  "siglaEstado": "SP",
-  "nomeEstado": "São Paulo"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "91040000",
+  "rua": "Rua Domingos Rubbo",
+  "complemento": "BL 16",
+  "numero": 35,
+  "bairro": "Cristo Redentor",
+  "cidade": "Porto Alegre",
+  "siglaEstado": "RS",
+  "nomeEstado": "Rio Grande do Sul",
+  "created": "2023-09-05T00:01:33.516778Z",
+  "updated": "2023-09-05T00:01:33.516778Z"
 }
 ```
 
@@ -132,7 +135,7 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Ende
 
 ```shell
 curl -X 'GET' \
-  'http://127.0.0.1:8080/api/enderecos?idPessoa=6bdfe9d7-b8ca-48db-b1b9-8c1e58573cf2&rua=SIA%20Trecho%202&bairro=Zona%20Industrial&cidade=Bras%C3%ADlia&siglaEstado=df&page=0&size=20' \
+  'http://127.0.0.1:8080/api/enderecos?idPessoa=608f3f7d-67da-4ea6-ba56-55d9a3721dd2&rua=Pra%C3%A7a%20da%20S%C3%A9&bairro=S%C3%A9&cidade=S%C3%A3o%20Paulo&siglaEstado=SP&page=0&size=20' \
   -H 'accept: application/json'
  ```
 
@@ -143,24 +146,30 @@ curl -X 'GET' \
   {
   "content": [
     {
-      "id": "6d2c13ef-7028-4741-9bac-a75f5c5cfa96",
-      "nomeEndereco": "Casa do meu filho",
-      "cep": "71200021",
-      "rua": "SIA Trecho 2",
-      "complemento": "até 768 - lado par",
-      "numero": 104,
-      "bairro": "Zona Industrial (Guará)",
-      "cidade": "Brasília",
+      "id": "d86a5f0d-3145-496c-bc9c-1eff2ad89fca",
+      "nomeEndereco": "Casa da família",
+      "cep": "01001000",
+      "rua": "Praça da Sé",
+      "complemento": "lado ímpar",
+      "numero": 1024,
+      "bairro": "Sé",
+      "cidade": "São Paulo",
+      "nomeEstado": "São Paulo",
+      "siglaEstado": "SP",
       "pessoa": {
-        "idPessoa": "6bdfe9d7-b8ca-48db-b1b9-8c1e58573cf2",
-        "nome": "Marcos",
-        "sobrenome": "Andrade",
-        "parent": {}
+        "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+        "nome": "Maria",
+        "sobrenome": "Silva de Castro",
+        "parent": {
+          "idPessoa": "fed3f974-3b1e-449d-bcd6-3a8450b09fb9",
+          "nome": "Luiz",
+          "sobrenome": "Silva de Castro"
+        },
+        "parentesco": "F",
+        "tipoPessoa": "Dependente"
       },
-      "created": "2023-08-27T18:50:01.493630Z",
-      "updated": "2023-08-27T18:50:01.493630Z",
-      "siglaEstado": "DF",
-      "nomeEstado": "Distrito Federal"
+      "created": "2023-09-04T22:41:08.932746Z",
+      "updated": "2023-09-04T22:41:08.932746Z"
     }
   ],
   "pageable": {
@@ -171,14 +180,14 @@ curl -X 'GET' \
     "paged": true,
     "unpaged": false
   },
-  "last": true,
   "totalPages": 1,
   "totalElements": 1,
+  "last": true,
   "size": 20,
   "number": 0,
   "sort": [],
-  "first": true,
   "numberOfElements": 1,
+  "first": true,
   "empty": false
 }
   ```
@@ -199,7 +208,7 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Ende
 
 ```shell
 curl -X 'GET' \
-  'http://127.0.0.1:8080/api/enderecos/4bc6b235-84ae-40fe-8930-0ee0530fc170' \
+  'http://127.0.0.1:8080/api/enderecos/2cf2e158-6c1f-4168-a405-f5337828914b/pessoa/608f3f7d-67da-4ea6-ba56-55d9a3721dd2' \
   -H 'accept: application/json'
  ```
 
@@ -208,18 +217,19 @@ curl -X 'GET' \
 
   ```json
 {
-  "id": "4bc6b235-84ae-40fe-8930-0ee0530fc170",
-  "nomeEndereco": "Minha Casa 2",
-  "cep": "01001000",
-  "rua": "Praça da Sé",
-  "complemento": "lado ímpar",
-  "numero": 11,
-  "bairro": "Sé",
-  "cidade": "São Paulo",
-  "created": "2023-08-27T18:57:25.537451Z",
-  "updated": "2023-08-27T19:06:43.548875Z",
-  "siglaEstado": "SP",
-  "nomeEstado": "São Paulo"
+  "id": "2cf2e158-6c1f-4168-a405-f5337828914b",
+  "idPessoa": "608f3f7d-67da-4ea6-ba56-55d9a3721dd2",
+  "nomeEndereco": "Minha casa",
+  "cep": "91040000",
+  "rua": "Rua Domingos Rubbo",
+  "complemento": "BL 16",
+  "numero": 35,
+  "bairro": "Cristo Redentor",
+  "cidade": "Porto Alegre",
+  "siglaEstado": "RS",
+  "nomeEstado": "Rio Grande do Sul",
+  "created": "2023-09-05T00:01:33.516778Z",
+  "updated": "2023-09-05T00:02:16.401542Z"
 }
   ```
 
@@ -239,6 +249,6 @@ http://127.0.0.1:8080/api/swagger-ui/index.html#/API%20de%20Cadastro%20de%20Ende
 
 ```shell
 curl -X 'DELETE' \
-  'http://127.0.0.1:8080/api/enderecos/bed06b7c-9767-4418-8096-6942dfa2646a' \
+  'http://127.0.0.1:8080/api/enderecos/2cf2e158-6c1f-4168-a405-f5337828914b/pessoa/608f3f7d-67da-4ea6-ba56-55d9a3721dd2' \
   -H 'accept: */*'
 ```

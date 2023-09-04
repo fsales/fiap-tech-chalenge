@@ -4,19 +4,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public record ListarEletrodomesticoRequest(
         @Schema(name = "nome",
-                example = "Microondas"
+                example = "Chuveiro Elétrico"
         )
         String nome,
         @Schema(name = "modelo",
-                example = "MRAS2"
+                example = "MT30S"
         )
         String modelo,
         @Schema(name = "fabricante",
-                example = "Electrolux"
+                example = "LORENZETTI"
         )
         String fabricante,
         @Schema(name = "potencia",
-                example = "700"
+                example = "7800"
         )
         Integer potencia
 ) {

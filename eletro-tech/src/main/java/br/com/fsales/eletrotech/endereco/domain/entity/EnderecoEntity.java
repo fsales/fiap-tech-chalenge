@@ -74,7 +74,8 @@ public class EnderecoEntity extends BaseEntity {
     private PessoaEntity pessoa;
 
     @OneToMany(
-            mappedBy = "endereco"
+            mappedBy = "endereco",
+            cascade = CascadeType.REMOVE
     )
     private Set<EletrodomesticoEntity> eletrodomesticos = new LinkedHashSet<>();
 

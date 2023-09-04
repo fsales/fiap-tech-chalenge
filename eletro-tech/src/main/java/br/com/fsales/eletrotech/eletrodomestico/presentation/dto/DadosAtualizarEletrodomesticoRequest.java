@@ -8,15 +8,18 @@ import java.util.UUID;
 
 public record DadosAtualizarEletrodomesticoRequest(
         @Schema(name = "id",
-                example = "71a0c60b-2da6-47c2-8402-51ef163f96bf"
+                example = "7d0607d3-f2a3-4d53-b0e4-a8fc963be117"
         )
 
         @NotNull
         UUID id,
+        @Schema(name = "idPessoa",
+                example = "608f3f7d-67da-4ea6-ba56-55d9a3721dd2"
+        )
         @NotNull
         UUID idPessoa,
         @Schema(name = "idEndereco",
-                example = "4bc6b235-84ae-40fe-8930-0ee0530fc170"
+                example = "d86a5f0d-3145-496c-bc9c-1eff2ad89fca"
         )
         @NotNull
         UUID idEndereco,
@@ -51,7 +54,7 @@ public record DadosAtualizarEletrodomesticoRequest(
         Integer voltagem,
 
         @Schema(name = "tempoUsoDiario",
-                example = "8"
+                example = "2"
         )
         @NotNull
         Integer tempoUsoDiario

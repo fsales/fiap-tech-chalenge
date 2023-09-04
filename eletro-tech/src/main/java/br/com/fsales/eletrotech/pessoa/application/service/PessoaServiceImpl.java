@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PessoaServiceImpl implements PessoaService, IValidarPessaoIntegracao {
 
-    public static final String PESSOA_NAO_ENCONTRADA = "PessoaEntity não encontrada.";
+    public static final String PESSOA_NAO_ENCONTRADA = "Pessoa não encontrada.";
 
     private final IPessoaRepository repository;
 
@@ -99,7 +99,7 @@ public class PessoaServiceImpl implements PessoaService, IValidarPessaoIntegraca
         var pessoa = repository
                 .findById(id)
                 .orElseThrow(
-                        () -> new NotFoundException("PessoaEntity não encontrada.")
+                        () -> new NotFoundException("Pessoa não encontrada.")
                 );
 
         return pessoaCustomerMapper.pessoaCadastroToPessoaEntity(

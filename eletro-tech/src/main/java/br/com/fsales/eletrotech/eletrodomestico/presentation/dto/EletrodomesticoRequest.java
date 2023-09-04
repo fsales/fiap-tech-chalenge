@@ -8,29 +8,29 @@ import java.util.UUID;
 
 public record EletrodomesticoRequest(
         @Schema(name = "idPessoa",
-                example = "6aaefc80-b9dc-4512-bbed-6dbebe396636"
+                example = "c9dbd0c4-bb7b-4903-8f84-841d5a8644df"
         )
         @NotNull
         UUID idPessoa,
         @Schema(name = "idEndereco",
-                example = "4bc6b235-84ae-40fe-8930-0ee0530fc170"
+                example = "3d02f4c7-91d5-4f46-9ecd-5da4254cf5b0"
         )
         @NotNull
         UUID idEndereco,
         @Schema(name = "nome",
-                example = "Microondas"
+                example = "Micro-ondas 20L"
         )
         @NotEmpty
         String nome,
 
         @Schema(name = "modelo",
-                example = "MRAS2"
+                example = "MT30S"
         )
         @NotEmpty
         String modelo,
 
         @Schema(name = "potencia",
-                example = "700"
+                example = "1150"
         )
         @NotNull
         Integer potencia,
@@ -48,7 +48,7 @@ public record EletrodomesticoRequest(
         Integer voltagem,
 
         @Schema(name = "tempoUsoDiario",
-                example = "4"
+                example = "1"
         )
         @NotNull
         Integer tempoUsoDiario
