@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.eletrodomestico</OriginalElement>
+  <nodes>
+    <node x="538.9155827919587" y="-136.5">0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.endereco</node>
+    <node x="-221.08441720804126" y="-124.5">0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.eletrodomestico</node>
+    <node x="166.41558279195874" y="-429.0">0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.pessoa</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.eletrodomestico" target="0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.endereco" relationship="REFERENCES">
+      <point x="134.0" y="0.0" />
+      <point x="-134.0" y="0.0" />
+    </edge>
+    <edge source="0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.pessoa" target="0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.pessoa" relationship="REFERENCES">
+      <point x="-0.0" y="-140.0" />
+      <point x="300.41558279195874" y="-446.5" />
+      <point x="39.41558279195874" y="-446.5" />
+      <point x="39.41558279195874" y="-289.0" />
+      <point x="-134.0" y="-0.0" />
+    </edge>
+    <edge source="0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.endereco" target="0fc3d5fd-bcdb-49a4-9289-ddf0c4544990.TABLE:eletro-tech.public.pessoa" relationship="REFERENCES">
+      <point x="-0.0" y="-164.0" />
+      <point x="672.9155827919587" y="-289.0" />
+      <point x="134.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="292.5" y="-92.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
