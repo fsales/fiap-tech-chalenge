@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Marcos\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"50297831054\",\r\n    \"siglaSexo\": \"M\",\r\n    \"siglaParentesco\": \"F\",\r\n    \"dependentes\": [\r\n        {\r\n            \"nome\": \"Anderson\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"84483706004\",\r\n            \"dataNascimento\": \"22/06/1965\",\r\n            \"siglaSexo\": \"M\",\r\n            \"siglaParentesco\": \"P\"\r\n        },\r\n                {\r\n            \"nome\": \"Ana\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"08062364003\",\r\n            \"dataNascimento\": \"01/01/1965\",\r\n            \"siglaSexo\": \"F\",\r\n            \"siglaParentesco\": \"M\"\r\n        }\r\n    ]\r\n}",
+                          "raw": "{\r\n    \"nome\": \"Gustavo\",\r\n    \"sobrenome\": \"Lima\",\r\n    \"dataNascimento\": \"01/05/1965\",\r\n    \"cpf\": \"27382700003\",\r\n    \"siglaSexo\": \"M\",\r\n    \"dependentes\": [\r\n        {\r\n            \"nome\": \"Carla\",\r\n            \"sobrenome\": \"Neiva de Lima\",\r\n            \"cpf\": \"98395158025\",\r\n            \"dataNascimento\": \"22/06/2001\",\r\n            \"siglaSexo\": \"F\",\r\n            \"siglaParentesco\": \"F\"\r\n        },\t\t\r\n\t\t{\r\n            \"nome\": \"Igor\",\r\n            \"sobrenome\": \"Ribeiro de Lima\",\r\n            \"cpf\": \"71347207058\",\r\n            \"dataNascimento\": \"22/06/2011\",\r\n            \"siglaSexo\": \"M\",\r\n            \"siglaParentesco\": \"F\"\r\n        },\r\n                {\r\n            \"nome\": \"Ana\",\r\n            \"sobrenome\": \"Neiva de Lima\",\r\n            \"cpf\": \"73969267005\",\r\n            \"dataNascimento\": \"01/01/1965\",\r\n            \"siglaSexo\": \"F\",\r\n            \"siglaParentesco\": \"M\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -41,13 +41,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/pessoas/259fe2cf-bbd7-410a-9648-485ace1937de",
+                          "raw": "{{url}}/pessoas/236f13c4-7135-49a0-9634-e1f379c52f60",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"pessoas",
-								"259fe2cf-bbd7-410a-9648-485ace1937de"
+                              "236f13c4-7135-49a0-9634-e1f379c52f60"
 							]
 						}
 					},
@@ -59,13 +59,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/pessoas/f6c323ed-968f-43fc-aa3a-b25a764b4d5d",
+                          "raw": "{{url}}/pessoas/6fb82251-f7ae-4f0f-86cf-a334464f66d7",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"pessoas",
-								"f6c323ed-968f-43fc-aa3a-b25a764b4d5d"
+                              "6fb82251-f7ae-4f0f-86cf-a334464f66d7"
 							]
 						}
 					},
@@ -99,13 +99,23 @@
 							"query": [
 								{
 									"key": "nome",
-									"value": "Andre",
+                                  "value": "Marcos",
 									"disabled": true
 								},
 								{
 									"key": "sobrenome",
 									"value": "Andrade",
 									"disabled": true
+                                },
+                              {
+                                "key": "siglaSexo",
+                                "value": "M",
+                                "disabled": true
+                              },
+                              {
+                                "key": "siglaParentesco",
+                                "value": "P",
+                                "disabled": true
 								}
 							]
 						}
@@ -119,7 +129,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"0e60007a-7fb3-4e47-8edb-1a06c3cc29ae\" ,\r\n    \"nome\": \"José\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"50297831054\",\r\n    \"siglaSexo\": \"M\",\r\n    \"siglaParentesco\": \"P\"\r\n}",
+                          "raw": "{\r\n    \"id\": \"a18768cc-be25-4037-88db-65636bc61483\" ,\r\n    \"nome\": \"Fábio\",\r\n    \"sobrenome\": \"Sales\",\r\n    \"dataNascimento\": \"13/03/1965\",\r\n    \"cpf\": \"08062725364003\",\r\n    \"siglaSexo\": \"M\",\r\n    \"siglaParentesco\": \"P\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -145,7 +155,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"3e498a3e-7568-4d21-a6b9-00bfd95f537d\",\r\n    \"nome\": \"José\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"50297831054\",\r\n    \"siglaSexo\": \"M\",\r\n    \"parentesco\": \"FILHO\",\r\n    \"dependentes\": [\r\n        {\r\n            \"id\": \"1dcd0a51-984b-49a0-8d29-332c5a428d32\",\r\n            \"nome\": \"Anderson Torres\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"84483706004\",\r\n            \"dataNascimento\": \"22/06/1965\",\r\n            \"siglaSexo\": \"M\",\r\n            \"parentesco\": \"PAI\"\r\n        },\r\n        {\r\n            \"id\": \"01a56b89-4fb6-4997-9ad7-767b74349541\",\r\n            \"nome\": \"Ana Silva\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"08062364003\",\r\n            \"dataNascimento\": \"01/01/1965\",\r\n            \"siglaSexo\": \"F\",\r\n            \"parentesco\": \"MAE\"\r\n        }\r\n    ]\r\n}",
+                          "raw": "{\r\n    \"id\": \"22459efd-a3e5-4174-b6c9-8d1f111cd375\",\r\n    \"nome\": \"José\",\r\n    \"sobrenome\": \"Andrade\",\r\n    \"dataNascimento\": \"13/03/1995\",\r\n    \"cpf\": \"85148748028\",\r\n    \"siglaSexo\": \"M\",\r\n    \"dependentes\": [\r\n        {\r\n            \"id\": \"677ad5a2-fadf-4644-af03-6562cd70963c\",\r\n            \"nome\": \"Anderson Torres\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"84483706004\",\r\n            \"dataNascimento\": \"22/06/1965\",\r\n            \"siglaSexo\": \"M\",\r\n            \"siglaParentesco\": \"P\"\r\n        },\r\n        {\r\n            \"id\": \"964059d5-1bc5-4051-bcab-169b786bc5a3\",\r\n            \"nome\": \"Ana Silva\",\r\n            \"sobrenome\": \"Andrade\",\r\n            \"cpf\": \"08062364003\",\r\n            \"dataNascimento\": \"01/01/1965\",\r\n            \"siglaSexo\": \"F\",\r\n            \"siglaParentesco\": \"M\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -176,7 +186,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"rua\": \"Nova Conquista\",\r\n  \"complemento\": \"Bloco 5\",\r\n  \"numero\": 104,\r\n  \"bairro\": \"Conquista\",\r\n  \"cidade\": \"Salvador\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
+                          "raw": "{\r\n  \"idPessoa\": \"1f9e47a0-25f8-4609-af42-9ab5152da05d\",\r\n  \"nomeEndereco\": \"Casa da Família\",\r\n  \"cep\": \"71200021\",\r\n  \"rua\": \"SIA Trecho 2\",\r\n  \"complemento\": \"até 768 - lado par\",\r\n  \"numero\": 104,\r\n  \"bairro\": \"Zona Industrial (Guará)\",\r\n  \"cidade\": \"Brasília\",\r\n  \"siglaEstado\": \"DF\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,7 +212,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\":\"be828749-7a3c-41a1-b7e7-ba7daa4e0da0\",\r\n  \"rua\": \"Nova Conquista II\",\r\n  \"complemento\": \"Bloco 15\",\r\n  \"numero\": 10,\r\n  \"bairro\": \"Nova Morada\",\r\n  \"cidade\": \"Correntina\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
+                          "raw": "{\r\n  \"id\": \"b80bdf9c-cff9-450f-ba0b-c1d6d1bae8ee\",\r\n  \"idPessoa\": \"d7b15bbf-7d55-4a21-a51a-e4c85af3685f\",\r\n  \"nomeEndereco\": \"Minha Casa 2\",\r\n  \"cep\": \"01001000\",\r\n  \"rua\": \"Praça da Sé\",\r\n  \"complemento\": \"lado ímpar\",\r\n  \"numero\": 11,\r\n  \"bairro\": \"Sé\",\r\n  \"cidade\": \"São Paulo\",\r\n  \"siglaEstado\": \"SP\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -223,29 +233,19 @@
 				},
 				{
 					"name": "Detalhar",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"rua\": \"Nova Conquista\",\r\n  \"complemento\": \"Bloco 5\",\r\n  \"numero\": 104,\r\n  \"bairro\": \"Conquista\",\r\n  \"cidade\": \"Salvador\",\r\n  \"siglaEstado\": \"BA\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{url}}/enderecos/5aca6578-f7c8-4ccd-a090-3166e8a2aa71",
+                          "raw": "{{url}}/enderecos/f15d472b-b371-4764-a6ea-1d0089658596/pessoa/d7b15bbf-7d55-4a21-a51a-e4c85af3685f",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"enderecos",
-								"5aca6578-f7c8-4ccd-a090-3166e8a2aa71"
+                              "f15d472b-b371-4764-a6ea-1d0089658596",
+                              "pessoa",
+                              "d7b15bbf-7d55-4a21-a51a-e4c85af3685f"
 							]
 						}
 					},
@@ -275,6 +275,33 @@
 							],
 							"path": [
 								"enderecos"
+                            ],
+                          "query": [
+                            {
+                              "key": "bairro",
+                              "value": "Zona Industrial",
+                              "disabled": true
+                            },
+                            {
+                              "key": "idPessoa",
+                              "value": "677ad5a2-fadf-4644-af03-6562cd70963c",
+                              "disabled": true
+                            },
+                            {
+                              "key": "cidade",
+                              "value": "São Paulo",
+                              "disabled": true
+                            },
+                            {
+                              "key": "rua",
+                              "value": "SIA Trecho 2",
+                              "disabled": true
+                            },
+                            {
+                              "key": "siglaEstado",
+                              "value": "DF",
+                              "disabled": true
+                            }
 							]
 						}
 					},
@@ -286,13 +313,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/enderecos/eac7da76-7895-4814-b692-dea30397efc8",
+                          "raw": "{{url}}/enderecos/f15d472b-b371-4764-a6ea-1d0089658596/pessoa/d7b15bbf-7d55-4a21-a51a-e4c85af3685f",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"enderecos",
-								"eac7da76-7895-4814-b692-dea30397efc8"
+                              "f15d472b-b371-4764-a6ea-1d0089658596",
+                              "pessoa",
+                              "d7b15bbf-7d55-4a21-a51a-e4c85af3685f"
 							]
 						}
 					},
@@ -310,7 +339,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Microondas\",\r\n  \"modelo\": \"MRAS2\",\r\n  \"potencia\": 700,\r\n  \"fabricante\": \"Electrolux\",\r\n  \"voltagem\": 220,\r\n  \"tempoUsoDiario\": 4\r\n}",
+                          "raw": "{\r\n  \"idEndereco\": \"d542f439-d90a-454a-b9c1-5b9ad0fc784f\",\r\n  \"idPessoa\": \"1f9e47a0-25f8-4609-af42-9ab5152da05d\",\r\n  \"nome\": \"Microondas\",\r\n  \"modelo\": \"MRAS2\",\r\n  \"potencia\": 700,\r\n  \"fabricante\": \"Electrolux\",\r\n  \"voltagem\": 220,\r\n  \"tempoUsoDiario\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -352,13 +381,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/eletrodomesticos/6c0dae8f-1f32-4d65-a318-3613d4977cff",
+                          "raw": "{{url}}/eletrodomesticos/280713ff-e84d-4bc3-b393-8467bcf7aa42",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"eletrodomesticos",
-								"6c0dae8f-1f32-4d65-a318-3613d4977cff"
+                              "280713ff-e84d-4bc3-b393-8467bcf7aa42"
 							]
 						}
 					},
@@ -370,13 +399,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/eletrodomesticos/26748deb-63e7-4c27-8974-6065386e531b",
+                          "raw": "{{url}}/eletrodomesticos/280713ff-e84d-4bc3-b393-8467bcf7aa42",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"eletrodomesticos",
-								"26748deb-63e7-4c27-8974-6065386e531b"
+                              "280713ff-e84d-4bc3-b393-8467bcf7aa42"
 							]
 						}
 					},
@@ -389,7 +418,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"6c0dae8f-1f32-4d65-a318-3613d4977cff\",\r\n    \"nome\": \"Microondas Grande\",\r\n    \"modelo\": \"MRAS22\",\r\n    \"potencia\": 1700,\r\n    \"fabricante\": \"Electrolux2\",\r\n    \"voltagem\": 110,\r\n    \"tempoUsoDiario\": 8\r\n}",
+                          "raw": "{\r\n    \"id\": \"78a3de65-c461-4da0-befa-73f93b97ec33\",\r\n    \"idPessoa\": \"77a3f9bc-df11-4540-958b-d8a50fb9e399\",\r\n    \"idEndereco\": \"bf5ec8a3-3899-41e5-9fe4-f4ffca6f5e9d\",\r\n    \"nome\": \"Microondas Grande s\",\r\n    \"modelo\": \"MRAS22\",\r\n    \"potencia\": 1700,\r\n    \"fabricante\": \"Electrolux2\",\r\n    \"voltagem\": 110,\r\n    \"tempoUsoDiario\": 8\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -410,5 +439,11 @@
 				}
 			]
 		}
+    ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "http://127.0.0.1:8080/api"
+    }
 	]
 }

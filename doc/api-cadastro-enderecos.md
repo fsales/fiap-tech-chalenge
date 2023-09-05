@@ -2,6 +2,11 @@
 
 A API de gestão de endereços tem como objetivo permitir o gerenciamento de informações sobre os endereços cadastrados em nosso sistema.
 
+> Ao realizar o cadastro ou atualização a API de endereço irá verificar se o CEP e válido junto a API
+> do [ViaCEP](https://viacep.com.br/).
+> Campos utilizado na validação:
+> CEP, Cidade e Estado.
+
 - [API de Cadastro de Endereços](#api-de-cadastro-de-endereços)
   - [Criar Endereço](#criar-endereço)
     - [\[POST\] /api/enderecos](#post-apienderecos)
