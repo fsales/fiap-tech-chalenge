@@ -192,12 +192,14 @@ em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-
 > A base de dados e versionada utilizando a biblioteca Flyway.
 
 - [scripts](/eletro-tech/src/main/resources/db/migration/)
+- O script de migração `V6__popular-tabelas-com-dados-de-test.sql` e utilizado para popular o banco com alguns dados de
+  teste.
 
 - O Postgres está configurado para ser executado como banco padrão ou quando for habilitado o profile de `dev`, para não ter a necessidade de fazer a instalação será disponibilizado o [docker-compose](#docker) com as configurações básicas.
-    - Dados de configuração do banco:
-        - url: jdbc:postgresql://localhost:5432/eletro-tech
-        - Usuário: postgres
-        - Senha: postgres
+  - Dados de configuração do banco:
+    - url: jdbc:postgresql://localhost:5432/eletro-tech
+    - Usuário: postgres
+    - Senha: postgres
 
 ### Docker
 
@@ -215,7 +217,6 @@ em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-
 ## Referência
 
 [^1]: [FlyWay](<https://www.linkedin.com/pulse/porqu%C3%AA-e-como-usar-flyway-com-spring-mateus-cunha/?originalSubdomain=pt>).
-
 
 [^3]: [Java 17](<https://www.java.com/pt-BR/download/help/whatis_java.html#:~:text=Java%20%C3%A9%20uma%20linguagem%20de,servi%C3%A7os%20e%20aplicativos%20s%C3%A3o%20desenvolvidos>).
 
