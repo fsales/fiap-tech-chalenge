@@ -218,9 +218,9 @@ em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-
 > A aplicação está configurada para utilizar o
 > plugin [spring-boot-docker-compose](https://spring.io/blog/2023/06/21/docker-compose-support-in-spring-boot-3-1), que
 > detecta o arquivo [docker-compose.yaml](/eletro-tech/src/main/resources/docker-compose.yaml)
-> disponível `/eletro-tech/src/main/resources/docker-compose.yaml` e executa automaticamente o container do Postgres.
+> disponível `/eletro-tech/src/main/resources/docker-compose.yaml` executa automaticamente o container do Postgres.
 
-> O  [docker-compose](/docker/docker-compose.yaml) disponível em `/docker/docker-compose.yaml` esta utilizando a imagem
+> O  [docker-compose](/docker/docker-compose.yaml) disponível em `/docker/docker-compose.yaml` utiliza a imagem
 > que foi disponibilizada no [Docker Hub](https://hub.docker.com/r/fosales/eletrotech).
 
 ## Desafio encontrado durante o desenvolvimento
