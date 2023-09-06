@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  db-postgres:
+    container_name: postgres
+    restart: always
+    user: postgres
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=eletro-tech
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5432:5432
+    networks:
+      - spring-docker-compose-dev
+
+volumes:
+  postgres_dev:
+
+networks:
+  spring-docker-compose-dev:
+    driver: bridge

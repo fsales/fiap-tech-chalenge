@@ -12,8 +12,8 @@ services:
       - POSTGRES_DB=eletro-tech
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    #volumes:
-    #  - /data:/var/lib/postgresql/data
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready" ]
       interval: 10s
@@ -31,20 +31,25 @@ services:
           memory: 128M
     networks:
       - eletro-tech-rede
+  app-eletro-tech:
+    container_name: eletro-tech
+    restart: always
+    image: fosales/eletrotech:0.0.2
+    environment:
+      - ELETRO_TECH_SPRING_DOCKER_COMPOSE_ENABLE=false
+      - ELETRO_TECH_SPRING_DATASOURCE_URL=jdbc:postgresql://db-postgres:5432/eletro-tech
+      - ELETRO_TECH_SPRING_DATASOURCE_USERNAME=postgres
+      - ELETRO_TECH_SPRING_DATASOURCE_PASSWORD=postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - db-postgres
+    networks:
+      - eletro-tech-rede
 
-#  adminer:
-#    image: adminer
-#    restart: always
-#    environment:
-#      - ADMINER_DEFAULT_SERVER=db-postgres
-#    ports:
-#      - 8080:8080
-#    depends_on:
-#      db-postgres:
-#        condition: service_started
-#    networks:
-#      - eletro-tech-rede
 
+volumes:
+  postgres_data:
 networks:
   eletro-tech-rede:
     driver: bridge

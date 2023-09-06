@@ -3,6 +3,11 @@ spring:
     name: @project.name@
     description: @project.version@
     version: @project.description@
+
+  docker:
+    compose:
+      enabled: ${ELETRO_TECH_SPRING_DOCKER_COMPOSE_ENABLE:true}
+      file: docker-compose.yaml
   mvc:
     servlet:
       path: /api

@@ -4,9 +4,9 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/eletro-tech
-    username: postgres
-    password: postgres
+    url: ${ELETRO_TECH_SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/eletro-tech}
+    username: ${ELETRO_TECH_SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${ELETRO_TECH_SPRING_DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
   flyway:
     validate-on-migrate: false

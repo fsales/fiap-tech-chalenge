@@ -24,12 +24,13 @@
   - [Integração com Serviços](#integração-com-serviços)
   - [Pré-requisitos](#pré-requisitos)
   - [Como Executar](#como-executar)
+  - [Executar a imagem do registry](#executar-a-imagem-do-registry)
     - [Localmente](#localmente)
   - [:hammer: Funcionalidades do projeto](#hammer-funcionalidades-do-projeto)
     - [Endpoints](#endpoints)
       - [API](#api)
     - [Base de dados](#base-de-dados)
-    - [Docker](#docker)
+    - [Container Runtimes](#container-runtimes)
   - [Desafio encontrado durante o desenvolvimento](#desafio-encontrado-durante-o-desenvolvimento)
   - [Referência](#referência)
 
@@ -137,9 +138,17 @@ Pós-Graduação em Arquitetura e Desenvolvimento Java
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+[Git](https://git-scm.com), [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+e [Docker](https://www.docker.com/).
 
 ## Como Executar
+
+## Executar a imagem do registry
+
+- Baixar o
+  arquivo [docker-compose.yaml](https://github.com/fsales/fiap-tech-chalenge/blob/main/docker/docker-compose.yaml)
+
+- Após baixar o arquivo executar utilizando o [Docker](https://docs.docker.com/get-started/).
 
 ### Localmente
 
@@ -157,8 +166,11 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 java -jar eletro-tech/target/eletro-tech-0.0.1-SNAPSHOT.jar
 ```
 
-A API poderá ser acessada em [127.0.0.1:8080/api](http://127.0.0.1:8080/api).
-O Swagger poderá ser visualizado
+- Ao iniciar a aplicação será executado automaticamente o container do Postgres.
+
+- A API poderá ser acessada em [127.0.0.1:8080/api](http://127.0.0.1:8080/api).
+
+- O Swagger poderá ser visualizado
 em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-ui/index.html)
 
 ## :hammer: Funcionalidades do projeto
@@ -201,11 +213,15 @@ em [127.0.0.1:8080/api/swagger-ui/index.html](http://127.0.0.1:8080/api/swagger-
     - Usuário: postgres
     - Senha: postgres
 
-### Docker
+### Container Runtimes
 
-> docker-compose com as configurações básicas do Postgres.
+> A aplicação está configurada para utilizar o
+> plugin [spring-boot-docker-compose](https://spring.io/blog/2023/06/21/docker-compose-support-in-spring-boot-3-1), que
+> detecta o arquivo [docker-compose.yaml](/eletro-tech/src/main/resources/docker-compose.yaml)
+> disponível `/eletro-tech/src/main/resources/docker-compose.yaml` e executa automaticamente o container do Postgres.
 
-- [docker-compose](/docker/docker-compose.yaml)
+> O  [docker-compose](/docker/docker-compose.yaml) disponível em `/docker/docker-compose.yaml` esta utilizando a imagem
+> que foi disponibilizada no [Docker Hub](https://hub.docker.com/r/fosales/eletrotech).
 
 ## Desafio encontrado durante o desenvolvimento
 
